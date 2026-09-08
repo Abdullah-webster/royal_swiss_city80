@@ -1,103 +1,150 @@
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 
 export function ShowcaseCarousel({ cards }: { cards: any[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
 
+  // Listen for navigation events from parent
   useEffect(() => {
-    // Detect mobile
-    const checkMobile = () => setIsMobile(window.innerWidth <= 760);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const container = containerRef.current;
+    const handlePrev = () => {
+      setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
+    };
     
-    if (isMobile) {
-      // Mobile: calculate based on 70vw width
-      const cardWidth = window.innerWidth * 0.7;
-      const gap = 14;
-      const cardTotalWidth = cardWidth + gap;
+    const handleNext = () => {
+      setCurrentIndex((prev) => (prev + 1) % cards.length);
+    };
 
-      // Rotate to next card every 4 seconds
-      const interval = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % cards.length);
-      }, 4000);
+    document.addEventListener("carousel-prev", handlePrev);
+    document.addEventListener("carousel-next", handleNext);
 
-      // Animate to the current card position
-      gsap.to(container, {
-        x: -(currentIndex * cardTotalWidth),
-        duration: 0.8,
-        ease: "power2.inOut",
-      });
+    return () => {
+      document.removeEventListener("carousel-prev", handlePrev);
+      document.removeEventListener("carousel-next", handleNext);
+    };
+  }, [cards.length]);
 
-      return () => clearInterval(interval);
-    } else {
-      // Desktop: fixed 1000px cards (landscape, much bigger)
-      const cardWidth = 1000;
-      const gap = 25;
-      const cardTotalWidth = cardWidth + gap;
+  if (!cards || cards.length === 0) return null;
 
-      // Rotate to next card every 4 seconds
-      const interval = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % cards.length);
-      }, 4000);
+  const getPrevIndex = (i: number) => (i - 1 + cards.length) % cards.length;
+  const getNextIndex = (i: number) => (i + 1) % cards.length;
 
-      // Animate to the current card position
-      gsap.to(container, {
-        x: -(currentIndex * cardTotalWidth),
-        duration: 0.8,
-        ease: "power2.inOut",
-      });
-
-      return () => clearInterval(interval);
-    }
-  }, [currentIndex, cards.length, isMobile]);
-
-  const containerMaxWidth = isMobile ? "70vw" : "1000px";
+  const prevCard = cards[getPrevIndex(currentIndex)];
+  const currentCard = cards[currentIndex];
+  const nextCard = cards[getNextIndex(currentIndex)];
 
   return (
     <div
       style={{
-        overflow: "hidden",
         width: "100%",
-        maxWidth: containerMaxWidth,
         position: "relative",
-        margin: "0 auto",
       }}
     >
+      {/* Carousel Container with peek effect */}
       <div
-        ref={containerRef}
-        className="showcase-rail"
         style={{
-          display: "flex",
-          gap: isMobile ? "14px" : "25px",
-          willChange: "transform",
-          width: "fit-content",
+          width: "100%",
+          overflow: "hidden",
+          position: "relative",
         }}
       >
-        {cards.map((card, i) => (
-          <article 
-            className="showcase-card" 
-            key={`${card.title}-${i}`}
+        <div
+          style={{
+            display: "flex",
+            gap: "12px",
+            justifyContent: "center",
+            alignItems: "stretch",
+            paddingLeft: "calc((100% - 300px) / 2 - 120px)",
+            paddingRight: "calc((100% - 300px) / 2 - 120px)",
+          }}
+        >
+          {/* Previous Card (Peeking Left) */}
+          <div
+            style={{
+              position: "relative",
+              width: "120px",
+              height: "280px",
+              borderRadius: "8px",
+              overflow: "hidden",
+              flexShrink: 0,
+              opacity: 0.5,
+            }}
           >
-            <img src={card.image} alt={card.title} />
-            <div>
-              <span>0{(i % cards.length) + 1} / {cards.length}</span>
-              <h3>{card.title}</h3>
-              <p>{card.body}</p>
-              <a href="#highlights">
-                EXPLORE <ChevronRight size={13} />
+            <img 
+              src={prevCard.image} 
+              alt="Previous"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </div>
+
+          {/* Current Card (Center - Main) */}
+          <article
+            style={{
+              position: "relative",
+              width: "300px",
+              height: "280px",
+              borderRadius: "8px",
+              overflow: "hidden",
+              flexShrink: 0,
+            }}
+          >
+            <img 
+              src={currentCard.image} 
+              alt={currentCard.title} 
+              style={{ 
+                width: "100%", 
+                height: "100%", 
+                objectFit: "cover", 
+                display: "block" 
+              }} 
+            />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, .76))" }}></div>
+            <div style={{ position: "absolute", bottom: "16px", left: "16px", right: "16px", zIndex: 1, color: "white" }}>
+              <span style={{ fontSize: "8px", letterSpacing: ".2em" }}>0{(currentIndex % cards.length) + 1} / {cards.length}</span>
+              <h3 style={{ fontFamily: "var(--serif)", fontSize: "20px", fontWeight: 300, lineHeight: .92, margin: "8px 0" }}>{currentCard.title}</h3>
+              <p style={{ fontSize: "10px", lineHeight: 1.4, margin: "0 0 12px", maxWidth: "100%" }}>{currentCard.body.substring(0, 50)}...</p>
+              <a href="#highlights" style={{ alignItems: "center", display: "inline-flex", fontSize: "8px", gap: "6px", letterSpacing: ".2em", color: "white", textDecoration: "none" }}>
+                EXPLORE <ChevronRight size={12} />
               </a>
             </div>
           </article>
+
+          {/* Next Card (Peeking Right) */}
+          <div
+            style={{
+              position: "relative",
+              width: "120px",
+              height: "280px",
+              borderRadius: "8px",
+              overflow: "hidden",
+              flexShrink: 0,
+              opacity: 0.5,
+            }}
+          >
+            <img 
+              src={nextCard.image} 
+              alt="Next"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Carousel Indicators */}
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", marginTop: "16px" }}>
+        {cards.map((_, index) => (
+          <div
+            key={index}
+            style={{
+              width: "8px",
+              height: "8px",
+              borderRadius: "50%",
+              backgroundColor: index === currentIndex ? "#8B6F47" : "#d4c5a9",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+            }}
+            onClick={() => setCurrentIndex(index)}
+            aria-label={`Go to slide ${index + 1}`}
+          />
         ))}
       </div>
     </div>

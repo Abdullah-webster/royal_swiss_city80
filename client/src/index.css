@@ -1764,7 +1764,7 @@ a {
 
 .legacy-quotes {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2.5vw;
     margin: 3vw 0 4vw 0;
 }
@@ -1772,7 +1772,7 @@ a {
 .legacy-card {
     background: #fff;
     display: grid;
-    grid-template-columns: 45% 1fr;
+    grid-template-columns: 40% 1fr;
     grid-auto-flow: column;
     border-radius: 12px;
     overflow: hidden;
@@ -1792,7 +1792,7 @@ a {
 }
 
 .legacy-card--ceo {
-    grid-template-columns: 45% 1fr;
+    grid-template-columns: 40% 1fr;
     grid-auto-flow: column;
     border-radius: 0 12px 12px 0;
 }
@@ -3077,6 +3077,25 @@ a {
     opacity: 0;
 }
 
+.showcase-section-desktop {
+    display: flex;
+    align-items: center;
+}
+
+.showcase-section-mobile {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .showcase-section-desktop {
+        display: none !important;
+    }
+
+    .showcase-section-mobile {
+        display: block !important;
+    }
+}
+
 .showcase-heading {
     max-width: 100%;
     padding-right: 0;
@@ -3265,8 +3284,9 @@ a {
 
     .showcase-card {
         height: 380px;
-        width: 70vw;
-        min-width: 70vw
+        width: 100%;
+        min-width: 100%;
+        flex: 0 0 100%;
     }
 
     .showcase-card>div {

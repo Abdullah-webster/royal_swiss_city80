@@ -46,9 +46,9 @@ const dealersData = [
   { name: "Aurelia Estates International", type: "Sales Partner", location: "Gulberg III, Lahore", description: "Virtual Reality Private Tours & AI Valuations: Specializes in high-net-worth foreign buyers and overseas Pakistanis by offering live, guided 8K VR walkthroughs and algorithmic yield predictions for early-stage off-plan investments.", logo: "/Aurelia Estates International.svg" },
   { name: "Vanguard Capital Real Estate", type: "Sales Partner", location: "DHA Phase 6, Lahore", description: "Bespoke Portfolio Structuring: Focuses on institutional investors and commercial buyers, providing customized land-swap models and automated quarterly dividend tracking for high-density plots.", logo: "/Vanguard Capital Real Estate.svg" },
   { name: "Mirage Luxury Partners", type: "Sales Partner", location: "E-11, Islamabad", description: "Concierge Interior & Architectural Customization: Partners directly with European interior designers, allowing residential buyers to select turnkey architectural customization packages right at the point of plot purchase.", logo: "/Mirage Luxury Partners.svg" },
-  { name: "Partner Name 4", type: "Sales Partner", location: "Multan, Pakistan", description: "Authorized dealer offering comprehensive property solutions and investment opportunities." },
-  { name: "Partner Name 5", type: "Sales Partner", location: "Faisalabad, Pakistan", description: "Dedicated real estate professional with in-depth knowledge of Royal Swiss City developments." },
-  { name: "Partner Name 6", type: "Sales Partner", location: "Peshawar, Pakistan", description: "Trusted property advisor serving clients in Northern Pakistan with premium properties." },
+  { name: "Pinnacle Property Group", type: "Sales Partner", location: "Multan, Pakistan", description: "Premier real estate solutions specializing in investment portfolios and residential developments across central Pakistan.", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%234A90E2' width='100' height='100'/%3E%3Cpath fill='white' d='M50 15L85 40v45H15V40L50 15M50 25L30 40v35h40V40L50 25'/%3E%3C/svg%3E" },
+  { name: "Nexus Realty Ventures", type: "Sales Partner", location: "Faisalabad, Pakistan", description: "Innovative real estate platform connecting buyers and investors with premium property opportunities across Punjab.", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23E74C3C' width='100' height='100'/%3E%3Ccircle cx='50' cy='50' r='25' fill='white'/%3E%3Crect x='42' y='35' width='16' height='30' fill='%23E74C3C'/%3E%3C/svg%3E" },
+  { name: "Elite Land Consultants", type: "Sales Partner", location: "Peshawar, Pakistan", description: "Specialized advisors providing expert guidance on property investments and market analysis in Northern regions.", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2327AE60' width='100' height='100'/%3E%3Cpath fill='white' d='M50 20L70 35L65 60L50 75L35 60L30 35L50 20'/%3E%3C/svg%3E" },
   { name: "Partner Name 7", type: "Sales Partner", location: "Rawalpindi, Pakistan", description: "Authorized sales partner committed to excellence in property consultation and support." },
   { name: "Partner Name 8", type: "Sales Partner", location: "Sialkot, Pakistan", description: "Professional dealer offering tailored solutions for residential and commercial investments." },
   { name: "Partner Name 9", type: "Sales Partner", location: "Gujranwala, Pakistan", description: "Experienced property consultant dedicated to client satisfaction and market expertise." },
@@ -58,8 +58,9 @@ const dealersData = [
 ];
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false); const [scrolled, setScrolled] = useState(false); const [scrollY, setScrollY] = useState(0); const [openFooter, setOpenFooter] = useState<string | null>(null); const [dealersSlideIndex, setDealersSlideIndex] = useState(0); const [selectedDealer, setSelectedDealer] = useState<any>(null);
+  const [menuOpen, setMenuOpen] = useState(false); const [scrolled, setScrolled] = useState(false); const [scrollY, setScrollY] = useState(0); const [openFooter, setOpenFooter] = useState<string | null>(null); const [selectedDealer, setSelectedDealer] = useState<any>(null); const [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth <= 768);
   useEffect(() => { let f = 0; const fn = () => { cancelAnimationFrame(f); f = requestAnimationFrame(() => { setScrollY(window.scrollY); setScrolled(window.scrollY > 28) }) }; fn(); window.addEventListener("scroll", fn, { passive: true }); return () => { cancelAnimationFrame(f); window.removeEventListener("scroll", fn) } }, []);
+  useEffect(() => { const checkMobile = () => { const mobile = window.innerWidth <= 768; setIsMobile(mobile); console.log("Mobile check:", mobile, "Width:", window.innerWidth); }; checkMobile(); window.addEventListener("resize", checkMobile); return () => window.removeEventListener("resize", checkMobile); }, []);
   useEffect(() => { const o = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("is-visible")), { threshold: .12, rootMargin: "0px 0px -70% 0px" }); document.querySelectorAll(".reveal-section,.reveal-item").forEach(n => o.observe(n)); return () => o.disconnect() }, []);
   useEffect(() => {
     const legacyElement = document.querySelector(".legacy-section");
@@ -75,13 +76,161 @@ export default function Home() {
     <header className={`walk-header ${scrolled ? "is-scrolled" : ""}`}><button className="mobile-menu-trigger" aria-label="Menu" onClick={() => setMenuOpen(true)}><Menu size={22} strokeWidth={1.4} /></button><nav className="desktop-links desktop-links--left">{nav.slice(0, 3).map(item => <Anchor key={item} item={item} />)}</nav><a className="centered-brand" href="#home"><Logo /></a><nav className="desktop-links desktop-links--right">{nav.slice(3).map(item => <Anchor key={item} item={item} />)}</nav></header>
     <HeroCapsuleAnimation />
 
-    <section id="location" className="showcase-section reveal-section"><div className="showcase-heading"><p className="section-kicker">THE LEGACY</p><h2><span className="showcase-number">60+</span> <br /> Years of Legacy<br /><em>Crafted by experience.</em></h2><p>Behind Royal Swiss City is a legacy built over six decades. Habib Rafiq and RKS bring the discipline of engineering, infrastructure, and delivery to a new kind of residential address. That experience is felt in the decisions that matter: the scale of the roads, the care in the utilities, the clarity of the masterplan, and the confidence that comes from building for the long term.</p></div><ShowcaseCarousel cards={communityCards} /><div style={{ textAlign: "center" }}><a href="/projects" style={{ background: "#c4b08a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease", marginTop: "32px", marginBottom: "24px" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>VIEW ALL PROJECTS</a></div></section>
+    {!isMobile && (
+    <section id="location" className="showcase-section showcase-section-desktop reveal-section" style={{ backgroundImage: "url('/hrl_own_building.jpg')", backgroundSize: "cover", backgroundPosition: "center", position: "relative", overflow: "hidden", minHeight: "600px", display: "flex", alignItems: "center" }}>
+      {/* Overlay gradient */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(250, 247, 240, 0.5) 0%, rgba(250, 247, 240, 0.35) 35%, rgba(250, 247, 240, 0.1) 70%, rgba(250, 247, 240, 0) 100%)", zIndex: 1 }}></div>
+      
+      {/* Content container - Two main columns */}
+      <div style={{ position: "relative", zIndex: 2, display: "grid", gridTemplateColumns: "1fr 1fr", width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "80px 80px 80px 0px", gap: "120px", alignItems: "start" }}>
+        
+        {/* LEFT COLUMN - 60+ and text */}
+        <div style={{ minWidth: 0 }}>
+          <p style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#8B6F47", margin: "0 0 30px 0", fontWeight: 600, fontFamily: "var(--serif)", textShadow: "0 2px 4px rgba(0, 0, 0, 0.2)" }}>A PROUD HERITAGE</p>
+          
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "0px", marginBottom: "35px" }}>
+            <span style={{ fontSize: "320px", fontWeight: 900, color: "#9D7441", lineHeight: 0.75, fontFamily: "Bodoni, 'Bodoni MT', 'Noto Serif Display', serif", fontStyle: "normal", letterSpacing: "-8px", textShadow: "0 4px 12px rgba(0, 0, 0, 0.25)" }}>60</span>
+            <span style={{ fontSize: "120px", fontWeight: 900, color: "#9D7441", lineHeight: 0.75, fontFamily: "Bodoni, 'Bodoni MT', 'Noto Serif Display', serif", fontStyle: "normal", letterSpacing: "-2px", textShadow: "0 4px 12px rgba(0, 0, 0, 0.25)", marginTop: "60px" }}>+</span>
+          </div>
+          
+          <div style={{ marginBottom: "35px" }}>
+            <p style={{ fontSize: "30px", fontWeight: 600, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "2px", lineHeight: 1.3, margin: "0", fontFamily: "var(--serif)", textShadow: "0 2px 4px rgba(0, 0, 0, 0.15)" }}>YEARS OF TRUST</p>
+          </div>
+          
+          <p style={{ fontSize: "15px", lineHeight: 1.7, color: "#4a4a4a", marginBottom: "32px", fontWeight: 600, fontFamily: "var(--serif)", textShadow: "0 1px 3px rgba(0, 0, 0, 0.1)" }}>Shaping Communities. Building a Better Tomorrow.</p>
+          
+          <a href="/developer" style={{ background: "#c4b08a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease", marginTop: "16px" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>OUR LEGACY</a>
+        </div>
+        
+        {/* RIGHT COLUMN - 3 stacked cards */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "14px", maxWidth: "280px", marginLeft: "auto" }}>
+          {/* Card 1 */}
+          <div style={{ position: "relative", height: "200px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
+            <img src="/bahria-icon-tower-karachi.webp" alt="Iconic Developments" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
+            <div style={{ position: "absolute", bottom: "14px", right: "18px", color: "white", textAlign: "right" }}>
+              <p style={{ fontSize: "9px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}>ICONIC</p>
+              <p style={{ fontSize: "13px", fontWeight: 500, margin: "2px 0 0 0", textTransform: "uppercase", letterSpacing: "1px", fontFamily: "var(--serif)" }}>DEVELOPMENTS</p>
+            </div>
+          </div>
+          
+          {/* Card 2 */}
+          <div style={{ position: "relative", height: "200px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
+            <img src="/grand-jamia-mosque-bahria-town-lahore.webp" alt="Lasting Communities" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
+            <div style={{ position: "absolute", bottom: "14px", right: "18px", color: "white", textAlign: "right" }}>
+              <p style={{ fontSize: "9px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}>LASTING</p>
+              <p style={{ fontSize: "13px", fontWeight: 500, margin: "2px 0 0 0", textTransform: "uppercase", letterSpacing: "1px", fontFamily: "var(--serif)" }}>COMMUNITIES</p>
+            </div>
+          </div>
+          
+          {/* Card 3 */}
+          <div style={{ position: "relative", height: "200px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
+            <img src="/101-tower-lahore.webp" alt="A Stronger Pakistan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
+            <div style={{ position: "absolute", bottom: "14px", right: "18px", color: "white", textAlign: "right" }}>
+              <p style={{ fontSize: "9px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}>A STRONGER</p>
+              <p style={{ fontSize: "13px", fontWeight: 500, margin: "2px 0 0 0", textTransform: "uppercase", letterSpacing: "1px", fontFamily: "var(--serif)" }}>PAKISTAN</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    )}
+
+    {isMobile && (
+    <>
+      <section id="location-mobile" className="showcase-section showcase-section-mobile reveal-section" style={{ backgroundImage: "url('/hrl_own_building.jpg')", backgroundSize: "cover", backgroundPosition: "center", minHeight: "auto", backgroundColor: "#faf7f0", position: "relative", display: "flex", flexDirection: "column" }}>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(250, 247, 240, 0.5) 0%, rgba(250, 247, 240, 0.35) 35%, rgba(250, 247, 240, 0.1) 70%, rgba(250, 247, 240, 0) 100%)", zIndex: 0 }}></div>
+        <div style={{ textAlign: "left", padding: "40px 20px 40px 0px", position: "relative", zIndex: 1 }}>
+          <p style={{ fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#c4b08a", margin: "0 0 12px 0", fontWeight: 500 }}>THE LEGACY</p>
+          <h2 style={{ fontSize: "clamp(80px, 25vw, 240px)", lineHeight: 0.75, marginBottom: "8px", fontFamily: "Bodoni, 'Bodoni MT', 'Noto Serif Display', serif", fontWeight: 900, color: "#8B6F47", textShadow: "0 4px 12px rgba(0, 0, 0, 0.15)" }}>60+</h2>
+          <p style={{ fontSize: "18px", fontWeight: 600, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "2px", lineHeight: 1.3, margin: "0", fontFamily: "var(--serif)", textShadow: "0 2px 4px rgba(0, 0, 0, 0.15)" }}>YEARS OF TRUST</p>
+        </div>
+      </section>
+      
+      <section style={{ backgroundColor: "#faf7f0", position: "relative", display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "30px 20px 0px 10px", position: "relative", zIndex: 1 }}>
+          <p style={{ fontSize: "14px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#8B6F47", margin: "0", fontWeight: 600, fontFamily: "var(--serif)" }}>OUR PROJECTS</p>
+          <a href="/projects" style={{ fontSize: "12px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#0B1E2B", textDecoration: "none", fontWeight: 700, fontFamily: "var(--serif)", display: "flex", alignItems: "center", gap: "6px" }}>View All →</a>
+        </div>
+        <div style={{ position: "relative", zIndex: 1, flex: 1, width: "100vw", marginLeft: "calc(-50vw + 50%)", padding: "5px 0" }}>
+          <div style={{ position: "relative", width: "100%", height: "100%" }}>
+            <ShowcaseCarousel cards={communityCards} />
+            {/* Navigation buttons - positioned on top */}
+            <button
+              onClick={() => document.dispatchEvent(new CustomEvent("carousel-prev"))}
+              style={{
+                position: "absolute",
+                left: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(0, 0, 0, 0.2)",
+                border: "none",
+                borderRadius: "4px",
+                padding: "8px",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+                zIndex: 20,
+                transition: "all 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.2)";
+              }}
+              aria-label="Previous card"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button
+              onClick={() => document.dispatchEvent(new CustomEvent("carousel-next"))}
+              style={{
+                position: "absolute",
+                right: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(0, 0, 0, 0.2)",
+                border: "none",
+                borderRadius: "4px",
+                padding: "8px",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+                zIndex: 20,
+                transition: "all 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.2)";
+              }}
+              aria-label="Next card"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </>
+    )}
 
     <section className="legacy-quotes-section reveal-section">
       {/* Section Header */}
       <div className="legacy-section-header">
         <div className="header-title">
-          
           <h2>LEADERSHIP & LEGACY</h2>
         </div>
         <p className="header-subtitle">TWO GENERATIONS. ONE ENDURING VISION.</p>
@@ -94,7 +243,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Leadership Cards */}
+      {/* Desktop Version - Full Cards */}
+      {!isMobile && (
       <div className="legacy-quotes">
         {/* Chairman Card */}
         <article className="legacy-card legacy-card--chairman reveal-item">
@@ -119,7 +269,7 @@ export default function Home() {
               <div className="legacy-card__quote-mark">"</div>
               <p className="legacy-quote">Building on this legacy, we now bring the same expertise to modern housing.</p>
             </div>
-            <p className="legacy-card__body">For over six decades, Habib Rafiq (Pvt) Ltd has transformed vision into reality through innovation, quality, and dedication. Renowned for delivering excellence across industrial, infrastructure, power, oil & gas, aviation, and high-rise projects, we have consistently exceeded client expectations. Building on this legacy, we now bring the same expertise to modern housing society — designed with world-class infrastructure, sustainable planning, and premium amenities, reflecting our commitment to exceptional living spaces and lasting value for generations to come.</p>
+            <a href="/developer#chairman-message" style={{ display: "block", marginTop: "16px", marginBottom: "16px", color: "#c4b08a", fontSize: "11px", letterSpacing: "1px", textTransform: "uppercase", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}>READ FULL MESSAGE →</a>
             <div className="legacy-card__signature">
               <p><strong>Shahid Rafiq</strong></p>
               <p>CHAIRMAN, HABIB RAFIQ (PVT.) LTD.</p>
@@ -151,7 +301,7 @@ export default function Home() {
               <div className="legacy-card__quote-mark">"</div>
               <p className="legacy-quote">We are creating spaces where future generations can thrive.</p>
             </div>
-            <p className="legacy-card__body">It is a privilege to carry forward the legacy of Habib Rafiq Engineering (Pvt) Ltd. For over six decades, we set benchmarks in engineering excellence before expanding into real estate — making quality developments our trademark. Today, we develop well-planned, sustainable communities combining modern infrastructure with affordable living through Royal Swiss City. We remain committed to creating developments that enhance lifestyles and deliver lasting value for homeowners, investors, and future generations.</p>
+            <a href="/developer#ceo-message" style={{ display: "block", marginTop: "16px", marginBottom: "16px", color: "#c4b08a", fontSize: "11px", letterSpacing: "1px", textTransform: "uppercase", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}>READ FULL MESSAGE →</a>
             <div className="legacy-card__signature">
               <p><strong>Sohaib Hassan</strong></p>
               <p>CHIEF EXECUTIVE</p>
@@ -159,8 +309,33 @@ export default function Home() {
           </div>
         </article>
       </div>
+      )}
+
+      {/* Mobile Version - Simple Layout */}
+      {isMobile && (
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", margin: "30px 0 40px 0" }}>
+        {/* Chairman Card Mobile */}
+        <div style={{ textAlign: "center" }}>
+          <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "180px" }}>
+            <img src={img.chairman} alt="Shahid Rafiq" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+          <h4 style={{ fontSize: "14px", fontWeight: 600, color: "#111", margin: "0 0 4px 0" }}>Shahid Rafiq</h4>
+          <p style={{ fontSize: "11px", color: "#999", margin: "0", textTransform: "uppercase", letterSpacing: "0.5px" }}>Chairman</p>
+        </div>
+
+        {/* CEO Card Mobile */}
+        <div style={{ textAlign: "center" }}>
+          <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "180px" }}>
+            <img src={img.ceo} alt="Sohaib Hassan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+          <h4 style={{ fontSize: "14px", fontWeight: 600, color: "#111", margin: "0 0 4px 0" }}>Sohaib Hassan</h4>
+          <p style={{ fontSize: "11px", color: "#999", margin: "0", textTransform: "uppercase", letterSpacing: "0.5px" }}>Chief Executive</p>
+        </div>
+      </div>
+      )}
 
       {/* Timeline Section */}
+      {!isMobile && (
       <div className="legacy-timeline">
         <div className="timeline-item">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -180,6 +355,7 @@ export default function Home() {
           <p><strong>A FUTURE BUILT TO LAST</strong></p>
         </div>
       </div>
+      )}
 
       <div style={{ textAlign: "center" }}><a href="/developer" style={{ background: "#c4b08a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease", marginTop: "48px", marginBottom: "0px" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>LEARN MORE ABOUT HRL</a></div>
     </section>
@@ -232,7 +408,7 @@ export default function Home() {
     </div>
     </section>
 
-    <section id="partner" className="partner-strip"><img src={img.partnership} alt="Royal Swiss City partnership network" /><div><p className="section-kicker">PARTNERSHIP</p><h2>PARTNER WITH US<br /></h2><p>Join the Royal Swiss City partner network and help your clients find a place they'll be proud to call home. We'll give you the tools, support, and information you need to guide them with confidence.</p><a className="outline-cta" href="#enquire" style={{ transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>APPLY FOR PARTNERSHIP</a><div style={{ marginTop: "60px" }}><h3 style={{ fontSize: "16px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "30px", color: "#111" }}>AUTHORIZED DEALERS & SALES PARTNERS</h3><div style={{ display: "flex", gap: "20px", opacity: 1, transform: "translateY(0)", transition: "opacity 0.4s ease, transform 0.4s ease" }} className="dealers-carousel"><div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px", width: "100%" }} className="dealers-slide-desktop">{dealersData.slice(dealersSlideIndex, dealersSlideIndex + 4).map((dealer, i) => <div key={i} onClick={() => setSelectedDealer(dealer)} style={{ background: "#fff", padding: "20px", borderRadius: "8px", border: "1px solid #e0d9d1", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease", position: "relative" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}><div style={{ width: "60px", height: "60px", background: "#f1f1f1", borderRadius: "8px", margin: "0 auto 12px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{dealer.logo ? <img src={dealer.logo} alt={dealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "12px", color: "#999" }}>Logo</span>}</div><p style={{ fontSize: "12px", fontWeight: 500, color: "#111", margin: "0 0 6px 0" }}>{dealer.name}</p><p style={{ fontSize: "10px", color: "#999", margin: "0 0 12px 0" }}>{dealer.type}</p><p style={{ fontSize: "8px", color: "#c4b08a", margin: "0", fontStyle: "italic" }}>TAP FOR MORE DETAILS</p></div>)}</div><div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "16px", width: "100%" }} className="dealers-slide-mobile">{dealersData.slice(dealersSlideIndex, dealersSlideIndex + 2).map((dealer, i) => <div key={i} onClick={() => setSelectedDealer(dealer)} style={{ background: "#fff", padding: "16px", borderRadius: "8px", border: "1px solid #e0d9d1", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}><div style={{ width: "50px", height: "50px", background: "#f1f1f1", borderRadius: "8px", margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{dealer.logo ? <img src={dealer.logo} alt={dealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "10px", color: "#999" }}>Logo</span>}</div><p style={{ fontSize: "10px", fontWeight: 500, color: "#111", margin: "0 0 4px 0" }}>{dealer.name}</p><p style={{ fontSize: "8px", color: "#999", margin: "0 0 8px 0" }}>{dealer.type}</p><p style={{ fontSize: "7px", color: "#c4b08a", margin: "0", fontStyle: "italic" }}>TAP FOR MORE</p></div>)}</div></div><div style={{ display: "flex", gap: "12px", justifyContent: "center", marginTop: "30px" }}><button onClick={() => setDealersSlideIndex(Math.max(0, dealersSlideIndex - (window.innerWidth <= 768 ? 2 : 4)))} style={{ background: "none", color: "#111", border: "1px solid #111", padding: "10px 20px", borderRadius: "999px", fontSize: "10px", letterSpacing: "1px", textTransform: "uppercase", cursor: "pointer", transition: "all 0.3s ease", fontWeight: 500 }} onMouseEnter={(e) => { (e.target as HTMLElement).style.background = "#111"; (e.target as HTMLElement).style.color = "#fff"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.background = "none"; (e.target as HTMLElement).style.color = "#111"; }}>← PREV</button><button onClick={() => setDealersSlideIndex(Math.min(dealersData.length - (window.innerWidth <= 768 ? 2 : 4), dealersSlideIndex + (window.innerWidth <= 768 ? 2 : 4)))} style={{ background: "none", color: "#111", border: "1px solid #111", padding: "10px 20px", borderRadius: "999px", fontSize: "10px", letterSpacing: "1px", textTransform: "uppercase", cursor: "pointer", transition: "all 0.3s ease", fontWeight: 500 }} onMouseEnter={(e) => { (e.target as HTMLElement).style.background = "#111"; (e.target as HTMLElement).style.color = "#fff"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.background = "none"; (e.target as HTMLElement).style.color = "#111"; }}>NEXT →</button></div><div style={{ textAlign: "center", marginTop: "20px" }}><a href="/partner" style={{ background: "none", color: "#111", border: "1px solid #111", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.background = "#111"; (e.target as HTMLElement).style.color = "#fff"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.background = "none"; (e.target as HTMLElement).style.color = "#111"; }}>LOCATE A DEALER NEAR YOU</a></div></div></div></section>
+    <section id="partner" className="partner-strip"><img src={img.partnership} alt="Royal Swiss City partnership network" /><div><p className="section-kicker">PARTNERSHIP</p><h2>PARTNER WITH US<br /></h2><p>Join the Royal Swiss City partner network and help your clients find a place they'll be proud to call home. We'll give you the tools, support, and information you need to guide them with confidence.</p><a className="outline-cta" href="#enquire" style={{ transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>APPLY FOR PARTNERSHIP</a><div style={{ marginTop: "60px" }}><h3 style={{ fontSize: "16px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "30px", color: "#111" }}>AUTHORIZED DEALERS & SALES PARTNERS</h3><div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: isMobile ? "12px" : "16px", marginBottom: "40px" }}>{dealersData.slice(0, 6).map((dealer, i) => <div key={i} onClick={() => setSelectedDealer(dealer)} style={{ background: "#fff", padding: isMobile ? "12px" : "16px", borderRadius: "6px", border: "1px solid #e0d9d1", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease", position: "relative" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}><div style={{ width: isMobile ? "40px" : "50px", height: isMobile ? "40px" : "50px", background: "#f1f1f1", borderRadius: "6px", margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{dealer.logo ? <img src={dealer.logo} alt={dealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "10px", color: "#999" }}>Logo</span>}</div><p style={{ fontSize: isMobile ? "10px" : "11px", fontWeight: 500, color: "#111", margin: "0 0 4px 0", lineHeight: 1.2 }}>{dealer.name}</p><p style={{ fontSize: isMobile ? "8px" : "9px", color: "#999", margin: "0 0 8px 0" }}>{dealer.type}</p><p style={{ fontSize: isMobile ? "7px" : "8px", color: "#c4b08a", margin: "0", fontStyle: "italic", display: isMobile ? "none" : "block" }}>TAP FOR MORE</p></div>)}</div><div style={{ textAlign: "center" }}><a href="/partner" style={{ background: "none", color: "#111", border: "1px solid #111", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.background = "#111"; (e.target as HTMLElement).style.color = "#fff"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.background = "none"; (e.target as HTMLElement).style.color = "#111"; }}>VIEW ALL</a></div></div></div></section>
     <footer className="walk-footer reveal-section"><div className="footer-accordions">{footerLinks.map(item => {
       let learnMoreLink = "";
       if (item === "Residential Plots") learnMoreLink = "#residential";
