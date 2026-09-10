@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ChevronRight } from "lucide-react";
 
 export function ShowcaseCarousel({ cards }: { cards: any[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -101,10 +100,7 @@ export function ShowcaseCarousel({ cards }: { cards: any[] }) {
             <div style={{ position: "absolute", bottom: "16px", left: "16px", right: "16px", zIndex: 1, color: "white" }}>
               <span style={{ fontSize: "8px", letterSpacing: ".2em" }}>0{(currentIndex % cards.length) + 1} / {cards.length}</span>
               <h3 style={{ fontFamily: "var(--serif)", fontSize: "20px", fontWeight: 300, lineHeight: .92, margin: "8px 0" }}>{currentCard.title}</h3>
-              <p style={{ fontSize: "10px", lineHeight: 1.4, margin: "0 0 12px", maxWidth: "100%" }}>{currentCard.body.substring(0, 50)}...</p>
-              <a href="#highlights" style={{ alignItems: "center", display: "inline-flex", fontSize: "8px", gap: "6px", letterSpacing: ".2em", color: "white", textDecoration: "none" }}>
-                EXPLORE <ChevronRight size={12} />
-              </a>
+              <p style={{ fontSize: "10px", lineHeight: 1.4, margin: "0", maxWidth: "100%" }}>{currentCard.body.substring(0, 50)}...</p>
             </div>
           </article>
 

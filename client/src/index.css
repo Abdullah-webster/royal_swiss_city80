@@ -9,7 +9,7 @@
     --ink: #171717;
     --muted: #666;
     --line: #d0d0d0;
-    --champagne: #C1883A;
+    --champagne: #b2996a;
 }
 
 * {
@@ -692,7 +692,7 @@ a {
 .footer-socials a:hover {
     opacity: .6;
     transform: translateY(-4px) scale(1.15);
-    color: #c4b08a;
+    color: #b2996a;
 }
 
 .footer-contact b {
@@ -725,7 +725,7 @@ a {
 }
 
 .footer-accordions button:hover {
-    color: #c4b08a;
+    color: #b2996a;
 }
 
 .footer-accordions button svg {
@@ -770,7 +770,7 @@ a {
 }
 
 .footer-trust span {
-    color: #c89c4e;
+    color: #b2996a;
     display: block;
     font-size: 18px;
     letter-spacing: 3px;
@@ -1077,7 +1077,7 @@ a {
 .dealers-carousel {
     scroll-behavior: smooth;
     scrollbar-width: thin;
-    scrollbar-color: #c4b08a #f1f1f1;
+    scrollbar-color: #b2996a #f1f1f1;
     width: 100%;
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
@@ -1091,7 +1091,7 @@ a {
 }
 
 .dealers-carousel::-webkit-scrollbar-thumb {
-    background: #c4b08a;
+    background: #b2996a;
     border-radius: 3px;
 }
 
@@ -2381,7 +2381,7 @@ a {
 }
 
 .champagne-accent {
-    color: #c4b08a;
+    color: #b2996a;
 }
 
 .enquire-form-description {
@@ -2480,7 +2480,7 @@ a {
 
 .enquire-input:focus {
     outline: none;
-    border-bottom-color: #c4b08a;
+    border-bottom-color: #b2996a;
 }
 
 .enquire-textarea {
@@ -2607,7 +2607,7 @@ a {
 
     .mobile-plot-options {
         gap: 10px !important;
-        margin-bottom: 30px;
+        margin-bottom: 80px !important;
     }
 
     .mobile-plot-options > div {
@@ -2630,7 +2630,8 @@ a {
             overflow-x: auto !important;
             gap: 6px !important;
             padding: 0 8px !important;
-            margin: 0 -8px 30px -8px !important;
+            margin: 0 !important;
+            margin-bottom: 60px !important;
             grid-template-columns: none !important;
         }
 
@@ -3585,7 +3586,7 @@ a {
 .modal-type {
     font-size: 11px;
     letter-spacing: .15em;
-    color: #c4b08a;
+    color: #b2996a;
     margin: 0 0 12px;
     text-transform: uppercase;
     font-weight: 600
@@ -4193,7 +4194,7 @@ a {
 }
 
 .champagne-accent {
-    color: #c4b08a !important;
+    color: #b2996a !important;
 }
 
 .enquire-form-description {
@@ -4292,7 +4293,7 @@ a {
 
 .enquire-input:focus {
     outline: none !important;
-    border-bottom-color: #c4b08a !important;
+    border-bottom-color: #b2996a !important;
 }
 
 .enquire-textarea {
@@ -4607,4 +4608,331 @@ a {
 /* WHERE LIFE HAPPENS - Very light gradient badge */
 .art-content-fullscreen-text {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(196, 176, 138, 0.15) 100%) !important;
+}
+
+
+/* Media query for 1280px width - reduce all sizes by 30% */
+@media (width: 1280px) {
+    /* Scale everything down by 30% using a base scaling approach */
+    
+    /* Hero section */
+    .hero-copy h1 {
+        font-size: 42px !important; /* 60px * 0.7 */
+    }
+    
+    .hero-copy p {
+        font-size: 10.5px !important; /* 15px * 0.7 */
+    }
+    
+    /* Detail card */
+    .detail-card {
+        min-height: 476px !important; /* 680px * 0.7 */
+        padding: 63px 5.6vw !important; /* 90px * 0.7 */
+    }
+    
+    .detail-card__copy {
+        padding: 25.2px 12.6px 32.2px !important; /* 36px 18px 46px * 0.7 */
+    }
+    
+    .detail-card__copy h2 {
+        font-size: 12.6px !important; /* 18px * 0.7 */
+        margin: 0 0 26.6px !important; /* 38px * 0.7 */
+    }
+    
+    .detail-card__copy h2 em {
+        font-size: 18.2px !important; /* 26px * 0.7 */
+    }
+    
+    .detail-card__copy p {
+        font-size: 9.1px !important; /* 13px * 0.7 */
+        margin: 0 auto 17.5px !important; /* 25px * 0.7 */
+    }
+    
+    .detail-card > img {
+        height: 350px !important; /* 500px * 0.7 */
+    }
+    
+    /* Pillars section */
+    .pillars {
+        padding: 70px 5.6vw 59.5px !important; /* 100px 8vw * 0.7 */
+    }
+    
+    .pillars > h2 {
+        margin: 0 auto 34.3px !important; /* 49px * 0.7 */
+        max-width: 217px !important; /* 310px * 0.7 */
+    }
+    
+    .pillar-card {
+        max-width: 532px !important; /* 760px * 0.7 */
+    }
+    
+    .pillar-card img {
+        height: 336px !important; /* 480px * 0.7 */
+    }
+    
+    .pillar-card h3 {
+        font-size: 16.8px !important; /* 24px * 0.7 */
+        margin: 14px 0 !important; /* 20px * 0.7 */
+    }
+    
+    .pillar-card p {
+        font-size: 9.1px !important; /* 13px * 0.7 */
+        max-width: 224px !important; /* 320px * 0.7 */
+    }
+    
+    .pillar-card--second {
+        margin-top: 49px !important; /* 70px * 0.7 */
+    }
+    
+    .pillar-card--second img {
+        height: 178.5px !important; /* 255px * 0.7 */
+    }
+    
+    /* Properties section */
+    .properties {
+        min-height: 420px !important; /* 600px * 0.7 */
+        padding: 50.4px 5.6vw 51.8px !important; /* 72px 8vw 74px * 0.7 */
+    }
+    
+    .properties > h2 {
+        margin-bottom: 28px !important; /* 40px * 0.7 */
+    }
+    
+    .property-logo span {
+        font-size: 22.4px !important; /* 32px * 0.7 */
+    }
+    
+    .property-logo b {
+        font-size: 7px !important; /* 10px * 0.7 */
+        margin-top: 5.6px !important; /* 8px * 0.7 */
+    }
+    
+    .property-logo small {
+        font-size: 11.9px !important; /* 17px * 0.7 */
+        margin-top: 2.8px !important; /* 4px * 0.7 */
+    }
+    
+    .amenities {
+        margin: 0 auto 33.6px !important; /* 48px * 0.7 */
+        max-width: 210px !important; /* 300px * 0.7 */
+    }
+    
+    .amenities div {
+        font-size: 6.3px !important; /* 9px * 0.7 */
+        gap: 7px !important; /* 10px * 0.7 */
+        min-height: 75.6px !important; /* 108px * 0.7 */
+        padding: 8.4px 2.8px !important; /* 12px 4px * 0.7 */
+    }
+    
+    .amenities span {
+        font-size: 16.8px !important; /* 24px * 0.7 */
+    }
+    
+    /* Press section */
+    .press {
+        padding: 8.4px 9.1px 77px !important; /* 12px 13px 110px * 0.7 */
+    }
+    
+    .press > h2 {
+        margin-bottom: 24.5px !important; /* 35px * 0.7 */
+    }
+    
+    .press article img {
+        height: 154px !important; /* 220px * 0.7 */
+    }
+    
+    .press article div {
+        padding: 15.4px 12.6px !important; /* 22px 18px * 0.7 */
+    }
+    
+    .press article small {
+        font-size: 5.6px !important; /* 8px * 0.7 */
+    }
+    
+    .press article h3 {
+        font-size: 12.6px !important; /* 18px * 0.7 */
+        margin: 8.4px 0 !important; /* 12px * 0.7 */
+    }
+    
+    .press article a {
+        font-size: 5.6px !important; /* 8px * 0.7 */
+    }
+    
+    /* Footer */
+    .walk-footer {
+        padding: 32.2px 12.6px 66.5px !important; /* 46px 18px 95px * 0.7 */
+    }
+    
+    .walk-footer > .sobha-logo,
+    .walk-footer > .brand-logo {
+        font-size: 16.1px !important; /* 23px * 0.7 */
+        margin: 0 auto 31.5px !important; /* 45px * 0.7 */
+    }
+    
+    .footer-contact {
+        margin-top: 23.8px !important; /* 34px * 0.7 */
+        padding-top: 16.8px !important; /* 24px * 0.7 */
+    }
+    
+    .footer-contact b {
+        font-size: 12.6px !important; /* 18px * 0.7 */
+    }
+    
+    .footer-contact span {
+        font-size: 7px !important; /* 10px * 0.7 */
+    }
+    
+    .footer-socials {
+        margin: 23.8px 0 !important; /* 34px * 0.7 */
+        padding: 16.8px 0 !important; /* 24px * 0.7 */
+        gap: 16.8px !important; /* 24px * 0.7 */
+    }
+    
+    .footer-accordions button {
+        font-size: 7.7px !important; /* 11px * 0.7 */
+        padding: 10.5px 0 !important; /* 15px * 0.7 */
+    }
+    
+    .footer-accordions p {
+        font-size: 7.7px !important; /* 11px * 0.7 */
+        margin: 0 0 9.8px !important; /* 14px * 0.7 */
+    }
+    
+    .footer-trust {
+        margin: 25.2px 0 17.5px !important; /* 36px 0 25px * 0.7 */
+    }
+    
+    .footer-trust b,
+    .footer-trust small {
+        font-size: 7.7px !important; /* 11px * 0.7 */
+    }
+    
+    .footer-trust span {
+        font-size: 12.6px !important; /* 18px * 0.7 */
+        letter-spacing: 2.1px !important; /* 3px * 0.7 */
+        margin: 5.6px 0 !important; /* 8px * 0.7 */
+    }
+    
+    .footer-legal {
+        font-size: 5.6px !important; /* 8px * 0.7 */
+        gap: 10.5px !important; /* 15px * 0.7 */
+        padding-top: 15.4px !important; /* 22px * 0.7 */
+    }
+    
+    /* Outline CTA buttons */
+    .outline-cta {
+        font-size: 5.6px !important; /* 8px * 0.7 */
+        padding: 7.7px 19.6px 7px !important; /* 11px 28px 10px * 0.7 */
+    }
+    
+    /* Partner strip */
+    .partner-strip {
+        gap: 5.6vw !important; /* 8vw * 0.7 */
+        padding: 42px 5.6vw 35px !important; /* 60px 8vw 50px * 0.7 */
+    }
+    
+    .partner-strip img {
+        height: 336px !important; /* 480px * 0.7 */
+    }
+    
+    .partner-strip h2 {
+        margin: 0 0 16.8px !important; /* 24px * 0.7 */
+    }
+    
+    .partner-strip p:not(.section-kicker) {
+        font-size: 9.8px !important; /* 14px * 0.7 */
+        max-width: 294px !important; /* 420px * 0.7 */
+    }
+    
+    .partner-strip .outline-cta {
+        margin-top: 12.6px !important; /* 18px * 0.7 */
+    }
+    
+    /* Future section */
+    .future-section {
+        padding: 2.8vw 5.6vw 2.1vw !important; /* 4vw 8vw 3vw * 0.7 */
+    }
+    
+    /* Section kickers */
+    .section-kicker {
+        font-size: 8.4px !important; /* 12px * 0.7 */
+        margin: 0 0 7px !important; /* 10px * 0.7 */
+    }
+    
+    /* Legacy/Showcase section scaling */
+    .showcase-section-desktop {
+        min-height: 420px !important; /* 600px * 0.7 */
+        padding: 56px 56px 56px 0px !important; /* 80px 80px 80px 0px * 0.7 */
+    }
+    
+    /* Scale the grid gap and padding in showcase - target the content container only */
+    .showcase-section-desktop > div:last-child {
+        padding: 56px 56px 56px 0px !important; /* 80px * 0.7 */
+        gap: 84px !important; /* 120px * 0.7 */
+        margin-left: 70px !important; /* Move text slightly to the right */
+    }
+    
+    /* Scale inline styles in showcase */
+    .showcase-section-desktop p {
+        font-size: 12.6px !important; /* 18px * 0.7 */
+    }
+    
+    /* Scale the 60+ numbers and text */
+    .showcase-section-desktop p:nth-of-type(1) {
+        font-size: 12.6px !important; /* 18px * 0.7 */
+    }
+    
+    /* Target the 60 span - note: this targets inline styles so we use !important */
+    .showcase-section-desktop span[style*="320px"] {
+        font-size: 224px !important; /* 320px * 0.7 */
+        letter-spacing: -5.6px !important; /* -8px * 0.7 */
+    }
+    
+    /* Target the + span */
+    .showcase-section-desktop span[style*="120px"] {
+        font-size: 84px !important; /* 120px * 0.7 */
+        letter-spacing: -1.4px !important; /* -2px * 0.7 */
+        margin-top: 42px !important; /* 60px * 0.7 */
+    }
+    
+    /* YEARS OF TRUST heading */
+    .showcase-section-desktop > div:last-child > div > div p[style*="52px"] {
+        font-size: 36.4px !important; /* 52px * 0.7 */
+        letter-spacing: 1.4px !important; /* 2px * 0.7 */
+    }
+    
+    /* Shaping Communities text */
+    .showcase-section-desktop > div:last-child > div > div > p:nth-child(4) {
+        font-size: 16.8px !important; /* 24px * 0.7 */
+        margin-bottom: 22.4px !important; /* 32px * 0.7 */
+    }
+    
+    /* OUR LEGACY button */
+    .showcase-section-desktop a[href="/developer"] {
+        padding: 12.6px 33.6px !important; /* 18px 48px * 0.7 */
+        font-size: 8.4px !important; /* 12px * 0.7 */
+        margin-top: 11.2px !important; /* 16px * 0.7 */
+    }
+    
+    /* Reduce the 3 vertical image cards on the right */
+    .showcase-section-desktop > div:last-child > div:nth-child(2) {
+        width: 210px !important; /* 300px * 0.7 */
+        gap: 9.8px !important; /* 14px * 0.7 */
+        margin-left: auto !important;
+        margin-right: -100px !important; /* Move more to the left */
+    }
+    
+    /* Individual image card height */
+    .showcase-section-desktop > div:last-child > div:nth-child(2) > div {
+        height: 140px !important; /* 200px * 0.7 */
+    }
+    
+    /* Image card text sizing */
+    .showcase-section-desktop > div:last-child > div:nth-child(2) > div p:first-of-type {
+        font-size: 14px !important; /* 20px * 0.7 */
+    }
+    
+    .showcase-section-desktop > div:last-child > div:nth-child(2) > div p:last-of-type {
+        font-size: 17.5px !important; /* 25px * 0.7 */
+    }
 }

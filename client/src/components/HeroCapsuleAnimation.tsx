@@ -120,28 +120,22 @@ export function HeroCapsuleAnimation() {
         "-=0.35"
       );
     } else {
-      // MOBILE ANIMATION (ULTRA SMOOTH)
+      // MOBILE ANIMATION (3 STAGES - SMOOTHER & FASTER)
       tl.to(".art-capsule-mobile", {
-        bottom: "0vh",
-        duration: 1.4,
+        width: "90vw",
+        height: "80vh",
+        bottom: "6vh",
+        borderRadius: "150px 150px 0px 0px",
+        duration: 1.2,
         ease: "power1.inOut",
       });
 
       tl.to(".art-capsule-mobile", {
-        width: "88vw",
-        height: "75vh",
-        bottom: "5vh",
-        borderRadius: "200px 200px 0px 0px",
+        width: "96vw",
+        height: "90vh",
+        bottom: "3vh",
+        borderRadius: "80px 80px 0px 0px",
         duration: 1.1,
-        ease: "power1.inOut",
-      });
-
-      tl.to(".art-capsule-mobile", {
-        width: "95vw",
-        height: "85vh",
-        bottom: "8vh",
-        borderRadius: "200px 200px 0px 0px",
-        duration: 1.0,
         ease: "power1.inOut",
       });
 
@@ -150,7 +144,7 @@ export function HeroCapsuleAnimation() {
         height: "100vh",
         bottom: "0vh",
         borderRadius: "0px",
-        duration: 1.1,
+        duration: 1.0,
         ease: "power1.inOut",
       });
     }
@@ -165,7 +159,7 @@ export function HeroCapsuleAnimation() {
       ref={containerRef}
       className="hero-capsule-stage"
       style={{
-        height: "320vh",
+        height: "240vh",
         position: "relative",
       }}
     >
