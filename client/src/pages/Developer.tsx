@@ -3,7 +3,7 @@ import { ChevronDown, ChevronRight, Menu, X, ArrowDown } from "lucide-react";
 import { animateFeaturesSection, animateFooter } from "@/utils/sectionAnimations";
 import { ProjectsCarousel } from "@/components/ProjectsCarousel";
 
-const img = { logo: "https://royal-swiss-city-30.vercel.app/logo.png", heroDesktop: "/hero-dev-desktop.jpg", heroMobile: "/hero-dev-mobile.jpg", chairman: "/chairman.png", ceo: "/ceo.png" };
+const img = { logo: "https://royal-swiss-city-30.vercel.app/logo.png", heroDesktop: "/hero-dev-desktop.jpg", heroMobile: "/hero-dev-mobile.jpg", chairman: "/chairman.png", ceo: "/ceo.png", md: "/md.png" };
 const nav = ["HOME", "THE CITY", "DEVELOPER", "LOCATION", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
 const navMobile = ["HOME", "THE CITY", "DEVELOPER", "PROJECTS", "LOCATION", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
 
@@ -136,38 +136,162 @@ export default function Developer() {
       </div>
     </section>
 
-    <section className="leadership-section reveal-section">
-      <div className="leadership-heading">
-        <p className="section-kicker">04 / LEADERSHIP & VISION</p>
-        <h2>PEOPLE WHO<br /><em>BUILD FORWARD.</em></h2>
-        <p>Every enduring place begins with a belief in what it can become. The leadership behind Habib Rafiq carries that belief into every decision — combining six decades of national experience with a clear vision for the future.</p>
-      </div>
-      <div className="leaders">
-        <article className="leader-card reveal-item">
-          <img src={img.chairman} alt="Shahid Rafiq" />
-          <div>
-            <small>CHAIRMAN</small>
-            <h3>Shahid Rafiq</h3>
-            <p className="leader-quote">"For over six decades, Habib Rafiq (Pvt) Ltd has transformed vision into reality through innovation, quality, and dedication. Renowned for delivering excellence across industrial, infrastructure, power, oil & gas, aviation, and high-rise projects, we have consistently exceeded client expectations. Building on this legacy, we now bring the same expertise to modern housing society — designed with world-class infrastructure, sustainable planning, and premium amenities, reflecting our commitment to exceptional living spaces and lasting value for generations to come."</p>
+    <section className="legacy-quotes-section reveal-section" style={{ background: "url(/prtnr_bg_desktop.png) center/cover no-repeat", backgroundColor: "transparent" }}>
+        {/* Section Header */}
+        <div className="legacy-section-header">
+          <div className="header-title">
+            <h2>PEOPLE WHO<br /><em>BUILD FORWARD.</em></h2>
           </div>
-        </article>
-        <article className="leader-card reveal-item">
-          <img src={img.ceo} alt="Sohaib Hassan" />
-          <div>
-            <small>CHIEF EXECUTIVE</small>
-            <h3>Sohaib Hassan</h3>
-            <p className="leader-quote">"It is a privilege to carry forward the legacy of Habib Rafiq Engineering (Pvt) Ltd. For over six decades, we set benchmarks in engineering excellence before expanding into real estate — making quality developments our trademark. Today, we develop well-planned, sustainable communities combining modern infrastructure with affordable living through Royal Swiss City. We remain committed to creating developments that enhance lifestyles and deliver lasting value for homeowners, investors, and future generations."</p>
+          <p className="header-subtitle">LEADERSHIP & VISION</p>
+          <div className="header-divider">
+            <span></span>
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor">
+              <circle cx="4" cy="4" r="4" />
+            </svg>
+            <span></span>
           </div>
-        </article>
-        <article className="leader-card reveal-item leader-card--text">
-          <div>
-            <small>MANAGING DIRECTOR</small>
-            <h3>Habib Ahmad</h3>
-            <p className="leader-quote">"HRL, once a dream has shaped into an absolute reality. This has taken an enduring 60 years of conviction and untiring efforts to see it grow into a group with one of the biggest market clientele within Pakistan and abroad. The company has seen transformation from the conventional to state of the art and highly demanding mechanized construction. HRL has always been on the forefront to take up jobs and assignments with a cause and service to humanity integrated with innovation and global outlook. The hallmark of these efforts is completion of all projects ahead of agreed time frames."</p>
+        </div>
+
+        {/* Desktop Version - Full Cards */}
+        {!isMobileView && (
+          <div className="legacy-quotes">
+            {/* Chairman Card */}
+            <article className="legacy-card legacy-card--chairman reveal-item">
+              <div className="legacy-card__image-wrapper">
+                <img src={img.chairman} alt="Shahid Rafiq" />
+                <div className="legacy-card__image-label">
+                  <span>CHAIRMAN</span>
+                </div>
+              </div>
+              <div className="legacy-card__divider"></div>
+              <div className="legacy-card__content">
+                <small>CHAIRMAN</small>
+                <h3>Shahid Rafiq</h3>
+                <div className="legacy-card__decoration">
+                  <span></span>
+                  <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
+                    <circle cx="3" cy="3" r="3" />
+                  </svg>
+                  <span></span>
+                </div>
+                <div className="legacy-card__quote-section">
+                  <div className="legacy-card__quote-mark">"</div>
+                  <p className="legacy-quote" style={{ fontSize: "14px" }}>For over six decades, Habib Rafiq (Pvt) Ltd has transformed vision into reality through innovation, quality, and dedication. Renowned for delivering excellence across industrial, infrastructure, power, oil & gas, aviation, and high-rise projects, we have consistently exceeded client expectations. Building on this legacy, we now bring the same expertise to modern housing society — designed with world-class infrastructure, sustainable planning, and premium amenities, reflecting our commitment to exceptional living spaces and lasting value for generations to come.</p>
+                </div>
+                <div className="legacy-card__signature">
+                  <p><strong>Shahid Rafiq</strong></p>
+                  <p>CHAIRMAN, HABIB RAFIQ (PVT.) LTD.</p>
+                </div>
+                <div className="legacy-card__watermark">HRL</div>
+              </div>
+            </article>
+
+            {/* CEO Card */}
+            <article className="legacy-card legacy-card--ceo reveal-item">
+              <div className="legacy-card__image-wrapper legacy-card__image-wrapper--right">
+                <img src={img.ceo} alt="Sohaib Hassan" />
+                <div className="legacy-card__image-label legacy-card__image-label--ceo">
+                  <span>CHIEF EXECUTIVE</span>
+                </div>
+              </div>
+              <div className="legacy-card__divider legacy-card__divider--right"></div>
+              <div className="legacy-card__content legacy-card__content--left">
+                <small>CHIEF EXECUTIVE</small>
+                <h3>Sohaib Hassan</h3>
+                <div className="legacy-card__decoration">
+                  <span></span>
+                  <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
+                    <circle cx="3" cy="3" r="3" />
+                  </svg>
+                  <span></span>
+                </div>
+                <div className="legacy-card__quote-section">
+                  <div className="legacy-card__quote-mark">"</div>
+                  <p className="legacy-quote" style={{ fontSize: "14px" }}>It is a privilege to carry forward the legacy of Habib Rafiq Engineering (Pvt) Ltd. For over six decades, we set benchmarks in engineering excellence before expanding into real estate — making quality developments our trademark. Today, we develop well-planned, sustainable communities combining modern infrastructure with affordable living through Royal Swiss City. We remain committed to creating developments that enhance lifestyles and deliver lasting value for homeowners, investors, and future generations.</p>
+                </div>
+                <div className="legacy-card__signature">
+                  <p><strong>Sohaib Hassan</strong></p>
+                  <p>CHIEF EXECUTIVE</p>
+                </div>
+              </div>
+            </article>
+
+            {/* Managing Director Card - Desktop */}
+            <article className="legacy-card legacy-card--chairman reveal-item" style={{ gridColumn: "1 / -1", marginLeft: "auto", marginRight: "auto", maxWidth: "50%" }}>
+              <div className="legacy-card__image-wrapper">
+                <img src={img.md} alt="Habib Ahmad" />
+                <div className="legacy-card__image-label">
+                  <span>MANAGING DIRECTOR</span>
+                </div>
+              </div>
+              <div className="legacy-card__divider"></div>
+              <div className="legacy-card__content">
+                <small>MANAGING DIRECTOR</small>
+                <h3>Habib Ahmad</h3>
+                <div className="legacy-card__decoration">
+                  <span></span>
+                  <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
+                    <circle cx="3" cy="3" r="3" />
+                  </svg>
+                  <span></span>
+                </div>
+                <div className="legacy-card__quote-section">
+                  <div className="legacy-card__quote-mark">"</div>
+                  <p className="legacy-quote" style={{ fontSize: "14px" }}>HRL, once a dream has shaped into an absolute reality. This has taken an enduring 60 years of conviction and untiring efforts to see it grow into a group with one of the biggest market clientele within Pakistan and abroad. The company has seen transformation from the conventional to state of the art and highly demanding mechanized construction. HRL has always been on the forefront to take up jobs and assignments with a cause and service to humanity integrated with innovation and global outlook. The hallmark of these efforts is completion of all projects ahead of agreed time frames.</p>
+                </div>
+                <div className="legacy-card__signature">
+                  <p><strong>Habib Ahmad</strong></p>
+                  <p>MANAGING DIRECTOR</p>
+                </div>
+              </div>
+            </article>
           </div>
-        </article>
-      </div>
-    </section>
+        )}
+
+        {/* Mobile Version - All 3 Cards */}
+        {isMobileView && (
+          <div className="legacy-quotes" style={{ display: "grid", gridTemplateColumns: "1fr", gap: "20px", margin: "30px 0 40px 0" }}>
+            {/* Chairman Card Mobile */}
+            <div style={{ textAlign: "center", background: "#fff", padding: "16px", borderRadius: "8px", border: "1px solid #e0d9d1" }}>
+              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "200px" }}>
+                <img src={img.chairman} alt="Shahid Rafiq" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <h4 style={{ fontSize: "14px", fontWeight: 300, color: "#d4af37", margin: "0 0 8px 0", fontFamily: "var(--serif)", letterSpacing: "0.06em" }}>Shahid Rafiq</h4>
+              <p style={{ fontSize: "11px", color: "#d4af37", margin: "0 0 12px 0", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--serif)", fontWeight: 300 }}>Chairman</p>
+              <div style={{ fontSize: "13px", color: "#1a3a52", lineHeight: 1.6, marginBottom: "16px" }}>
+                <div style={{ fontSize: "24px", color: "#d4af37", marginBottom: "8px" }}>"</div>
+                <p style={{ fontSize: "13px" }}>For over six decades, Habib Rafiq (Pvt) Ltd has transformed vision into reality through innovation, quality, and dedication. Renowned for delivering excellence across industrial, infrastructure, power, oil & gas, aviation, and high-rise projects, we have consistently exceeded client expectations. Building on this legacy, we now bring the same expertise to modern housing society — designed with world-class infrastructure, sustainable planning, and premium amenities, reflecting our commitment to exceptional living spaces and lasting value for generations to come.</p>
+              </div>
+            </div>
+
+            {/* CEO Card Mobile */}
+            <div style={{ textAlign: "center", background: "#fff", padding: "16px", borderRadius: "8px", border: "1px solid #e0d9d1" }}>
+              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "200px" }}>
+                <img src={img.ceo} alt="Sohaib Hassan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <h4 style={{ fontSize: "14px", fontWeight: 300, color: "#d4af37", margin: "0 0 8px 0", fontFamily: "var(--serif)", letterSpacing: "0.06em" }}>Sohaib Hassan</h4>
+              <p style={{ fontSize: "11px", color: "#d4af37", margin: "0 0 12px 0", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--serif)", fontWeight: 300 }}>Chief Executive</p>
+              <div style={{ fontSize: "13px", color: "#1a3a52", lineHeight: 1.6, marginBottom: "16px" }}>
+                <div style={{ fontSize: "24px", color: "#d4af37", marginBottom: "8px" }}>"</div>
+                <p style={{ fontSize: "13px" }}>It is a privilege to carry forward the legacy of Habib Rafiq Engineering (Pvt) Ltd. For over six decades, we set benchmarks in engineering excellence before expanding into real estate — making quality developments our trademark. Today, we develop well-planned, sustainable communities combining modern infrastructure with affordable living through Royal Swiss City. We remain committed to creating developments that enhance lifestyles and deliver lasting value for homeowners, investors, and future generations.</p>
+              </div>
+            </div>
+
+            {/* Managing Director Card Mobile */}
+            <div style={{ textAlign: "center", background: "#fff", padding: "16px", borderRadius: "8px", border: "1px solid #e0d9d1" }}>
+              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "200px" }}>
+                <img src={img.md} alt="Habib Ahmad" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <h4 style={{ fontSize: "14px", fontWeight: 300, color: "#d4af37", margin: "0 0 8px 0", fontFamily: "var(--serif)", letterSpacing: "0.06em" }}>Habib Ahmad</h4>
+              <p style={{ fontSize: "11px", color: "#d4af37", margin: "0 0 12px 0", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--serif)", fontWeight: 300 }}>Managing Director</p>
+              <div style={{ fontSize: "13px", color: "#1a3a52", lineHeight: 1.6, marginBottom: "16px" }}>
+                <div style={{ fontSize: "24px", color: "#d4af37", marginBottom: "8px" }}>"</div>
+                <p style={{ fontSize: "13px" }}>HRL, once a dream has shaped into an absolute reality. This has taken an enduring 60 years of conviction and untiring efforts to see it grow into a group with one of the biggest market clientele within Pakistan and abroad. The company has seen transformation from the conventional to state of the art and highly demanding mechanized construction. HRL has always been on the forefront to take up jobs and assignments with a cause and service to humanity integrated with innovation and global outlook. The hallmark of these efforts is completion of all projects ahead of agreed time frames.</p>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
 
     <footer className="walk-footer reveal-section">
       <Logo />
