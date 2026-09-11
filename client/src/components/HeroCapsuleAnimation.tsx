@@ -317,7 +317,7 @@ export function HeroCapsuleAnimation() {
             width: "30vw",
             height: "18vh",
             borderRadius: "999px",
-            backgroundImage: "url(/desktop_city_aerial.jpg)",
+            backgroundImage: "url(/desktop_city_aerial.png)",
             backgroundSize: "cover",
             backgroundPosition: "center 0.15%",
             boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
@@ -349,7 +349,7 @@ export function HeroCapsuleAnimation() {
                   fontWeight: 400,
                   letterSpacing: "-0.06em",
                   marginBottom: "10px",
-                  color: "#111",
+                  color: "#b2996a",
                   lineHeight: 1.1,
                   fontFamily: "var(--serif)",
                 }}
@@ -360,7 +360,7 @@ export function HeroCapsuleAnimation() {
                 style={{
                   fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
                   lineHeight: 1.5,
-                  color: "#333",
+                  color: "#b2996a",
                   marginTop: "10px",
                   marginBottom: "12px",
                 }}
@@ -424,7 +424,7 @@ export function HeroCapsuleAnimation() {
                 style={{
                   fontSize: "clamp(2.2rem, 10vw, 4rem)",
                   marginBottom: "14px",
-                  color: "#111",
+                  color: "#b2996a",
                   letterSpacing: "-0.04em",
                   fontFamily: "var(--serif)",
                   fontWeight: 300,
@@ -437,7 +437,7 @@ export function HeroCapsuleAnimation() {
                   fontSize: "13px",
                   lineHeight: 1.65,
                   maxWidth: "100%",
-                  color: "#333",
+                  color: "#b2996a",
                 }}
               >
                 Royal Swiss City brings a different kind of presence to

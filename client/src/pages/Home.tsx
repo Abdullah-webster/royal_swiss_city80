@@ -77,157 +77,128 @@ export default function Home() {
     <HeroCapsuleAnimation />
 
     {!isMobile && (
-    <section id="location" className="showcase-section showcase-section-desktop reveal-section" style={{ backgroundImage: "url('/hrl_own_building.jpg')", backgroundSize: "cover", backgroundPosition: "center", position: "relative", overflow: "hidden", minHeight: "600px", display: "flex", alignItems: "center" }}>
-      {/* Overlay gradient */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(250, 247, 240, 0.5) 0%, rgba(250, 247, 240, 0.35) 35%, rgba(250, 247, 240, 0.1) 70%, rgba(250, 247, 240, 0) 100%)", zIndex: 1 }}></div>
-      
-      {/* Content container - Two main columns */}
-      <div style={{ position: "relative", zIndex: 2, display: "grid", gridTemplateColumns: "1fr 1fr", width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "80px 80px 80px 0px", gap: "120px", alignItems: "start" }}>
-        
-        {/* LEFT COLUMN - 60+ and text */}
-        <div style={{ minWidth: 0 }}>
-          <p style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#8B6F47", margin: "0 0 30px 0", fontWeight: 600, fontFamily: "var(--serif)", textShadow: "0 2px 4px rgba(0, 0, 0, 0.2)" }}>A PROUD HERITAGE</p>
-          
-          <div style={{ display: "flex", alignItems: "flex-start", gap: "0px", marginBottom: "35px" }}>
-            <span style={{ fontSize: "320px", fontWeight: 700, color: "#bd964fff", lineHeight: 0.75, fontFamily: "'Playfair Display', serif", fontStyle: "normal", letterSpacing: "-8px", textShadow: "-2px -2px 0px rgba(139, 111, 71, 0.6), -4px -4px 0px rgba(139, 111, 71, 0.4), inset -2px -2px 4px rgba(0,0,0,0.2)", filter: "drop-shadow(0 20px 30px rgba(0, 0, 0, 0.7)) drop-shadow(0 10px 15px rgba(0, 0, 0, 0.6))" }}>60</span>
-            <span style={{ fontSize: "120px", fontWeight: 700, color: "#bd964fff", lineHeight: 0.75, fontFamily: "'Playfair Display', serif", fontStyle: "normal", letterSpacing: "-2px", filter: "drop-shadow(0 15px 25px rgba(0, 0, 0, 0.7)) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.6))", marginTop: "60px" }}>+</span>
-          </div>
-          
-          <div style={{ marginBottom: "35px" }}>
-            <p style={{ fontSize: "30px", fontWeight: 600, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "2px", lineHeight: 1.3, margin: "0", fontFamily: "var(--serif)", textShadow: "0 2px 4px rgba(0, 0, 0, 0.15)" }}>YEARS OF TRUST</p>
-          </div>
-          
-          <p style={{ fontSize: "15px", lineHeight: 1.7, color: "#4a4a4a", marginBottom: "32px", fontWeight: 600, fontFamily: "var(--serif)", textShadow: "0 1px 3px rgba(0, 0, 0, 0.1)" }}>Shaping Communities. Building a Better Tomorrow.</p>
-          
-          <a href="/developer" style={{ background: "#b2996a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease", marginTop: "16px" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>OUR LEGACY</a>
-        </div>
-        
-        {/* RIGHT COLUMN - 3 stacked cards */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "14px", maxWidth: "280px", marginLeft: "auto" }}>
-          {/* Card 1 */}
-          <div style={{ position: "relative", height: "200px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
-            <img src="/bahria-icon-tower-karachi.webp" alt="Iconic Developments" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
-            <div style={{ position: "absolute", bottom: "14px", right: "18px", color: "white", textAlign: "right" }}>
-              <p style={{ fontSize: "9px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}>ICONIC</p>
-              <p style={{ fontSize: "13px", fontWeight: 500, margin: "2px 0 0 0", textTransform: "uppercase", letterSpacing: "1px", fontFamily: "var(--serif)" }}>DEVELOPMENTS</p>
+      <section id="location" className="showcase-section showcase-section-desktop reveal-section" style={{ backgroundImage: "url('/hrl_own_building.jpg')", backgroundSize: window.innerWidth === 1680 ? "500% 100%" : "cover", backgroundRepeat: "no-repeat", backgroundPosition: window.innerWidth === 1680 ? "-500px center" : "center", position: "relative", overflow: "hidden", minHeight: "600px", display: "flex", alignItems: "center" }}>
+
+        {/* Content container - Cards only */}
+        <div style={{ position: "relative", zIndex: 2, display: "flex", width: "100%", maxWidth: "none", margin: "0", padding: "80px 80px 80px 20px", justifyContent: "flex-end", overflow: "visible" }}>
+
+          {/* RIGHT COLUMN - 3 stacked cards */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "14px", maxWidth: "280px", marginLeft: "auto", marginRight: window.innerWidth === 1280 ? "-170px" : window.innerWidth === 1680 ? "-80px" : "-120px" }}>
+            {/* Card 1 */}
+            <div style={{ position: "relative", height: "200px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
+              <img src="/bahria-icon-tower-karachi.webp" alt="Iconic Developments" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
+              <div style={{ position: "absolute", bottom: "14px", right: "18px", color: "white", textAlign: "right" }}>
+                <p style={{ fontSize: "9px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}>ICONIC</p>
+                <p style={{ fontSize: "13px", fontWeight: 500, margin: "2px 0 0 0", textTransform: "uppercase", letterSpacing: "1px", fontFamily: "var(--serif)" }}>DEVELOPMENTS</p>
+              </div>
             </div>
-          </div>
-          
-          {/* Card 2 */}
-          <div style={{ position: "relative", height: "200px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
-            <img src="/grand-jamia-mosque-bahria-town-lahore.webp" alt="Lasting Communities" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
-            <div style={{ position: "absolute", bottom: "14px", right: "18px", color: "white", textAlign: "right" }}>
-              <p style={{ fontSize: "9px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}>LASTING</p>
-              <p style={{ fontSize: "13px", fontWeight: 500, margin: "2px 0 0 0", textTransform: "uppercase", letterSpacing: "1px", fontFamily: "var(--serif)" }}>COMMUNITIES</p>
+
+            {/* Card 2 */}
+            <div style={{ position: "relative", height: "200px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
+              <img src="/grand-jamia-mosque-bahria-town-lahore.webp" alt="Lasting Communities" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
+              <div style={{ position: "absolute", bottom: "14px", right: "18px", color: "white", textAlign: "right" }}>
+                <p style={{ fontSize: "9px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}>LASTING</p>
+                <p style={{ fontSize: "13px", fontWeight: 500, margin: "2px 0 0 0", textTransform: "uppercase", letterSpacing: "1px", fontFamily: "var(--serif)" }}>COMMUNITIES</p>
+              </div>
             </div>
-          </div>
-          
-          {/* Card 3 */}
-          <div style={{ position: "relative", height: "200px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
-            <img src="/101-tower-lahore.webp" alt="A Stronger Pakistan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
-            <div style={{ position: "absolute", bottom: "14px", right: "18px", color: "white", textAlign: "right" }}>
-              <p style={{ fontSize: "9px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}>A STRONGER</p>
-              <p style={{ fontSize: "13px", fontWeight: 500, margin: "2px 0 0 0", textTransform: "uppercase", letterSpacing: "1px", fontFamily: "var(--serif)" }}>PAKISTAN</p>
+
+            {/* Card 3 */}
+            <div style={{ position: "relative", height: "200px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
+              <img src="/101-tower-lahore.webp" alt="A Stronger Pakistan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
+              <div style={{ position: "absolute", bottom: "14px", right: "18px", color: "white", textAlign: "right" }}>
+                <p style={{ fontSize: "9px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}>A STRONGER</p>
+                <p style={{ fontSize: "13px", fontWeight: 500, margin: "2px 0 0 0", textTransform: "uppercase", letterSpacing: "1px", fontFamily: "var(--serif)" }}>PAKISTAN</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     )}
 
     {isMobile && (
-    <>
-      <section id="location-mobile" className="showcase-section showcase-section-mobile reveal-section" style={{ backgroundImage: "url('/hrl_own_building.jpg')", backgroundSize: "cover", backgroundPosition: "center", minHeight: "auto", backgroundColor: "#faf7f0", position: "relative", display: "flex", flexDirection: "column" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(250, 247, 240, 0.5) 0%, rgba(250, 247, 240, 0.35) 35%, rgba(250, 247, 240, 0.1) 70%, rgba(250, 247, 240, 0) 100%)", zIndex: 0 }}></div>
-        <div style={{ textAlign: "left", padding: "40px 20px 40px 0px", position: "relative", zIndex: 1 }}>
-          <p style={{ fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 12px 0", fontWeight: 500 }}>THE LEGACY</p>
-          <div style={{ display: "flex", alignItems: "flex-start", gap: "0px", marginBottom: "8px" }}>
-            <h2 style={{ fontSize: "clamp(80px, 25vw, 240px)", lineHeight: 0.75, margin: "0", fontFamily: "'Playfair Display', serif", fontWeight: 900, color: "#8B6F47", textShadow: "0 4px 12px rgba(0, 0, 0, 0.15)" }}>60</h2>
-            <span style={{ fontSize: "clamp(45px, 14vw, 120px)", lineHeight: 0.75, fontFamily: "'Playfair Display', serif", fontWeight: 900, color: "#8B6F47", textShadow: "0 4px 12px rgba(0, 0, 0, 0.15)", marginTop: "auto" }}>+</span>
+      <>
+        <section id="location-mobile" className="showcase-section showcase-section-mobile reveal-section" style={{ backgroundImage: "url('/hrl_own_building.jpg')", backgroundSize: "cover", backgroundPosition: "0% center", minHeight: "300px", backgroundColor: "#faf7f0", position: "relative", display: "flex", flexDirection: "column" }}>
+        </section>
+
+        <section style={{ backgroundColor: "#faf7f0", position: "relative", display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "30px 20px 0px 10px", position: "relative", zIndex: 1 }}>
+            <p style={{ fontSize: "14px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#8B6F47", margin: "0", fontWeight: 600, fontFamily: "var(--serif)" }}>OUR PROJECTS</p>
+            <a href="/projects" style={{ fontSize: "12px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#0B1E2B", textDecoration: "none", fontWeight: 700, fontFamily: "var(--serif)", display: "flex", alignItems: "center", gap: "6px" }}>View All →</a>
           </div>
-          <p style={{ fontSize: "18px", fontWeight: 600, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "2px", lineHeight: 1.3, margin: "0", fontFamily: "var(--serif)", textShadow: "0 2px 4px rgba(0, 0, 0, 0.15)" }}>YEARS OF TRUST</p>
-        </div>
-      </section>
-      
-      <section style={{ backgroundColor: "#faf7f0", position: "relative", display: "flex", flexDirection: "column" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "30px 20px 0px 10px", position: "relative", zIndex: 1 }}>
-          <p style={{ fontSize: "14px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#8B6F47", margin: "0", fontWeight: 600, fontFamily: "var(--serif)" }}>OUR PROJECTS</p>
-          <a href="/projects" style={{ fontSize: "12px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#0B1E2B", textDecoration: "none", fontWeight: 700, fontFamily: "var(--serif)", display: "flex", alignItems: "center", gap: "6px" }}>View All →</a>
-        </div>
-        <div style={{ position: "relative", zIndex: 1, flex: 1, width: "100vw", marginLeft: "calc(-50vw + 50%)", padding: "5px 0" }}>
-          <div style={{ position: "relative", width: "100%", height: "100%" }}>
-            <ShowcaseCarousel cards={communityCards} />
-            {/* Navigation buttons - positioned on top */}
-            <button
-              onClick={() => document.dispatchEvent(new CustomEvent("carousel-prev"))}
-              style={{
-                position: "absolute",
-                left: "12px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "rgba(0, 0, 0, 0.2)",
-                border: "none",
-                borderRadius: "4px",
-                padding: "8px",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "white",
-                zIndex: 20,
-                transition: "all 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.2)";
-              }}
-              aria-label="Previous card"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-            <button
-              onClick={() => document.dispatchEvent(new CustomEvent("carousel-next"))}
-              style={{
-                position: "absolute",
-                right: "12px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "rgba(0, 0, 0, 0.2)",
-                border: "none",
-                borderRadius: "4px",
-                padding: "8px",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "white",
-                zIndex: 20,
-                transition: "all 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.2)";
-              }}
-              aria-label="Next card"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
+          <div style={{ position: "relative", zIndex: 1, flex: 1, width: "100vw", marginLeft: "calc(-50vw + 50%)", padding: "5px 0" }}>
+            <div style={{ position: "relative", width: "100%", height: "100%" }}>
+              <ShowcaseCarousel cards={communityCards} />
+              {/* Navigation buttons - positioned on top */}
+              <button
+                onClick={() => document.dispatchEvent(new CustomEvent("carousel-prev"))}
+                style={{
+                  position: "absolute",
+                  left: "12px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  background: "rgba(0, 0, 0, 0.2)",
+                  border: "none",
+                  borderRadius: "4px",
+                  padding: "8px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "white",
+                  zIndex: 20,
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.2)";
+                }}
+                aria-label="Previous card"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button
+                onClick={() => document.dispatchEvent(new CustomEvent("carousel-next"))}
+                style={{
+                  position: "absolute",
+                  right: "12px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  background: "rgba(0, 0, 0, 0.2)",
+                  border: "none",
+                  borderRadius: "4px",
+                  padding: "8px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "white",
+                  zIndex: 20,
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "rgba(0, 0, 0, 0.2)";
+                }}
+                aria-label="Next card"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
-    </>
+        </section>
+      </>
     )}
 
     <section className="legacy-quotes-section reveal-section">
@@ -240,7 +211,7 @@ export default function Home() {
         <div className="header-divider">
           <span></span>
           <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor">
-            <circle cx="4" cy="4" r="4"/>
+            <circle cx="4" cy="4" r="4" />
           </svg>
           <span></span>
         </div>
@@ -248,170 +219,170 @@ export default function Home() {
 
       {/* Desktop Version - Full Cards */}
       {!isMobile && (
-      <div className="legacy-quotes">
-        {/* Chairman Card */}
-        <article className="legacy-card legacy-card--chairman reveal-item">
-          <div className="legacy-card__image-wrapper">
-            <img src={img.chairman} alt="Shahid Rafiq" />
-            <div className="legacy-card__image-label">
-              <span>YEARS OF TRUST, QUALITY & EXCELLENCE</span>
+        <div className="legacy-quotes">
+          {/* Chairman Card */}
+          <article className="legacy-card legacy-card--chairman reveal-item">
+            <div className="legacy-card__image-wrapper">
+              <img src={img.chairman} alt="Shahid Rafiq" />
+              <div className="legacy-card__image-label">
+                <span>YEARS OF TRUST, QUALITY & EXCELLENCE</span>
+              </div>
             </div>
-          </div>
-          <div className="legacy-card__divider"></div>
-          <div className="legacy-card__content">
-            <small>CHAIRMAN</small>
-            <h3>THE LEGACY THAT SHAPED OUR JOURNEY</h3>
-            <div className="legacy-card__decoration">
-              <span></span>
-              <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
-                <circle cx="3" cy="3" r="3"/>
-              </svg>
-              <span></span>
+            <div className="legacy-card__divider"></div>
+            <div className="legacy-card__content">
+              <small>CHAIRMAN</small>
+              <h3>THE LEGACY THAT SHAPED OUR JOURNEY</h3>
+              <div className="legacy-card__decoration">
+                <span></span>
+                <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
+                  <circle cx="3" cy="3" r="3" />
+                </svg>
+                <span></span>
+              </div>
+              <div className="legacy-card__quote-section">
+                <div className="legacy-card__quote-mark">"</div>
+                <p className="legacy-quote">Building on this legacy, we now bring the same expertise to modern housing.</p>
+              </div>
+              <a href="/developer#chairman-message" style={{ display: "block", marginTop: "16px", marginBottom: "16px", color: "#b2996a", fontSize: "11px", letterSpacing: "1px", textTransform: "uppercase", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}>READ FULL MESSAGE →</a>
+              <div className="legacy-card__signature">
+                <p><strong>Shahid Rafiq</strong></p>
+                <p>CHAIRMAN, HABIB RAFIQ (PVT.) LTD.</p>
+              </div>
+              <div className="legacy-card__watermark">HRL</div>
             </div>
-            <div className="legacy-card__quote-section">
-              <div className="legacy-card__quote-mark">"</div>
-              <p className="legacy-quote">Building on this legacy, we now bring the same expertise to modern housing.</p>
-            </div>
-            <a href="/developer#chairman-message" style={{ display: "block", marginTop: "16px", marginBottom: "16px", color: "#b2996a", fontSize: "11px", letterSpacing: "1px", textTransform: "uppercase", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}>READ FULL MESSAGE →</a>
-            <div className="legacy-card__signature">
-              <p><strong>Shahid Rafiq</strong></p>
-              <p>CHAIRMAN, HABIB RAFIQ (PVT.) LTD.</p>
-            </div>
-            <div className="legacy-card__watermark">HRL</div>
-          </div>
-        </article>
+          </article>
 
-        {/* CEO Card */}
-        <article className="legacy-card legacy-card--ceo reveal-item">
-          <div className="legacy-card__image-wrapper legacy-card__image-wrapper--right">
-            <img src={img.ceo} alt="Sohaib Hassan" />
-            <div className="legacy-card__image-label legacy-card__image-label--ceo">
-              <span>A VISION FOR TODAY. A PROMISE FOR TOMORROW.</span>
+          {/* CEO Card */}
+          <article className="legacy-card legacy-card--ceo reveal-item">
+            <div className="legacy-card__image-wrapper legacy-card__image-wrapper--right">
+              <img src={img.ceo} alt="Sohaib Hassan" />
+              <div className="legacy-card__image-label legacy-card__image-label--ceo">
+                <span>A VISION FOR TODAY. A PROMISE FOR TOMORROW.</span>
+              </div>
             </div>
-          </div>
-          <div className="legacy-card__divider legacy-card__divider--right"></div>
-          <div className="legacy-card__content legacy-card__content--left">
-            <small>CHIEF EXECUTIVE</small>
-            <h3>THE VISION THAT SHAPES OUR FUTURE</h3>
-            <div className="legacy-card__decoration">
-              <span></span>
-              <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
-                <circle cx="3" cy="3" r="3"/>
-              </svg>
-              <span></span>
+            <div className="legacy-card__divider legacy-card__divider--right"></div>
+            <div className="legacy-card__content legacy-card__content--left">
+              <small>CHIEF EXECUTIVE</small>
+              <h3>THE VISION THAT SHAPES OUR FUTURE</h3>
+              <div className="legacy-card__decoration">
+                <span></span>
+                <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
+                  <circle cx="3" cy="3" r="3" />
+                </svg>
+                <span></span>
+              </div>
+              <div className="legacy-card__quote-section">
+                <div className="legacy-card__quote-mark">"</div>
+                <p className="legacy-quote">We are creating spaces where future generations can thrive.</p>
+              </div>
+              <a href="/developer#ceo-message" style={{ display: "block", marginTop: "16px", marginBottom: "16px", color: "#b2996a", fontSize: "11px", letterSpacing: "1px", textTransform: "uppercase", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}>READ FULL MESSAGE →</a>
+              <div className="legacy-card__signature">
+                <p><strong>Sohaib Hassan</strong></p>
+                <p>CHIEF EXECUTIVE</p>
+              </div>
             </div>
-            <div className="legacy-card__quote-section">
-              <div className="legacy-card__quote-mark">"</div>
-              <p className="legacy-quote">We are creating spaces where future generations can thrive.</p>
-            </div>
-            <a href="/developer#ceo-message" style={{ display: "block", marginTop: "16px", marginBottom: "16px", color: "#b2996a", fontSize: "11px", letterSpacing: "1px", textTransform: "uppercase", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}>READ FULL MESSAGE →</a>
-            <div className="legacy-card__signature">
-              <p><strong>Sohaib Hassan</strong></p>
-              <p>CHIEF EXECUTIVE</p>
-            </div>
-          </div>
-        </article>
-      </div>
+          </article>
+        </div>
       )}
 
       {/* Mobile Version - Simple Layout */}
       {isMobile && (
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", margin: "30px 0 40px 0" }}>
-        {/* Chairman Card Mobile */}
-        <div style={{ textAlign: "center" }}>
-          <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "180px" }}>
-            <img src={img.chairman} alt="Shahid Rafiq" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", margin: "30px 0 40px 0" }}>
+          {/* Chairman Card Mobile */}
+          <div style={{ textAlign: "center" }}>
+            <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "180px" }}>
+              <img src={img.chairman} alt="Shahid Rafiq" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <h4 style={{ fontSize: "14px", fontWeight: 300, color: "#d4af37", margin: "0 0 4px 0", fontFamily: "var(--serif)", letterSpacing: "0.06em" }}>Shahid Rafiq</h4>
+            <p style={{ fontSize: "11px", color: "#d4af37", margin: "0", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--serif)", fontWeight: 300 }}>Chairman</p>
           </div>
-          <h4 style={{ fontSize: "14px", fontWeight: 600, color: "#111", margin: "0 0 4px 0" }}>Shahid Rafiq</h4>
-          <p style={{ fontSize: "11px", color: "#999", margin: "0", textTransform: "uppercase", letterSpacing: "0.5px" }}>Chairman</p>
-        </div>
 
-        {/* CEO Card Mobile */}
-        <div style={{ textAlign: "center" }}>
-          <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "180px" }}>
-            <img src={img.ceo} alt="Sohaib Hassan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          {/* CEO Card Mobile */}
+          <div style={{ textAlign: "center" }}>
+            <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "180px" }}>
+              <img src={img.ceo} alt="Sohaib Hassan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <h4 style={{ fontSize: "14px", fontWeight: 300, color: "#d4af37", margin: "0 0 4px 0", fontFamily: "var(--serif)", letterSpacing: "0.06em" }}>Sohaib Hassan</h4>
+            <p style={{ fontSize: "11px", color: "#d4af37", margin: "0", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--serif)", fontWeight: 300 }}>Chief Executive</p>
           </div>
-          <h4 style={{ fontSize: "14px", fontWeight: 600, color: "#111", margin: "0 0 4px 0" }}>Sohaib Hassan</h4>
-          <p style={{ fontSize: "11px", color: "#999", margin: "0", textTransform: "uppercase", letterSpacing: "0.5px" }}>Chief Executive</p>
         </div>
-      </div>
       )}
 
       {/* Timeline Section */}
       {!isMobile && (
-      <div className="legacy-timeline">
-        <div className="timeline-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" strokeWidth="1.5"/>
-            <polyline points="9 22 9 12 15 12 15 22" strokeWidth="1.5"/>
-          </svg>
-          <p><strong>60+ YEARS OF LEGACY</strong></p>
+        <div className="legacy-timeline">
+          <div className="timeline-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" strokeWidth="1.5" />
+              <polyline points="9 22 9 12 15 12 15 22" strokeWidth="1.5" />
+            </svg>
+            <p><strong>60+ YEARS OF LEGACY</strong></p>
+          </div>
+          <div className="timeline-connector"></div>
+          <div className="timeline-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" strokeWidth="1.5" />
+              <line x1="9" y1="11" x2="9" y2="17" strokeWidth="1.5" />
+              <line x1="13" y1="11" x2="13" y2="17" strokeWidth="1.5" />
+              <line x1="17" y1="11" x2="17" y2="17" strokeWidth="1.5" />
+            </svg>
+            <p><strong>A FUTURE BUILT TO LAST</strong></p>
+          </div>
         </div>
-        <div className="timeline-connector"></div>
-        <div className="timeline-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" strokeWidth="1.5"/>
-            <line x1="9" y1="11" x2="9" y2="17" strokeWidth="1.5"/>
-            <line x1="13" y1="11" x2="13" y2="17" strokeWidth="1.5"/>
-            <line x1="17" y1="11" x2="17" y2="17" strokeWidth="1.5"/>
-          </svg>
-          <p><strong>A FUTURE BUILT TO LAST</strong></p>
-        </div>
-      </div>
       )}
 
       <div style={{ textAlign: "center" }}><a href="/developer" style={{ background: "#b2996a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease", marginTop: "48px", marginBottom: "0px" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>LEARN MORE ABOUT HRL</a></div>
     </section>
 
-    <section className="future-section reveal-section"><div style={{ display: "flex", flexDirection: "row", gap: "6vw", alignItems: "center", maxWidth: "100%", overflow: "hidden" }}><img src={img.green} alt="Green Energy" style={{ flex: "0 0 35%", minWidth: 0, objectFit: "cover", width: "100%", height: "400px" }} /><div style={{ flex: 1, minWidth: 0 }}><p className="section-kicker">THE FUTURE</p><h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(45px, 6vw, 85px)", fontWeight: 300, lineHeight: 0.84, marginBottom: "20px", color: "#111" }}>Built around<br /><em>sustainable living.</em></h2><p style={{ fontSize: "14px", lineHeight: 1.75, color: "#6b645c", maxWidth: "430px" }}>Royal Swiss City is designed with environmental responsibility at its core. From solar infrastructure to water management systems, every element reflects our commitment to creating a sustainable community for generations to come.</p></div></div>
-    
-    {/* Sustainability Icons */}
-    <div className="sustainability-icons-grid" style={{ display: "grid", gridTemplateColumns: window.innerWidth <= 370 ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: window.innerWidth <= 370 ? "12px" : "30px", marginTop: "60px", marginBottom: "60px", textAlign: "center", padding: window.innerWidth <= 370 ? "0 12px" : "0" }}>
-      <div>
-        <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "60px", height: "60px", borderRadius: "50%", border: "1.5px solid #b2996aff", marginBottom: "12px" }}>
-          <Leaf size={28} color="#b2996aff" strokeWidth={1.5} />
+    <section className="future-section reveal-section" style={{ backgroundImage: window.innerWidth > 768 ? "url('/thefuture_bg_desktop.webp')" : "none", backgroundSize: "1000px 600px", backgroundPosition: "top right", backgroundRepeat: "no-repeat", minHeight: "350px", display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "100px", paddingLeft: "8vw", paddingRight: "8vw", backgroundColor: "#f4f4f4" }}><div style={{ display: window.innerWidth > 768 ? "flex" : "flex", flexDirection: "row", gap: "6vw", alignItems: "center", maxWidth: "100%", overflow: "hidden" }}>{window.innerWidth <= 768 && <img src={img.green} alt="Green Energy" style={{ flex: "0 0 35%", minWidth: 0, objectFit: "cover", width: "100%", height: "400px" }} />}<div style={{ flex: 1, minWidth: 0 }}><p className="section-kicker">THE FUTURE</p><h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(45px, 6vw, 85px)", fontWeight: 300, lineHeight: 0.84, marginBottom: "20px", color: "#1a3a52" }}>Built around<br /><em>sustainable living.</em></h2><p style={{ fontSize: "14px", lineHeight: 1.75, color: "#6b645c", maxWidth: "430px" }}>Royal Swiss City is designed with environmental responsibility at its core. From solar infrastructure to water management systems, every element reflects our commitment to creating a sustainable community for generations to come.</p></div></div>
+
+      {/* Sustainability Icons */}
+      <div className="sustainability-icons-grid" style={{ display: "grid", gridTemplateColumns: window.innerWidth <= 370 ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: window.innerWidth <= 370 ? "12px" : "30px", marginTop: window.innerWidth > 768 ? "130px" : "60px", marginBottom: "0px", textAlign: "center", padding: window.innerWidth <= 370 ? "0 12px" : "0" }}>
+        <div>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "60px", height: "60px", borderRadius: "50%", border: "1.5px solid #b2996aff", marginBottom: "12px" }}>
+            <Leaf size={28} color="#b2996aff" strokeWidth={1.5} />
+          </div>
+          <h3 style={{ fontSize: "11px", fontWeight: 600, color: "#1a3a52", margin: "0 0 4px 0", textTransform: "uppercase", letterSpacing: "0.08em" }}>GREEN SPACES</h3>
+          <p style={{ fontSize: "10px", color: "#6b645c", margin: "0", lineHeight: 1.4 }}>For a healthier life</p>
         </div>
-        <h3 style={{ fontSize: "11px", fontWeight: 600, color: "#111", margin: "0 0 4px 0", textTransform: "uppercase", letterSpacing: "0.08em" }}>GREEN SPACES</h3>
-        <p style={{ fontSize: "10px", color: "#6b645c", margin: "0", lineHeight: 1.4 }}>For a healthier life</p>
-      </div>
-      
-      <div>
-        <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "60px", height: "60px", borderRadius: "50%", border: "1.5px solid #b2996aff", marginBottom: "12px" }}>
-          <Droplets size={28} color="#b2996aff" strokeWidth={1.5} />
+
+        <div>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "60px", height: "60px", borderRadius: "50%", border: "1.5px solid #b2996aff", marginBottom: "12px" }}>
+            <Droplets size={28} color="#b2996aff" strokeWidth={1.5} />
+          </div>
+          <h3 style={{ fontSize: "11px", fontWeight: 600, color: "#1a3a52", margin: "0 0 4px 0", textTransform: "uppercase", letterSpacing: "0.08em" }}>WATER SENSITIVE</h3>
+          <p style={{ fontSize: "10px", color: "#6b645c", margin: "0", lineHeight: 1.4 }}>Sustainable systems</p>
         </div>
-        <h3 style={{ fontSize: "11px", fontWeight: 600, color: "#111", margin: "0 0 4px 0", textTransform: "uppercase", letterSpacing: "0.08em" }}>WATER SENSITIVE</h3>
-        <p style={{ fontSize: "10px", color: "#6b645c", margin: "0", lineHeight: 1.4 }}>Sustainable systems</p>
-      </div>
-      
-      <div>
-        <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "60px", height: "60px", borderRadius: "50%", border: "1.5px solid #b2996aff", marginBottom: "12px" }}>
-          <Recycle size={28} color="#b2996aff" strokeWidth={1.5} />
+
+        <div>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "60px", height: "60px", borderRadius: "50%", border: "1.5px solid #b2996aff", marginBottom: "12px" }}>
+            <Recycle size={28} color="#b2996aff" strokeWidth={1.5} />
+          </div>
+          <h3 style={{ fontSize: "11px", fontWeight: 600, color: "#1a3a52", margin: "0 0 4px 0", textTransform: "uppercase", letterSpacing: "0.08em" }}>CLEAN ENERGY</h3>
+          <p style={{ fontSize: "10px", color: "#6b645c", margin: "0", lineHeight: 1.4 }}>For a better future</p>
         </div>
-        <h3 style={{ fontSize: "11px", fontWeight: 600, color: "#111", margin: "0 0 4px 0", textTransform: "uppercase", letterSpacing: "0.08em" }}>CLEAN ENERGY</h3>
-        <p style={{ fontSize: "10px", color: "#6b645c", margin: "0", lineHeight: 1.4 }}>For a better future</p>
-      </div>
-      
-      <div>
-        <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "60px", height: "60px", borderRadius: "50%", border: "1.5px solid #b2996aff", marginBottom: "12px" }}>
-          <Users size={28} color="#b2996aff" strokeWidth={1.5} />
+
+        <div>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "60px", height: "60px", borderRadius: "50%", border: "1.5px solid #b2996aff", marginBottom: "12px" }}>
+            <Users size={28} color="#b2996aff" strokeWidth={1.5} />
+          </div>
+          <h3 style={{ fontSize: "11px", fontWeight: 600, color: "#1a3a52", margin: "0 0 4px 0", textTransform: "uppercase", letterSpacing: "0.08em" }}>COMMUNITY FIRST</h3>
+          <p style={{ fontSize: "10px", color: "#6b645c", margin: "0", lineHeight: 1.4 }}>Stronger together</p>
         </div>
-        <h3 style={{ fontSize: "11px", fontWeight: 600, color: "#111", margin: "0 0 4px 0", textTransform: "uppercase", letterSpacing: "0.08em" }}>COMMUNITY FIRST</h3>
-        <p style={{ fontSize: "10px", color: "#6b645c", margin: "0", lineHeight: 1.4 }}>Stronger together</p>
       </div>
-    </div>
     </section>
 
-    <section style={{ background: "linear-gradient(135deg, #fae3bb 0%, #c9bfb3 50%, #d6d0c6 100%)", padding: "60px 0 80px 0" }}>
-    <div style={{ maxWidth: "100%", margin: "0 auto", paddingLeft: "8vw", paddingRight: "8vw" }}>
-      <div style={{ textAlign: "center", marginBottom: "40px" }}>
-        <p style={{ fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 12px 0", fontWeight: 500 }}>THE OPPORTUNITY</p>
-        <h2 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontFamily: "var(--serif)", fontWeight: 300, color: "#111", margin: "0", lineHeight: 1.2 }}>YOUR PLACE IN<br />WHAT COMES NEXT</h2>
+    <section style={{ background: "linear-gradient(135deg, #fae3bb 0%, #c9bfb3 50%, #d6d0c6 100%)", padding: "40px 0 80px 0" }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", paddingLeft: window.innerWidth <= 768 ? "4vw" : "8vw", paddingRight: window.innerWidth <= 768 ? "4vw" : "8vw" }}>
+        <div style={{ textAlign: "center", marginBottom: "40px" }}>
+          <p style={{ fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 12px 0", fontWeight: 500 }}>THE OPPORTUNITY</p>
+          <h2 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontFamily: "var(--serif)", fontWeight: 300, color: "#1a3a52", margin: "0", lineHeight: 1.2 }}>YOUR PLACE IN<br />WHAT COMES NEXT</h2>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: window.innerWidth <= 370 ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: window.innerWidth <= 370 ? "8px" : "12px", marginBottom: window.innerWidth <= 370 ? "60px" : "40px", overflowX: window.innerWidth <= 370 ? "auto" : undefined, padding: window.innerWidth <= 370 ? "0 8px" : "0" }} className="mobile-plot-options"><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 3.5</h3></div><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 5</h3></div><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 2</h3></div><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="7" y1="11" x2="7" y2="17" /><line x1="11" y1="11" x2="11" y2="17" /><line x1="15" y1="11" x2="15" y2="17" /><line x1="19" y1="11" x2="19" y2="17" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 4</h3></div></div><div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px", marginBottom: "40px" }} className="desktop-plot-options"><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 3.5</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 5</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 10</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>KANAL 1</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>KANAL 2</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 2</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 4</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 8</h3></div></div><div style={{ textAlign: "center" }}><a href="/enquire" style={{ background: "#b2996a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>EXPLORE ALL OPTIONS</a></div>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: window.innerWidth <= 370 ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: window.innerWidth <= 370 ? "8px" : "12px", marginBottom: window.innerWidth <= 370 ? "60px" : "40px", overflowX: window.innerWidth <= 370 ? "auto" : undefined, padding: window.innerWidth <= 370 ? "0 8px" : "0" }} className="mobile-plot-options"><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "12px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 3.5</h3></div><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 10l1.05-3.15a1 1 0 0 1 .95-.85h14a1 1 0 0 1 .95.85L21 10M3 10v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9M9 14h1M14 14h1M9 18h1M14 18h1" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "12px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 5</h3></div><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "12px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 2</h3></div><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="7" y1="11" x2="7" y2="17" /><line x1="11" y1="11" x2="11" y2="17" /><line x1="15" y1="11" x2="15" y2="17" /><line x1="19" y1="11" x2="19" y2="17" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "12px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 4</h3></div></div><div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px", marginBottom: "40px" }} className="desktop-plot-options"><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 3.5</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 5</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 10</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#111", margin: "0" }}>KANAL 1</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#111", margin: "0" }}>KANAL 2</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 2</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 4</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#111", margin: "0" }}>MARLA 8</h3></div></div><div style={{ textAlign: "center" }}><a href="/enquire" style={{ background: "#b2996a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>EXPLORE ALL OPTIONS</a></div>
-    </div>
     </section>
 
-    <section id="partner" className="partner-strip"><img src={img.partnership} alt="Royal Swiss City partnership network" /><div><p className="section-kicker">PARTNERSHIP</p><h2>PARTNER WITH US<br /></h2><p>Join the Royal Swiss City partner network and help your clients find a place they'll be proud to call home. We'll give you the tools, support, and information you need to guide them with confidence.</p><a className="outline-cta" href="#enquire" style={{ transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>APPLY FOR PARTNERSHIP</a><div style={{ marginTop: "60px" }}><h3 style={{ fontSize: "16px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "30px", color: "#111" }}>AUTHORIZED DEALERS & SALES PARTNERS</h3><div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: isMobile ? "12px" : "16px", marginBottom: "40px" }}>{dealersData.slice(0, 6).map((dealer, i) => <div key={i} onClick={() => setSelectedDealer(dealer)} style={{ background: "#fff", padding: isMobile ? "12px" : "16px", borderRadius: "6px", border: "1px solid #e0d9d1", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease", position: "relative" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}><div style={{ width: isMobile ? "40px" : "50px", height: isMobile ? "40px" : "50px", background: "#f1f1f1", borderRadius: "6px", margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{dealer.logo ? <img src={dealer.logo} alt={dealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "10px", color: "#999" }}>Logo</span>}</div><p style={{ fontSize: isMobile ? "10px" : "11px", fontWeight: 500, color: "#111", margin: "0 0 4px 0", lineHeight: 1.2 }}>{dealer.name}</p><p style={{ fontSize: isMobile ? "8px" : "9px", color: "#999", margin: "0 0 8px 0" }}>{dealer.type}</p><p style={{ fontSize: isMobile ? "7px" : "8px", color: "#b2996a", margin: "0", fontStyle: "italic", display: isMobile ? "none" : "block" }}>TAP FOR MORE</p></div>)}</div><div style={{ textAlign: "center" }}><a href="/partner" style={{ background: "none", color: "#111", border: "1px solid #111", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.background = "#111"; (e.target as HTMLElement).style.color = "#fff"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.background = "none"; (e.target as HTMLElement).style.color = "#111"; }}>VIEW ALL</a></div></div></div></section>
+    <section id="partner" className="partner-strip"><img src={img.partnership} alt="Royal Swiss City partnership network" /><div><p className="section-kicker" style={{ color: "#1a3a52" }}>PARTNERSHIP</p><h2 style={{ color: "#1a3a52", fontFamily: "var(--serif)", fontSize: "clamp(32px, 4vw, 55px)", fontWeight: 300, lineHeight: 0.9, margin: "0 0 24px" }}>PARTNER WITH US<br /></h2><p style={{ color: "#1a3a52" }}>Join the Royal Swiss City partner network and help your clients find a place they'll be proud to call home. We'll give you the tools, support, and information you need to guide them with confidence.</p><a className="outline-cta" href="#enquire" style={{ transition: "all 0.3s ease", background: "#1a3a52", color: "#fff", borderColor: "#1a3a52" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>APPLY FOR PARTNERSHIP</a><div style={{ marginTop: "60px" }}><h3 style={{ fontSize: "16px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "30px", color: "#1a3a52" }}>AUTHORIZED DEALERS & SALES PARTNERS</h3><div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: isMobile ? "12px" : "16px", marginBottom: "40px" }}>{dealersData.slice(0, 6).map((dealer, i) => <div key={i} onClick={() => setSelectedDealer(dealer)} style={{ background: "rgba(255, 255, 255, 0.15)", backdropFilter: "blur(10px)", padding: isMobile ? "12px" : "16px", borderRadius: "12px", border: "1px solid rgba(26, 58, 82, 0.3)", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease", position: "relative" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(26, 58, 82, 0.2)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.25)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.15)"; }}><div style={{ width: isMobile ? "40px" : "50px", height: isMobile ? "40px" : "50px", background: "rgba(26, 58, 82, 0.2)", borderRadius: "6px", margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{dealer.logo ? <img src={dealer.logo} alt={dealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "10px", color: "#1a3a52" }}>Logo</span>}</div><p style={{ fontSize: isMobile ? "10px" : "11px", fontWeight: 500, color: "#1a3a52", margin: "0 0 4px 0", lineHeight: 1.2 }}>{dealer.name}</p><p style={{ fontSize: isMobile ? "8px" : "9px", color: "#1a3a52", margin: "0 0 8px 0" }}>{dealer.type}</p><p style={{ fontSize: isMobile ? "7px" : "8px", color: "#1a3a52", margin: "0", fontStyle: "italic", display: isMobile ? "none" : "block" }}>TAP FOR MORE</p></div>)}</div><div style={{ textAlign: "center" }}><a href="/partner" style={{ background: "none", color: "#1a3a52", border: "1px solid #1a3a52", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.background = "#1a3a52"; (e.target as HTMLElement).style.color = "#fff"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.background = "none"; (e.target as HTMLElement).style.color = "#1a3a52"; }}>VIEW ALL</a></div></div></div></section>
     <footer className="walk-footer reveal-section"><div className="footer-accordions">{footerLinks.map(item => {
       let learnMoreLink = "";
       if (item === "Residential Plots") learnMoreLink = "#residential";
@@ -422,7 +393,7 @@ export default function Home() {
       else if (item === "FAQ") learnMoreLink = "/#faq";
       else if (item === "Partner") learnMoreLink = "/#partner";
       else if (item === "Enquire") learnMoreLink = "/enquire";
-      
+
       return <div className={openFooter === item ? "open" : ""} key={item}><button onClick={() => setOpenFooter(openFooter === item ? null : item)}>{item}<ChevronDown size={14} /></button>{openFooter === item && <div><p style={{ whiteSpace: "pre-line" }}>{footerDescriptions[item as keyof typeof footerDescriptions]}</p>{learnMoreLink && <a href={learnMoreLink} style={{ display: "inline-block", marginTop: "12px", color: "#b2996a", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>LEARN MORE →</a>}</div>}</div>
     })}</div><div className="footer-socials"><a href="https://instagram.com/royalswisscity" target="_blank" rel="noopener noreferrer" title="Instagram"><Instagram size={24} /></a><a href="https://facebook.com/royalswisscity" target="_blank" rel="noopener noreferrer" title="Facebook"><Facebook size={24} /></a><a href="https://tiktok.com/@royalswisscity" target="_blank" rel="noopener noreferrer" title="TikTok"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 0 1-2.4 2.4 2.4 2.4 0 0 1-2.4-2.4 2.4 2.4 0 0 1 2.4-2.4c.34 0 .67.05.98.15V9.41a5.81 5.81 0 0 0-.98-.08 6.04 6.04 0 0 0-6.04 6.04 6.04 6.04 0 0 0 6.04 6.04 6.04 6.04 0 0 0 6.04-6.04v-3.1a7.7 7.7 0 0 0 3.77 1.01V9.81a4.77 4.77 0 0 1-.77-.06z" /></svg></a><a href="https://linkedin.com/company/royalswisscity" target="_blank" rel="noopener noreferrer" title="LinkedIn"><Linkedin size={24} /></a><a href="https://youtube.com/@royalswisscity" target="_blank" rel="noopener noreferrer" title="YouTube"><Youtube size={24} /></a><a href="https://x.com/royalswisscity" target="_blank" rel="noopener noreferrer" title="X"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.637l-5.1-6.694-5.867 6.694h-3.306l7.733-8.835L2.25 2.25h6.814l4.882 6.45L18.244 2.25zM17.083 18.386h1.83L6.959 4.155H5.049l12.034 14.231z" /></svg></a></div><div className="footer-contact"><b>Where life happens.</b><span>© 2026 ROYAL SWISS CITY · PRIVACY POLICY · SITEMAP</span></div></footer>
 
@@ -431,16 +402,16 @@ export default function Home() {
     {selectedDealer && (
       <div className="dealer-modal-overlay" onClick={() => setSelectedDealer(null)}>
         <div className="dealer-modal" onClick={(e) => e.stopPropagation()}>
-          <button className="modal-close" onClick={() => setSelectedDealer(null)}><X size={24} /></button>
+          <button className="modal-close" onClick={() => setSelectedDealer(null)} style={{ background: "transparent", border: "none", padding: "8px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#d4b896", transition: "all 0.3s ease", position: "absolute", top: "16px", right: "16px" }}><X size={24} /></button>
           <div className="modal-content">
-            <div style={{ width: "100px", height: "100px", background: "#f1f1f1", borderRadius: "12px", margin: "0 auto 24px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{selectedDealer.logo ? <img src={selectedDealer.logo} alt={selectedDealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "14px", color: "#999" }}>Logo</span>}</div>
-            <h2>{selectedDealer.name}</h2>
+            <div style={{ width: "100px", height: "100px", background: "rgba(212, 184, 150, 0.2)", borderRadius: "12px", margin: "0 auto 24px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{selectedDealer.logo ? <img src={selectedDealer.logo} alt={selectedDealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "14px", color: "#d4b896" }}>Logo</span>}</div>
+            <h2 style={{ color: "#d4b896", fontSize: "24px", fontWeight: 600, margin: "16px 0 8px 0" }}>{selectedDealer.name}</h2>
             <p className="modal-type">{selectedDealer.type}</p>
             <p className="modal-location">{selectedDealer.location}</p>
             <p className="modal-description">{selectedDealer.description}</p>
             <div style={{ marginTop: "24px", display: "flex", gap: "12px", flexDirection: "column" }}>
-              <a href="tel:+9242111777588" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#b2996a", fontSize: "12px", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>042 111 777 588</a>
-              <a href="mailto:royalswisscity@gmail.com" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#b2996a", fontSize: "12px", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>royalswisscity@gmail.com</a>
+              <a href="tel:+9242111777588" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#d4b896", fontSize: "12px", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>042 111 777 588</a>
+              <a href="mailto:royalswisscity@gmail.com" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#d4b896", fontSize: "12px", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>royalswisscity@gmail.com</a>
             </div>
           </div>
         </div>

@@ -621,11 +621,13 @@ a {
 }
 
 .walk-footer {
-    background: #f6f6f6;
+    background: rgba(245, 250, 255, 0.05);
+    backdrop-filter: blur(30px);
+    border-top: 1px solid rgba(200, 220, 240, 0.1);
     padding: 46px 18px 95px;
     text-align: center;
     position: relative;
-    z-index: 3
+    z-index: 3;
 }
 
 .walk-footer>.sobha-logo,
@@ -659,13 +661,13 @@ a {
 
 .walk-footer>.sobha-logo,
 .walk-footer>.brand-logo {
-    color: #141414;
+    color: #1a3a52;
     font-size: 23px;
     margin: 0 auto 45px
 }
 
 .footer-contact {
-    border-top: 1px solid #c8c8c8;
+    border-top: 1px solid rgba(26, 58, 82, 0.3);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -682,7 +684,7 @@ a {
 }
 
 .footer-socials a {
-    color: #171717;
+    color: #1a3a52;
     transition: opacity .3s ease, transform .3s ease, color .3s ease;
     display: flex;
     align-items: center;
@@ -692,23 +694,24 @@ a {
 .footer-socials a:hover {
     opacity: .6;
     transform: translateY(-4px) scale(1.15);
-    color: #b2996a;
+    color: #1a3a52;
 }
 
 .footer-contact b {
     font-family: var(--serif);
     font-size: 18px;
-    font-weight: 400
+    font-weight: 400;
+    color: #1a3a52;
 }
 
 .footer-contact span {
-    color: #777;
+    color: #1a3a52;
     font-size: 10px;
     letter-spacing: .08em
 }
 
 .footer-accordions>div {
-    border-bottom: 1px solid #c7c7c7
+    border-bottom: 1px solid rgba(26, 58, 82, 0.3)
 }
 
 .footer-accordions button {
@@ -722,10 +725,11 @@ a {
     width: 100%;
     transition: all 0.3s ease;
     cursor: pointer;
+    color: #1a3a52;
 }
 
 .footer-accordions button:hover {
-    color: #b2996a;
+    color: #1a3a52;
 }
 
 .footer-accordions button svg {
@@ -737,25 +741,15 @@ a {
 }
 
 .footer-accordions p {
-    color: #8b8b8b;
+    color: #1a3a52;
     font-size: 11px;
     margin: 0 0 14px;
     animation: slideDown 0.3s ease;
 }
 
 .footer-accordions a {
+    color: #1a3a52;
     animation: slideDown 0.3s ease 0.15s backwards;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .footer-trust {
@@ -766,11 +760,12 @@ a {
 .footer-trust small {
     display: block;
     font-size: 11px;
-    font-weight: 500
+    font-weight: 500;
+    color: #1a3a52;
 }
 
 .footer-trust span {
-    color: #b2996a;
+    color: #1a3a52;
     display: block;
     font-size: 18px;
     letter-spacing: 3px;
@@ -778,8 +773,8 @@ a {
 }
 
 .footer-legal {
-    border-top: 1px solid #c8c8c8;
-    color: #777;
+    border-top: 1px solid rgba(26, 58, 82, 0.3);
+    color: #1a3a52;
     display: flex;
     flex-wrap: wrap;
     font-size: 8px;
@@ -790,6 +785,13 @@ a {
 }
 
 
+
+/* Partner Strip Base Styles */
+.partner-strip {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
 .mobile-menu {
     background: #050505;
@@ -908,13 +910,15 @@ a {
     .desktop-links a {
         font-size: 10px;
         letter-spacing: .14em;
-        transition: opacity .2s ease, transform .2s ease
+        transition: opacity .2s ease, transform .2s ease;
+        color: #1a3a52;
+        font-weight: 600;
     }
 
     .desktop-links a:hover {
         opacity: .5;
         font-size: 12px;
-        color: #ffb236;
+        color: #b2996a;
         transform: translateY(-2px);
         font-style: italic;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -966,9 +970,13 @@ a {
         height: 480px
     }
 
-    .properties,
-    .press,
     .walk-footer {
+        padding-left: 8vw;
+        padding-right: 8vw;
+    }
+
+    .properties,
+    .press {
         padding-left: 8vw;
         padding-right: 8vw
     }
@@ -994,7 +1002,9 @@ a {
 
     .partner-strip {
         align-items: center;
-        background: #f1f1f1;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.15) 100%);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
         display: grid;
         gap: 8vw;
         grid-template-columns: 38% 1fr;
@@ -1436,6 +1446,9 @@ a {
         grid-template-columns: 35% 1fr;
         gap: 16px;
         padding: 74px 23px 84px;
+        background: linear-gradient(135deg, rgba(100, 150, 200, 0.35) 0%, rgba(120, 160, 210, 0.25) 100%);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(150, 180, 220, 0.3);
     }
 
     .partner-strip img {
@@ -1691,7 +1704,7 @@ a {
 }
 
 .legacy-quotes-section {
-    background: #f5f1eb;
+    background: url(/prtnr_bg_desktop.png) center/cover no-repeat;
     padding: 4vw 8vw;
     position: relative;
     z-index: 3;
@@ -1728,7 +1741,7 @@ a {
     font-family: var(--serif);
     font-size: clamp(32px, 4.5vw, 56px);
     font-weight: 300;
-    color: #1a1410;
+    color: #b2996a;
     margin: 0;
     letter-spacing: 0.06em;
 }
@@ -1737,7 +1750,7 @@ a {
     font-size: 10px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--champagne);
+    color: #b2996a;
     margin: 0 0 16px 0;
     font-weight: 400;
 }
@@ -1879,6 +1892,7 @@ a {
     justify-content: flex-start;
     position: relative;
     overflow: hidden;
+    background: #fff;
 }
 
 .legacy-card__content--left {
@@ -1886,7 +1900,8 @@ a {
 }
 
 .legacy-card small {
-    color: var(--champagne);
+    color: #b2996a;
+    font-family: var(--serif);
     letter-spacing: 0.15em;
     font-size: 8px;
     font-weight: 600;
@@ -1897,7 +1912,7 @@ a {
     font-family: var(--serif);
     font-size: clamp(20px, 3vw, 32px);
     font-weight: 300;
-    color: #1a1410;
+    color: #1a3a52;
     line-height: 1.15;
     margin: 12px 0 0 0;
     letter-spacing: 0.02em;
@@ -1949,7 +1964,7 @@ a {
     font-family: var(--serif);
     font-size: 24px;
     line-height: 1.5;
-    color: #1a1410;
+    color: #1a3a52;
     margin: 0;
     font-weight: 300;
 }
@@ -1973,7 +1988,7 @@ a {
     margin: 0;
     font-family: var(--serif);
     font-size: 14px;
-    color: #1a1410;
+    color: #1a3a52;
     font-weight: 400;
 }
 
@@ -2562,6 +2577,7 @@ a {
 
     .legacy-quotes-section {
         padding: 2vw 23px 2vw 23px;
+        background: url(/prtnr_bg_mobile.png) center/cover no-repeat;
     }
 
     .legacy-quotes {
@@ -2573,6 +2589,11 @@ a {
     .legacy-card {
         grid-template-columns: 35% 1fr;
         margin-bottom: 16px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     .legacy-card img {
@@ -2591,6 +2612,29 @@ a {
     .legacy-card p {
         font-size: 11px;
         line-height: 1.5;
+    }
+
+    .legacy-card__signature p {
+        font-family: var(--serif);
+        font-size: 13px;
+    }
+
+    .legacy-card__signature p:last-child {
+        font-family: var(--serif);
+        font-size: 9px;
+    }
+
+    .legacy-card small {
+        font-family: var(--serif);
+        font-weight: 300;
+        font-size: 11px;
+        color: #b2996a;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    .legacy-card__content {
+        background: rgba(255, 255, 255, 0.1);
     }
 
     .future-section {
@@ -2636,21 +2680,21 @@ a {
         }
 
         .mobile-plot-options > div {
-            flex: 0 0 70px !important;
-            padding: 10px 6px !important;
+            flex: 0 0 60px !important;
+            padding: 8px 4px !important;
         }
 
         .mobile-plot-options svg {
-            width: 16px !important;
-            height: 16px !important;
+            width: 14px !important;
+            height: 14px !important;
         }
 
         .mobile-plot-options h3 {
-            font-size: 8px !important;
+            font-size: 7px !important;
         }
 
         .mobile-plot-options p {
-            font-size: 6px !important;
+            font-size: 5px !important;
         }
 
         .sustainability-icons-grid {
@@ -4915,24 +4959,130 @@ a {
     }
     
     /* Reduce the 3 vertical image cards on the right */
-    .showcase-section-desktop > div:last-child > div:nth-child(2) {
+    .showcase-section-desktop > div > div:first-child {
         width: 210px !important; /* 300px * 0.7 */
         gap: 9.8px !important; /* 14px * 0.7 */
         margin-left: auto !important;
-        margin-right: -100px !important; /* Move more to the left */
+        margin-right: -100px !important; /* Move to the right but keep visible */
     }
     
     /* Individual image card height */
-    .showcase-section-desktop > div:last-child > div:nth-child(2) > div {
+    .showcase-section-desktop > div > div:first-child > div {
         height: 140px !important; /* 200px * 0.7 */
     }
     
     /* Image card text sizing */
-    .showcase-section-desktop > div:last-child > div:nth-child(2) > div p:first-of-type {
+    .showcase-section-desktop > div > div:first-child > div p:first-of-type {
         font-size: 14px !important; /* 20px * 0.7 */
     }
     
-    .showcase-section-desktop > div:last-child > div:nth-child(2) > div p:last-of-type {
+    .showcase-section-desktop > div > div:first-child > div p:last-of-type {
         font-size: 17.5px !important; /* 25px * 0.7 */
     }
+    
+    /* Move cards to the right on 1280px */
+    .showcase-section-desktop > div {
+        padding-left: -400px !important;
+        padding-right: 80px !important;
+    }
+    
+    .showcase-section-desktop {
+        min-height: 100px !important;
+    }
+}
+
+/* Media query for 1680px width - keep default sizes */
+@media (width: 1680px) {
+    /* 1680px uses default/original sizing - no scaling needed */
+    
+    /* Move background image more to the right */
+    .showcase-section-desktop {
+        background-position: right center !important;
+    }
+}
+
+/* Partner Section Background Images */
+.partner-strip {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+
+/* Dealer Modal Styles */
+.dealer-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.dealer-modal {
+    background: rgba(100, 150, 200, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 184, 150, 0.4);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4b896;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: none;
+    transform: scale(1.1);
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #d4b896;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 16px 0 8px 0;
+}
+
+.modal-type {
+    color: #d4b896;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 8px 0;
+}
+
+.modal-location {
+    color: #d4b896;
+    font-size: 12px;
+    margin: 0 0 16px 0;
+}
+
+.modal-description {
+    color: #d4b896;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 16px 0;
 }
