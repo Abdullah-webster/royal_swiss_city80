@@ -384,12 +384,118 @@ export default function Home() {
           <p style={{ fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 12px 0", fontWeight: 500 }}>THE OPPORTUNITY</p>
           <h2 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontFamily: "var(--serif)", fontWeight: 300, color: "#1a3a52", margin: "0", lineHeight: 1.2 }}>YOUR PLACE IN<br />WHAT COMES NEXT</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: window.innerWidth <= 370 ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: window.innerWidth <= 370 ? "8px" : "12px", marginBottom: window.innerWidth <= 370 ? "60px" : "40px", overflowX: window.innerWidth <= 370 ? "auto" : undefined, padding: window.innerWidth <= 370 ? "0 8px" : "0" }} className="mobile-plot-options"><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 3.5</h3></div><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 5</h3></div><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 2</h3></div><div style={{ background: "#fff", padding: "18px 12px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="7" y1="11" x2="7" y2="17" /><line x1="11" y1="11" x2="11" y2="17" /><line x1="15" y1="11" x2="15" y2="17" /><line x1="19" y1="11" x2="19" y2="17" /></svg><p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 6px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 4</h3></div></div><div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px", marginBottom: "40px" }} className="desktop-plot-options"><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 3.5</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 5</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 10</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>KANAL 1</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>RESIDENTIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>KANAL 2</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 2</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 4</h3></div><div style={{ background: "#fff", padding: "25px 15px", textAlign: "center", borderRadius: "8px", border: "1px solid #e0d9d1" }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 12px" }}><path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" /><line x1="9" y1="11" x2="9" y2="17" /><line x1="13" y1="11" x2="13" y2="17" /><line x1="17" y1="11" x2="17" y2="17" /></svg><p style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", margin: "0 0 8px 0" }}>COMMERCIAL</p><h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 8</h3></div></div><div style={{ textAlign: "center" }}><a href="/enquire" style={{ background: "#b2996a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>EXPLORE ALL OPTIONS</a></div>
+        {/* Mobile: 1 Residential + 1 Commercial */}
+        <div style={{ display: window.innerWidth > 768 ? "none" : "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px", marginBottom: "60px" }} className="mobile-plot-options">
+          {/* Residential Card */}
+          <div style={{ background: "#fff", borderRadius: "8px", border: "1px solid #e0d9d1", overflow: "hidden" }}>
+            <div style={{ height: "100px", overflow: "hidden", backgroundColor: "#f0f0f0" }}>
+              <img src="/residential_plots.jpg" alt="Residential Plots" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ padding: "12px", textAlign: "center" }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 6px" }}>
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+              <p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 4px 0" }}>RESIDENTIAL</p>
+              <h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 3.5</h3>
+            </div>
+          </div>
+
+          {/* Commercial Card */}
+          <div style={{ background: "#fff", borderRadius: "8px", border: "1px solid #e0d9d1", overflow: "hidden" }}>
+            <div style={{ height: "100px", overflow: "hidden", backgroundColor: "#f0f0f0" }}>
+              <img src="/commerical_plots.jpg" alt="Commercial Plots" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ padding: "12px", textAlign: "center" }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 6px" }}>
+                <rect x="3" y="3" width="18" height="18" rx="1" />
+                <rect x="7" y="7" width="3" height="3" />
+                <rect x="13" y="7" width="3" height="3" />
+                <rect x="7" y="13" width="3" height="3" />
+                <rect x="13" y="13" width="3" height="3" />
+                <rect x="13" y="19" width="4" height="2" />
+              </svg>
+              <p style={{ fontSize: "8px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 4px 0" }}>COMMERCIAL</p>
+              <h3 style={{ fontSize: "10px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 2</h3>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: 2 Residential + 2 Commercial */}
+        <div style={{ display: window.innerWidth > 768 ? "grid" : "none", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px", marginBottom: "40px" }} className="desktop-plot-options">
+          {/* Residential Card 1 */}
+          <div style={{ background: "#fff", borderRadius: "8px", border: "1px solid #e0d9d1", overflow: "hidden" }}>
+            <div style={{ height: "120px", overflow: "hidden", backgroundColor: "#f0f0f0" }}>
+              <img src="/residential_plots.jpg" alt="Residential Plots" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ padding: "15px", textAlign: "center" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}>
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+              <p style={{ fontSize: "9px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 4px 0" }}>RESIDENTIAL</p>
+              <h3 style={{ fontSize: "12px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 3.5</h3>
+            </div>
+          </div>
+
+          {/* Residential Card 2 */}
+          <div style={{ background: "#fff", borderRadius: "8px", border: "1px solid #e0d9d1", overflow: "hidden" }}>
+            <div style={{ height: "120px", overflow: "hidden", backgroundColor: "#f0f0f0" }}>
+              <img src="/residential_plots.jpg" alt="Residential Plots" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ padding: "15px", textAlign: "center" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}>
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+              <p style={{ fontSize: "9px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 4px 0" }}>RESIDENTIAL</p>
+              <h3 style={{ fontSize: "12px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 5</h3>
+            </div>
+          </div>
+
+          {/* Commercial Card 1 */}
+          <div style={{ background: "#fff", borderRadius: "8px", border: "1px solid #e0d9d1", overflow: "hidden" }}>
+            <div style={{ height: "120px", overflow: "hidden", backgroundColor: "#f0f0f0" }}>
+              <img src="/commerical_plots.jpg" alt="Commercial Plots" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ padding: "15px", textAlign: "center" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}>
+                <rect x="3" y="3" width="18" height="18" rx="1" />
+                <rect x="7" y="7" width="3" height="3" />
+                <rect x="13" y="7" width="3" height="3" />
+                <rect x="7" y="13" width="3" height="3" />
+                <rect x="13" y="13" width="3" height="3" />
+                <rect x="13" y="19" width="4" height="2" />
+              </svg>
+              <p style={{ fontSize: "9px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 4px 0" }}>COMMERCIAL</p>
+              <h3 style={{ fontSize: "12px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 2</h3>
+            </div>
+          </div>
+
+          {/* Commercial Card 2 */}
+          <div style={{ background: "#fff", borderRadius: "8px", border: "1px solid #e0d9d1", overflow: "hidden" }}>
+            <div style={{ height: "120px", overflow: "hidden", backgroundColor: "#f0f0f0" }}>
+              <img src="/commerical_plots.jpg" alt="Commercial Plots" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ padding: "15px", textAlign: "center" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a3a52" strokeWidth="1.5" style={{ display: "block", margin: "0 auto 8px" }}>
+                <rect x="3" y="3" width="18" height="18" rx="1" />
+                <rect x="7" y="7" width="3" height="3" />
+                <rect x="13" y="7" width="3" height="3" />
+                <rect x="7" y="13" width="3" height="3" />
+                <rect x="13" y="13" width="3" height="3" />
+                <rect x="13" y="19" width="4" height="2" />
+              </svg>
+              <p style={{ fontSize: "9px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#999", margin: "0 0 4px 0" }}>COMMERCIAL</p>
+              <h3 style={{ fontSize: "12px", fontWeight: 400, color: "#1a3a52", margin: "0" }}>MARLA 4</h3>
+            </div>
+          </div>
+        </div><div style={{ textAlign: "center" }}><a href="/enquire" style={{ background: "#b2996a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>EXPLORE ALL OPTIONS</a></div>
       </div>
     </section>
 
     <section id="partner" className="partner-strip"><img src={img.partnership} alt="Royal Swiss City partnership network" /><div><p className="section-kicker" style={{ color: "#1a3a52" }}>PARTNERSHIP</p><h2 style={{ color: "#1a3a52", fontFamily: "var(--serif)", fontSize: "clamp(32px, 4vw, 55px)", fontWeight: 300, lineHeight: 0.9, margin: "0 0 24px" }}>PARTNER WITH US<br /></h2><p style={{ color: "#1a3a52" }}>Join the Royal Swiss City partner network and help your clients find a place they'll be proud to call home. We'll give you the tools, support, and information you need to guide them with confidence.</p><a className="outline-cta" href="#enquire" style={{ transition: "all 0.3s ease", background: "#1a3a52", color: "#fff", borderColor: "#1a3a52" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>APPLY FOR PARTNERSHIP</a><div style={{ marginTop: "60px" }}><h3 style={{ fontSize: "16px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "30px", color: "#1a3a52" }}>AUTHORIZED DEALERS & SALES PARTNERS</h3><div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: isMobile ? "12px" : "16px", marginBottom: "40px" }}>{dealersData.slice(0, 6).map((dealer, i) => <div key={i} onClick={() => setSelectedDealer(dealer)} style={{ background: "rgba(255, 255, 255, 0.15)", backdropFilter: "blur(10px)", padding: isMobile ? "12px" : "16px", borderRadius: "12px", border: "1px solid rgba(26, 58, 82, 0.3)", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease", position: "relative" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(26, 58, 82, 0.2)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.25)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.15)"; }}><div style={{ width: isMobile ? "40px" : "50px", height: isMobile ? "40px" : "50px", background: "rgba(26, 58, 82, 0.2)", borderRadius: "6px", margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{dealer.logo ? <img src={dealer.logo} alt={dealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "10px", color: "#1a3a52" }}>Logo</span>}</div><p style={{ fontSize: isMobile ? "10px" : "11px", fontWeight: 500, color: "#1a3a52", margin: "0 0 4px 0", lineHeight: 1.2 }}>{dealer.name}</p><p style={{ fontSize: isMobile ? "8px" : "9px", color: "#1a3a52", margin: "0 0 8px 0" }}>{dealer.type}</p><p style={{ fontSize: isMobile ? "7px" : "8px", color: "#1a3a52", margin: "0", fontStyle: "italic", display: isMobile ? "none" : "block" }}>TAP FOR MORE</p></div>)}</div><div style={{ textAlign: "center" }}><a href="/partner" style={{ background: "none", color: "#1a3a52", border: "1px solid #1a3a52", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.background = "#1a3a52"; (e.target as HTMLElement).style.color = "#fff"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.background = "none"; (e.target as HTMLElement).style.color = "#1a3a52"; }}>VIEW ALL</a></div></div></div></section>
-    <footer className="walk-footer reveal-section"><div className="footer-accordions">{footerLinks.map(item => {
+    <footer className="walk-footer reveal-section" style={{ backgroundImage: window.innerWidth > 768 ? "url('/footer_bg_desktop.jpeg')" : "url('/footer_bg_mobile.jpeg')", backgroundSize: "cover", backgroundPosition: window.innerWidth > 768 ? "center -300px" : "center", backgroundRepeat: "no-repeat" }}><div className="footer-accordions">{footerLinks.map(item => {
       let learnMoreLink = "";
       if (item === "Residential Plots") learnMoreLink = "#residential";
       else if (item === "Commercial Plots") learnMoreLink = "#commercial";
