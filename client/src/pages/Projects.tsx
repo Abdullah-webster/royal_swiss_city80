@@ -3,8 +3,8 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { animateFooter } from "@/utils/sectionAnimations";
 
 const img = { logo: "https://royal-swiss-city-30.vercel.app/logo.png" };
-const nav = ["HOME", "THE CITY", "DEVELOPER", "LOCATION", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
-const navMobile = ["HOME", "THE CITY", "DEVELOPER", "PROJECTS", "LOCATION", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
+const nav = ["HOME", "THE CITY", "DEVELOPER", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
+const navMobile = ["HOME", "THE CITY", "DEVELOPER", "PROJECTS", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
 
 const footerContent = {
   "ABOUT": "Habib Rafiq (Pvt.) Limited: 60+ years of engineering excellence delivering projects across infrastructure, housing, buildings, and industrial sectors.",
@@ -52,6 +52,9 @@ function Anchor({ item }: { item: string }) {
   }
   if (item === "PROJECTS") {
     return <a href="/projects">{item}</a>
+  }
+  if (item === "THE CITY") {
+    return <a href="/the-city">{item}</a>
   }
   return <a href={`#${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</a> 
 }

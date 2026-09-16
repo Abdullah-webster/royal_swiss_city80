@@ -18,6 +18,9 @@ function Anchor({ item }: { item: string }) {
   if (item === "ENQUIRE") {
     return <a href="/enquire">{item}</a>
   }
+  if (item === "THE CITY") {
+    return <a href="/the-city">{item}</a>
+  }
   return <a href={`#${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</a>
 }
 
@@ -36,7 +39,7 @@ export default function Enquire() {
     message: "",
   });
 
-  const nav = ["HOME", "THE CITY", "DEVELOPER", "LOCATION", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
+  const nav = ["HOME", "THE CITY", "DEVELOPER", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
   const footerLinks = ["Residential Plots", "Commercial Plots", "The City", "Developer", "Location", "FAQ", "Partner", "Enquire"];
   const footerDescriptions = {
     "Residential Plots": " MARLA 3.5 MARLA 5 MARLA 10 KANAL 1 KANAL 2",

@@ -93,7 +93,8 @@ export function ProjectsCarousel({ isMobileView }: { isMobileView: boolean }) {
           >
             <img src={project.image} alt={project.title} style={{ width: "100%", height: isMobileView ? "280px" : "240px", objectFit: "cover" }} />
             <div style={{ 
-              padding: isMobileView ? "18px" : "16px", 
+              padding: (isMobileView || hoveredCard === i) ? (isMobileView ? "18px" : "16px") : "0",
+              background: (isMobileView || hoveredCard === i) ? "rgba(255, 255, 255, 0.7)" : "transparent",
               opacity: (isMobileView || hoveredCard === i) ? 1 : 0,
               maxHeight: (isMobileView || hoveredCard === i) ? "200px" : "0",
               overflow: "hidden",

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Developer from "./pages/Developer";
 import Projects from "./pages/Projects";
 import Enquire from "./pages/Enquire";
+import TheCity from "./pages/TheCity";
 
 export default function App() {
   const [location] = useLocation();
@@ -18,6 +19,10 @@ export default function App() {
 
   if (location === "/enquire") {
     return <Enquire />;
+  }
+
+  if (location === "/the-city") {
+    return <TheCity />;
   }
 
   return <Home />;

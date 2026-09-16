@@ -5,8 +5,8 @@ import { ShowcaseCarousel } from "@/components/ShowcaseCarousel";
 import { animateLegacySection, animateFooter, animateShowcaseSection } from "@/utils/sectionAnimations";
 
 const img = { logo: "https://royal-swiss-city-30.vercel.app/logo.png", hero: "/city-aerial.jpg", city: "/city-aerial.jpg", developer: "/hrl-highrise.jpg", green: "/green-energy.jpg", chairman: "/chairman.png", ceo: "/ceo.png", partnership: "/hand_shaking.jpg", residences: "/hrl-roads.jpg", aerial: "/city-aerial.jpg" };
-const nav = ["HOME", "THE CITY", "DEVELOPER", "LOCATION", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
-const navMobile = ["HOME", "THE CITY", "DEVELOPER", "PROJECTS", "LOCATION", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
+const nav = ["HOME", "THE CITY", "DEVELOPER", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
+const navMobile = ["HOME", "THE CITY", "DEVELOPER", "PROJECTS", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
 const footerLinks = ["Residential Plots", "Commercial Plots", "The City", "Developer", "Location", "FAQ", "Partner", "Enquire"];
 const footerDescriptions = {
   "Residential Plots": "Discover a range of residential plot sizes to suit your needs. Choose from MARLA 3.5, MARLA 5, MARLA 10, KANAL 1, and KANAL 2 options designed for modern living.",
@@ -39,6 +39,9 @@ function Anchor({ item }: { item: string }) {
   }
   if (item === "ENQUIRE") {
     return <a href="/enquire">{item}</a>
+  }
+  if (item === "THE CITY") {
+    return <a href="/the-city">{item}</a>
   }
   return <a href={`#${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</a>
 }
@@ -308,30 +311,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* Timeline Section */}
-      {!isMobile && (
-        <div className="legacy-timeline">
-          <div className="timeline-item">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" strokeWidth="1.5" />
-              <polyline points="9 22 9 12 15 12 15 22" strokeWidth="1.5" />
-            </svg>
-            <p><strong>60+ YEARS OF LEGACY</strong></p>
-          </div>
-          <div className="timeline-connector"></div>
-          <div className="timeline-item">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M3 21h18M3 7v13M21 7v13M5 3h14v4H5z" strokeWidth="1.5" />
-              <line x1="9" y1="11" x2="9" y2="17" strokeWidth="1.5" />
-              <line x1="13" y1="11" x2="13" y2="17" strokeWidth="1.5" />
-              <line x1="17" y1="11" x2="17" y2="17" strokeWidth="1.5" />
-            </svg>
-            <p><strong>A FUTURE BUILT TO LAST</strong></p>
-          </div>
-        </div>
-      )}
-
-      <div style={{ textAlign: "center" }}><a href="/developer" style={{ background: "#b2996a", color: "#111", border: "none", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease", marginTop: "48px", marginBottom: "0px" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>LEARN MORE ABOUT HRL</a></div>
     </section>
 
     <section className="future-section reveal-section" style={{ backgroundImage: window.innerWidth > 768 ? "url('/thefuture_bg_desktop.webp')" : "none", backgroundSize: window.innerWidth > 768 ? "1000px 600px" : "280px auto", backgroundPosition: window.innerWidth > 768 ? "top -50px right" : "0px 0px", backgroundRepeat: "no-repeat", minHeight: window.innerWidth > 768 ? "350px" : "400px", display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: "0px", paddingLeft: window.innerWidth > 768 ? "8vw" : "8vw", paddingRight: "8vw", backgroundColor: "#f4f4f4", backgroundClip: "padding-box" }}>
@@ -494,7 +473,7 @@ export default function Home() {
       </div>
     </section>
 
-    <section id="partner" className="partner-strip"><img src={img.partnership} alt="Royal Swiss City partnership network" /><div><p className="section-kicker" style={{ color: "#1a3a52" }}>PARTNERSHIP</p><h2 style={{ color: "#1a3a52", fontFamily: "var(--serif)", fontSize: "clamp(32px, 4vw, 55px)", fontWeight: 300, lineHeight: 0.9, margin: "0 0 24px" }}>PARTNER WITH US<br /></h2><p style={{ color: "#1a3a52" }}>Join the Royal Swiss City partner network and help your clients find a place they'll be proud to call home. We'll give you the tools, support, and information you need to guide them with confidence.</p><a className="outline-cta" href="#enquire" style={{ transition: "all 0.3s ease", background: "#1a3a52", color: "#fff", borderColor: "#1a3a52" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>APPLY FOR PARTNERSHIP</a><div style={{ marginTop: "60px" }}><h3 style={{ fontSize: "16px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "30px", color: "#1a3a52" }}>AUTHORIZED DEALERS & SALES PARTNERS</h3><div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: isMobile ? "12px" : "16px", marginBottom: "40px" }}>{dealersData.slice(0, 6).map((dealer, i) => <div key={i} onClick={() => setSelectedDealer(dealer)} style={{ background: "rgba(255, 255, 255, 0.15)", backdropFilter: "blur(10px)", padding: isMobile ? "12px" : "16px", borderRadius: "12px", border: "1px solid rgba(26, 58, 82, 0.3)", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease", position: "relative" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(26, 58, 82, 0.2)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.25)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.15)"; }}><div style={{ width: isMobile ? "40px" : "50px", height: isMobile ? "40px" : "50px", background: "rgba(26, 58, 82, 0.2)", borderRadius: "6px", margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{dealer.logo ? <img src={dealer.logo} alt={dealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "10px", color: "#1a3a52" }}>Logo</span>}</div><p style={{ fontSize: isMobile ? "10px" : "11px", fontWeight: 500, color: "#1a3a52", margin: "0 0 4px 0", lineHeight: 1.2 }}>{dealer.name}</p><p style={{ fontSize: isMobile ? "8px" : "9px", color: "#1a3a52", margin: "0 0 8px 0" }}>{dealer.type}</p><p style={{ fontSize: isMobile ? "7px" : "8px", color: "#1a3a52", margin: "0", fontStyle: "italic", display: isMobile ? "none" : "block" }}>TAP FOR MORE</p></div>)}</div><div style={{ textAlign: "center" }}><a href="/partner" style={{ background: "none", color: "#1a3a52", border: "1px solid #1a3a52", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.background = "#1a3a52"; (e.target as HTMLElement).style.color = "#fff"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.background = "none"; (e.target as HTMLElement).style.color = "#1a3a52"; }}>VIEW ALL</a></div></div></div></section>
+    <section id="partner" className="partner-strip" style={{ backgroundPosition: "center -150px" }}><img src={img.partnership} alt="Royal Swiss City partnership network" style={{ marginTop: "-370px" }} /><div><p className="section-kicker" style={{ color: "#1a3a52" }}>PARTNERSHIP</p><h2 style={{ color: "#1a3a52", fontFamily: "var(--serif)", fontSize: "clamp(32px, 4vw, 55px)", fontWeight: 300, lineHeight: 0.9, margin: "0 0 24px" }}>PARTNER WITH US<br /></h2><p style={{ color: "#1a3a52" }}>Join the Royal Swiss City partner network and help your clients find a place they'll be proud to call home. We'll give you the tools, support, and information you need to guide them with confidence.</p><a className="outline-cta" href="#enquire" style={{ transition: "all 0.3s ease", background: "#1a3a52", color: "#fff", borderColor: "#1a3a52" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>APPLY FOR PARTNERSHIP</a><div style={{ marginTop: "60px" }}><h3 style={{ fontSize: "16px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "30px", color: "#1a3a52" }}>AUTHORIZED DEALERS & SALES PARTNERS</h3><div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: isMobile ? "12px" : "16px", marginBottom: "40px" }}>{dealersData.slice(0, 6).map((dealer, i) => <div key={i} onClick={() => setSelectedDealer(dealer)} style={{ background: "rgba(255, 255, 255, 0.15)", backdropFilter: "blur(10px)", padding: isMobile ? "12px" : "16px", borderRadius: "12px", border: "1px solid rgba(26, 58, 82, 0.3)", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease", position: "relative" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(26, 58, 82, 0.2)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.25)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.15)"; }}><div style={{ width: isMobile ? "40px" : "50px", height: isMobile ? "40px" : "50px", background: "rgba(26, 58, 82, 0.2)", borderRadius: "6px", margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>{dealer.logo ? <img src={dealer.logo} alt={dealer.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} /> : <span style={{ fontSize: "10px", color: "#1a3a52" }}>Logo</span>}</div><p style={{ fontSize: isMobile ? "10px" : "11px", fontWeight: 500, color: "#1a3a52", margin: "0 0 4px 0", lineHeight: 1.2 }}>{dealer.name}</p><p style={{ fontSize: isMobile ? "8px" : "9px", color: "#1a3a52", margin: "0 0 8px 0" }}>{dealer.type}</p><p style={{ fontSize: isMobile ? "7px" : "8px", color: "#1a3a52", margin: "0", fontStyle: "italic", display: isMobile ? "none" : "block" }}>TAP FOR MORE</p></div>)}</div><div style={{ textAlign: "center" }}><a href="/partner" style={{ background: "none", color: "#1a3a52", border: "1px solid #1a3a52", padding: "12px 28px", borderRadius: "999px", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.background = "#1a3a52"; (e.target as HTMLElement).style.color = "#fff"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.background = "none"; (e.target as HTMLElement).style.color = "#1a3a52"; }}>VIEW ALL</a></div></div></div></section>
     <footer className="walk-footer reveal-section" style={{ backgroundImage: window.innerWidth > 768 ? "url('/footer_bg_desktop.jpeg')" : "url('/footer_bg_mobile.jpeg')", backgroundSize: "cover", backgroundPosition: window.innerWidth > 768 ? "center -300px" : "center", backgroundRepeat: "no-repeat" }}><div className="footer-accordions">{footerLinks.map(item => {
       let learnMoreLink = "";
       if (item === "Residential Plots") learnMoreLink = "#residential";
@@ -509,7 +488,31 @@ export default function Home() {
       return <div className={openFooter === item ? "open" : ""} key={item}><button onClick={() => setOpenFooter(openFooter === item ? null : item)}>{item}<ChevronDown size={14} /></button>{openFooter === item && <div><p style={{ whiteSpace: "pre-line" }}>{footerDescriptions[item as keyof typeof footerDescriptions]}</p>{learnMoreLink && <a href={learnMoreLink} style={{ display: "inline-block", marginTop: "12px", color: "#b2996a", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", fontWeight: 500, transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = "0.7"; (e.target as HTMLElement).style.transform = "translateY(-2px)"; }} onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = "1"; (e.target as HTMLElement).style.transform = "translateY(0)"; }}>LEARN MORE →</a>}</div>}</div>
     })}</div><div className="footer-socials"><a href="https://instagram.com/royalswisscity" target="_blank" rel="noopener noreferrer" title="Instagram"><Instagram size={24} /></a><a href="https://facebook.com/royalswisscity" target="_blank" rel="noopener noreferrer" title="Facebook"><Facebook size={24} /></a><a href="https://tiktok.com/@royalswisscity" target="_blank" rel="noopener noreferrer" title="TikTok"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 0 1-2.4 2.4 2.4 2.4 0 0 1-2.4-2.4 2.4 2.4 0 0 1 2.4-2.4c.34 0 .67.05.98.15V9.41a5.81 5.81 0 0 0-.98-.08 6.04 6.04 0 0 0-6.04 6.04 6.04 6.04 0 0 0 6.04 6.04 6.04 6.04 0 0 0 6.04-6.04v-3.1a7.7 7.7 0 0 0 3.77 1.01V9.81a4.77 4.77 0 0 1-.77-.06z" /></svg></a><a href="https://linkedin.com/company/royalswisscity" target="_blank" rel="noopener noreferrer" title="LinkedIn"><Linkedin size={24} /></a><a href="https://youtube.com/@royalswisscity" target="_blank" rel="noopener noreferrer" title="YouTube"><Youtube size={24} /></a><a href="https://x.com/royalswisscity" target="_blank" rel="noopener noreferrer" title="X"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.637l-5.1-6.694-5.867 6.694h-3.306l7.733-8.835L2.25 2.25h6.814l4.882 6.45L18.244 2.25zM17.083 18.386h1.83L6.959 4.155H5.049l12.034 14.231z" /></svg></a></div><div className="footer-contact"><b>Where life happens.</b><span>© 2026 ROYAL SWISS CITY · PRIVACY POLICY · SITEMAP</span></div></footer>
 
-    <div className={`mobile-menu ${menuOpen ? "open" : ""}`}><div className="mobile-menu__top"><button onClick={() => setMenuOpen(false)} aria-label="Close"><ChevronDown size={22} /></button><button onClick={() => setMenuOpen(false)} aria-label="Close"><X size={22} /></button></div><div className="mobile-menu__links">{navMobile.map(item => { const href = item === "DEVELOPER" ? "/developer" : item === "PROJECTS" ? "/projects" : item === "HOME" ? "/" : `#${item.toLowerCase().replaceAll(" ", "-")}`; return <a href={href} onClick={() => setMenuOpen(false)} key={item}>{item}</a> })}</div></div>
+    <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+      <div className="mobile-menu__top">
+        <button onClick={() => setMenuOpen(false)} aria-label="Close">
+          <ChevronDown size={22} />
+        </button>
+        <button onClick={() => setMenuOpen(false)} aria-label="Close">
+          <X size={22} />
+        </button>
+      </div>
+      <div className="mobile-menu__links">
+        {navMobile.map(item => {
+          let href = "";
+          if (item === "HOME") href = "/";
+          else if (item === "THE CITY") href = "/the-city";
+          else if (item === "DEVELOPER") href = "/developer";
+          else if (item === "PROJECTS") href = "/projects";
+          else if (item === "ENQUIRE") href = "/enquire";
+          else if (item === "FAQ") href = "/#faq";
+          else if (item === "PARTNER") href = "/#partner";
+          else if (item === "DEALER") href = "/#dealer";
+          
+          return <a href={href} onClick={() => setMenuOpen(false)} key={item}>{item}</a>;
+        })}
+      </div>
+    </div>
 
     {selectedDealer && (
       <div className="dealer-modal-overlay" onClick={() => setSelectedDealer(null)}>
