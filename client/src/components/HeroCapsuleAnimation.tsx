@@ -67,7 +67,7 @@ export function HeroCapsuleAnimation() {
       tl.to(
         ".art-content-desktop h2",
         {
-          fontSize: "1.8rem",
+          fontSize: "calc(1.8rem + 15px)",
           duration: 1,
         },
         0
@@ -95,7 +95,7 @@ export function HeroCapsuleAnimation() {
       tl.to(
         ".art-content-desktop h2",
         {
-          fontSize: "4rem",
+          fontSize: "calc(4rem + 15px)",
           duration: 1.5,
         },
         "-=1.5"
@@ -213,6 +213,8 @@ export function HeroCapsuleAnimation() {
               muted
               loop
               playsInline
+              preload="auto"
+              poster="/city-aerial.jpg"
               style={{
                 position: "absolute",
                 top: 0,
@@ -223,7 +225,7 @@ export function HeroCapsuleAnimation() {
                 objectPosition: "center",
               }}
             >
-              <source src="/hero-bg.mp4" type="video/mp4" />
+              <source src={typeof window !== "undefined" && window.innerWidth <= 768 ? "/hero-mobile-bg.mp4" : "/home_desktop_bg.mp4"} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -317,10 +319,10 @@ export function HeroCapsuleAnimation() {
             width: "30vw",
             height: "18vh",
             borderRadius: "999px",
-            backgroundImage: "url(/desktop_city_aerial.png)",
+            boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
+            backgroundImage: "url(/desktop_city_aerial.webp)",
             backgroundSize: "cover",
             backgroundPosition: "center 0.15%",
-            boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
           }}
         >
           <div
@@ -338,38 +340,83 @@ export function HeroCapsuleAnimation() {
           >
             <div
               style={{
-                maxWidth: "100%",
+                maxWidth: "920px",
+                margin: "0 auto",
                 padding: "20px 30px",
                 textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
               }}
             >
               <h2
                 style={{
-                  fontSize: "clamp(1.5rem, 3vw, 2rem)",
+                  fontSize: "calc(clamp(1.5rem, 3vw, 2rem) + 15px)",
                   fontWeight: 400,
                   letterSpacing: "-0.06em",
-                  marginBottom: "10px",
-                  color: "#b2996a",
+                  marginBottom: "22px",
+                  color: "#ffffff",
                   lineHeight: 1.1,
                   fontFamily: "var(--serif)",
                 }}
               >
-                Where Life Happens
+                Where{" "}
+                <span
+                  style={{
+                    position: "relative",
+                    display: "inline-block",
+                    fontStyle: "italic",
+                    color: "#b2996a",
+                    fontSize: "calc(1em + 30px)",
+                    verticalAlign: "baseline",
+                  }}
+                >
+                  Life
+                  <svg
+                    viewBox="0 0 900 180"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      bottom: "calc(-0.22em + 8px)",
+                      width: "142%",
+                      height: "0.32em",
+                      pointerEvents: "none",
+                      overflow: "visible",
+                    }}
+                  >
+                    <path
+                      d="M 20 125 C 145 46, 278 16, 410 37 C 540 58, 610 98, 720 108 C 790 114, 850 90, 885 55 C 850 100, 788 126, 720 122 C 608 112, 538 72, 410 53 C 278 34, 145 64, 20 125 Z"
+                      fill="#b2996a"
+                    />
+                  </svg>
+                </span>{" "}
+                Happens
               </h2>
               <p
                 style={{
-                  fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
-                  lineHeight: 1.5,
+                  fontSize: "clamp(0.72rem, 0.95vw, 0.86rem)",
+                  lineHeight: 1.6,
                   color: "#b2996a",
-                  marginTop: "10px",
+                  marginTop: "12px",
                   marginBottom: "12px",
+                  maxWidth: "920px",
+                  width: "100%",
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  textAlign: "center",
                 }}
               >
-                Royal Swiss City brings a different kind of presence to
-                Lahore's next horizon. Set within the Ravi Riverfront vision,
-                it pairs a secure, planned setting with generous landscapes,
-                carefully considered streets, and the everyday ease of a
-                complete community.
+                <span style={{ display: "block", whiteSpace: "nowrap" }}>
+                  Royal Swiss City brings a different kind of presence to Lahore's next horizon.
+                </span>
+                <span style={{ display: "block", whiteSpace: "nowrap" }}>
+                  Set within the Ravi Riverfront vision, it pairs a secure, planned setting with generous landscapes,
+                </span>
+                <span style={{ display: "block", whiteSpace: "nowrap" }}>
+                  carefully considered streets, and the everyday ease of a complete community.
+                </span>
               </p>
             </div>
           </div>
@@ -422,15 +469,47 @@ export function HeroCapsuleAnimation() {
             >
               <h2
                 style={{
-                  fontSize: "clamp(2.2rem, 10vw, 4rem)",
-                  marginBottom: "14px",
-                  color: "#b2996a",
+                  fontSize: "clamp(1.75rem, 7vw, 2.75rem)",
+                  marginBottom: "24px",
+                  color: "#ffffff",
                   letterSpacing: "-0.04em",
                   fontFamily: "var(--serif)",
                   fontWeight: 300,
                 }}
               >
-                Where Life Happens
+                Where{" "}
+                <span
+                  style={{
+                    position: "relative",
+                    display: "inline-block",
+                    fontStyle: "italic",
+                    color: "#b2996a",
+                    fontSize: "calc(1em + clamp(14px, 3.5vw, 24px))",
+                    verticalAlign: "baseline",
+                  }}
+                >
+                  Life
+                  <svg
+                    viewBox="0 0 900 180"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      bottom: "calc(-0.22em + 8px)",
+                      width: "142%",
+                      height: "0.32em",
+                      pointerEvents: "none",
+                      overflow: "visible",
+                    }}
+                  >
+                    <path
+                      d="M 20 125 C 145 46, 278 16, 410 37 C 540 58, 610 98, 720 108 C 790 114, 850 90, 885 55 C 850 100, 788 126, 720 122 C 608 112, 538 72, 410 53 C 278 34, 145 64, 20 125 Z"
+                      fill="#b2996a"
+                    />
+                  </svg>
+                </span>{" "}
+                Happens
               </h2>
               <p
                 style={{
@@ -438,6 +517,7 @@ export function HeroCapsuleAnimation() {
                   lineHeight: 1.65,
                   maxWidth: "100%",
                   color: "#b2996a",
+                  marginTop: "14px",
                 }}
               >
                 Royal Swiss City brings a different kind of presence to

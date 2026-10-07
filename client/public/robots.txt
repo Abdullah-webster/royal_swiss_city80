@@ -1,34 +1,62 @@
+# Royal Swiss City - Robots Configuration
+# Last Updated: September 22, 2026
+# Purpose: Control crawling and indexing of Royal Swiss City website
+
+# Default rules for all user agents
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /*.json$
+Allow: /projects
+Allow: /developer
+Allow: /enquire
+Allow: /the-city
+Allow: /dealers
+Allow: /partnerships
+Allow: *.js
+Allow: *.css
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.gif
+Allow: *.webp
+Allow: *.svg
+Allow: /public/
+
+# Explicitly disallow sensitive paths
+Disallow: /.env
+Disallow: /.env.example
 Disallow: /node_modules/
+Disallow: /.git/
 Disallow: /dist/
+Disallow: /.next/
+Disallow: /api/
+Disallow: /__pycache__/
+Disallow: /.manus-logs/
+Disallow: /patches/
+Disallow: /server/
+Disallow: *.zip
+Disallow: *.sql
 
-Sitemap: https://royalswisscity.com/sitemap.xml
-
+# Google-specific rules (fastest crawl)
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
+Request-rate: 1/0.1
 
-User-agent: Googlebot-Image
-Allow: /
-
+# Bing-specific rules
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-User-agent: Slurp
+# Yandex rules
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 0
+
+# Baidu rules (for China market)
+User-agent: Baiduspider
 Allow: /
 Crawl-delay: 1
 
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Disallow: /
-
-User-agent: YandexBot
-Allow: /
-Crawl-delay: 2
+# Sitemap locations (English and Urdu)
+Sitemap: https://royalswisscity.com/sitemap.xml
+Sitemap: https://royalswisscity.com/sitemap-urdu.xml

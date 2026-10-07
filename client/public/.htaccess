@@ -1,0 +1,162 @@
+# ============================================================
+# GZIP COMPRESSION - Reduce file sizes by 60-70%
+# ============================================================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/x-httpd-php
+  AddOutputFilterByType DEFLATE application/json
+  
+  # Don't compress already compressed files
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|rar|zip|exe|flv|mov|wma|wmv|webp|mp4)$ no-gzip dont-vary
+</IfModule>
+
+# ============================================================
+# BROWSER CACHING - Keep files in user's browser 30+ days
+# ============================================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 7 days"
+  
+  # Images - Cache for 30 days (longest)
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/gif "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  
+  # CSS & JavaScript - Cache for 30 days (versioned in build)
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType text/javascript "access plus 30 days"
+  
+  # Videos - Cache for 30 days
+  ExpiresByType video/mp4 "access plus 30 days"
+  ExpiresByType video/mpeg "access plus 30 days"
+  ExpiresByType video/webm "access plus 30 days"
+  
+  # Fonts - Cache for 30 days
+  ExpiresByType application/x-font-ttf "access plus 30 days"
+  ExpiresByType font/ttf "access plus 30 days"
+  ExpiresByType application/x-font-otf "access plus 30 days"
+  ExpiresByType font/otf "access plus 30 days"
+  ExpiresByType application/x-font-woff "access plus 30 days"
+  ExpiresByType font/woff "access plus 30 days"
+  ExpiresByType application/x-font-woff2 "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 30 days"
+  
+  # HTML & XML - Cache for 1 day (update frequently)
+  ExpiresByType text/html "access plus 1 day"
+  ExpiresByType application/xhtml+xml "access plus 1 day"
+  ExpiresByType text/xml "access plus 1 day"
+  ExpiresByType application/xml "access plus 1 day"
+</IfModule>
+
+# ============================================================
+# CACHE CONTROL HEADERS - More granular control
+# ============================================================
+<IfModule mod_headers.c>
+  # Images - Long cache
+  <FilesMatch "\.(jpg|jpeg|png|gif|ico|webp|svg)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+  
+  # CSS & JS - 1 year immutable cache (versioned via build)
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+  
+  # Videos - Long cache
+  <FilesMatch "\.(mp4|webm|mpeg)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+  
+  # HTML - Short cache (update frequently)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "max-age=86400, public, must-revalidate"
+  </FilesMatch>
+  
+  # MIME types for videos (if not set correctly)
+  <FilesMatch "\.mp4$">
+    Header set Content-Type "video/mp4"
+  </FilesMatch>
+  
+  <FilesMatch "\.webm$">
+    Header set Content-Type "video/webm"
+  </FilesMatch>
+</IfModule>
+
+# ============================================================
+# ETAG & VARY HEADERS - Reduce re-downloading
+# ============================================================
+<IfModule mod_headers.c>
+  Header append Vary Accept-Encoding
+  Header append Vary Accept-Language
+</IfModule>
+
+# ============================================================
+# ENABLE MOD_REWRITE - For SPA routing
+# ============================================================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Don't rewrite existing files or directories
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Rewrite everything else to index.html for SPA routing
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ============================================================
+# SECURITY HEADERS - Protect against attacks
+# ============================================================
+<IfModule mod_headers.c>
+  # Prevent clickjacking
+  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Prevent MIME type sniffing
+  Header set X-Content-Type-Options "nosniff"
+  
+  # Enable XSS protection
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Referrer policy
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ============================================================
+# PHP PERFORMANCE - If PHP is used (for contact form)
+# ============================================================
+<IfModule mod_php.c>
+  php_value memory_limit 256M
+  php_value max_execution_time 300
+  php_value post_max_size 100M
+  php_value upload_max_filesize 100M
+  php_value default_charset "UTF-8"
+  php_value default_socket_timeout 60
+</IfModule>
+
+# ============================================================
+# DISABLE DIRECTORY LISTING - Security
+# ============================================================
+Options -Indexes
+
+# ============================================================
+# GZIP COMPRESS API RESPONSES
+# ============================================================
+<FilesMatch "\.php$">
+  <IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html application/json
+  </IfModule>
+</FilesMatch>

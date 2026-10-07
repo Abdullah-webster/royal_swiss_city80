@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown, Instagram, Facebook, Linkedin, Youtube, Leaf, Droplets, Recycle } from "lucide-react";
+import { Menu, X, ChevronDown, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import { animateFooter } from "@/utils/sectionAnimations";
 
-const img = { logo: "https://royal-swiss-city-30.vercel.app/logo.png" };
-const nav = ["HOME", "THE CITY", "DEVELOPER", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
-const navMobile = ["HOME", "THE CITY", "DEVELOPER", "PROJECTS", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
+const img = { logo: "/logo.webp?v=2" };
+const nav = ["HOME", "THE CITY", "DEVELOPER", "FAQ", "PARTNERS/DEALERS", "ENQUIRE"];
+const navMobile = ["HOME", "THE CITY", "DEVELOPER", "FAQ", "PARTNERS/DEALERS", "ENQUIRE"];
 const footerLinks = ["Residential Plots", "Commercial Plots", "The City", "Developer", "Location", "FAQ", "Partner", "Enquire"];
 const footerDescriptions = {
   "Residential Plots": "Discover a range of residential plot sizes to suit your needs. Choose from MARLA 3.5, MARLA 5, MARLA 10, KANAL 1, and KANAL 2 options designed for modern living.",
@@ -17,7 +17,7 @@ const footerDescriptions = {
   "Enquire": "Discover a considered way to experience enquire at Royal Swiss City."
 };
 
-function Logo() { return <img className="brand-logo" src={img.logo} alt="Royal Swiss City" /> }
+function Logo() { return <img className="brand-logo" src={img.logo} alt="Royal Swiss City" loading="lazy" /> }
 function Anchor({ item }: { item: string }) {
   if (item === "DEVELOPER") {
     return <a href="/developer">{item}</a>
@@ -25,14 +25,17 @@ function Anchor({ item }: { item: string }) {
   if (item === "HOME") {
     return <a href="/">{item}</a>
   }
-  if (item === "PROJECTS") {
-    return <a href="/projects">{item}</a>
-  }
   if (item === "ENQUIRE") {
     return <a href="/enquire">{item}</a>
   }
+  if (item === "FAQ") {
+    return <a href="/faq">{item}</a>
+  }
   if (item === "THE CITY") {
     return <a href="/the-city">{item}</a>
+  }
+  if (item === "PARTNERS/DEALERS" || item === "PARTNER" || item === "DEALER") {
+    return <a href="/#partner">{item}</a>
   }
   return <a href={`#${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</a>
 }
@@ -81,6 +84,11 @@ export default function TheCity() {
 
   return (
     <main className="walkthrough-page the-city-page" style={{ "--hero-progress": heroProgress } as React.CSSProperties}>
+      {/* Main H1 - Primary page topic for SEO */}
+      <h1 style={{ position: "absolute", left: "-9999px", top: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}>
+        The City - Royal Swiss City Lahore - Premium Community Living with Nature, Infrastructure & Amenities
+      </h1>
+      
       {/* HEADER / NAVBAR */}
       <header className={`walk-header ${scrolled ? "is-scrolled" : ""}`}>
         <button className="mobile-menu-trigger" aria-label="Menu" onClick={() => setMenuOpen(true)}>
@@ -97,18 +105,18 @@ export default function TheCity() {
         </nav>
       </header>
 
-      {/* CONTENT SECTIONS - Add sections here later */}
+      {/* CONTENT SECTIONS */}
       <div style={{ width: "100vw", height: "100vh", marginLeft: "calc(-50vw + 50%)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative" }}>
-        <img src={isMobile ? "/the-city-1-mobile.png" : "/the city 1.png"} alt="The City" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={isMobile ? "/the-city-1-mobile.webp" : "/the city 1.webp"} alt="The City" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0))" }}></div>
         {isMobile && (
           <div style={{ position: "absolute", top: "40px", left: "50%", transform: "translateX(-50%)", zIndex: 10 }}>
-            <img className="brand-logo" src={img.logo} alt="Royal Swiss City" style={{ height: "60px", width: "auto" }} />
+            <img className="brand-logo" src={img.logo} alt="Royal Swiss City" style={{ height: "60px", width: "auto" }} loading="lazy" />
           </div>
         )}
         <div style={{ position: "absolute", left: isMobile ? "50%" : "40px", transform: isMobile ? "translateX(-50%)" : "none", bottom: isMobile ? "40px" : "auto", top: isMobile ? "auto" : "40%", color: "white", zIndex: 10, textAlign: isMobile ? "center" : "left" }}>
-          <p style={{ fontSize: isMobile ? "0.75rem" : "0.9rem", fontWeight: isMobile ? 400 : 300, margin: "0 0 15px 0", fontFamily: "var(--serif)", letterSpacing: "0.08em", color: "#b2996a" }}>ROYAL SWISS CITY LAHORE</p>
-          <h2 style={{ fontSize: isMobile ? "2.5rem" : "3.5rem", fontWeight: isMobile ? 600 : 500, margin: "0", fontFamily: "var(--serif)", letterSpacing: "-0.06em", lineHeight: 1.1 }}>A CITY IMMERSED<br /><span style={{ color: "#b2996a" }}>IN NATURE</span></h2>
+          <span style={{ fontSize: isMobile ? "0.75rem" : "0.9rem", fontWeight: isMobile ? 400 : 300, margin: "0 0 15px 0", fontFamily: "var(--serif)", letterSpacing: "0.08em", color: "#b2996a", display: "block" }}>ROYAL SWISS CITY LAHORE</span>
+          <h2 style={{ fontSize: isMobile ? "2.5rem" : "3.5rem", fontWeight: isMobile ? 600 : 500, margin: "0", fontFamily: "var(--serif)", letterSpacing: "-0.06em", lineHeight: 1.1 }}>A City Immersed<br /><span style={{ color: "#b2996a" }}>In Nature</span></h2>
         </div>
         <div style={{ position: "absolute", right: "60px", top: "45%", transform: "translateY(-50%)", color: "white", zIndex: 10, textAlign: "right" }}>
         </div>
@@ -116,18 +124,18 @@ export default function TheCity() {
 
       {/* CITY 2 SECTION */}
       <div style={{ width: "100vw", height: isMobile ? "70vh" : "30vh", marginLeft: "calc(-50vw + 50%)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative" }}>
-        <img src={isMobile ? "/the city 2_mobile.png" : "/the city 2.png"} alt="The City 2" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={isMobile ? "/the city 2_mobile.webp" : "/the city 2.webp"} alt="The City 2" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
       </div>
 
       {/* CITY 3 SECTION */}
       <div style={{ width: "100vw", height: isMobile ? "80vh" : "65vh", marginLeft: "calc(-50vw + 50%)", display: "flex", alignItems: "flex-end", justifyContent: "flex-end", overflow: "hidden", position: "relative" }}>
         <div style={{ position: "relative", width: isMobile ? "0%" : "35%", height: "100%", background: "white", display: isMobile ? "none" : "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", padding: "60px 40px", boxSizing: "border-box" }}>
-          <p style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 16px 0", fontWeight: 600 }}>THE ROYAL SWISS EXPERIENCE</p>
+          <span style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 16px 0", fontWeight: 600, display: "block" }}>THE ROYAL SWISS EXPERIENCE</span>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0 0 20px 0", fontFamily: "var(--serif)", color: "#1a3a52" }}>More Than a Home.<br />A Way of Life.</h2>
           <p style={{ fontSize: "16px", lineHeight: 1.8, color: "#666", margin: "0", maxWidth: "100%", fontFamily: "var(--serif)", fontWeight: 300 }}>Royal Swiss City is a thoughtfully planned residential and commercial community where nature, modern infrastructure and world-class amenities come together to create a truly balanced lifestyle.</p>
         </div>
         <div style={{ position: "relative", width: isMobile ? "100%" : "65%", height: "100%" }}>
-          <img src={isMobile ? "/the city 3_mobile.jpg" : "/the city 3.png"} alt="The City 3" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <img src={isMobile ? "/the city 3_mobile.webp" : "/the city 3.webp"} alt="The City 3" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.95) 100%)" }}></div>
           <div style={{ position: "absolute", left: "40px", top: "40px", color: "white", zIndex: 10 }}>
             <p style={{ fontSize: "2rem", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", letterSpacing: "0.08em" }}>FOR A HEALTHIER<br />TOMORROW</p>
@@ -139,70 +147,70 @@ export default function TheCity() {
       </div>
 
       {/* WORLD CLASS AMENITIES SECTION */}
-      <section style={{ padding: "80px 40px", background: "#ffffff" }}>
+      <section style={{ padding: isMobile ? "40px 20px" : "80px 40px", background: "#ffffff" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           {/* Section Header with Left Title and Right Body Text */}
-          <div style={{ display: "flex", gap: "60px", marginBottom: "60px", alignItems: "flex-end" }}>
-            <div style={{ flex: 1 }}>
-              <p style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 16px 0", fontWeight: 600 }}>WORLD CLASS AMENITIES</p>
-              <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>EVERYTHING YOU NEED.<br />WITHIN YOUR COMMUNITY.</h2>
+          <div style={{ display: "flex", gap: isMobile ? "16px" : "60px", marginBottom: isMobile ? "30px" : "60px", alignItems: isMobile ? "flex-start" : "flex-end", flexDirection: isMobile ? "column" : "row" }}>
+            <div style={{ flex: 1, minWidth: "0" }}>
+              <span style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 16px 0", fontWeight: 600, display: "block" }}>WORLD CLASS AMENITIES</span>
+              <h2 style={{ fontSize: isMobile ? "24px" : "clamp(24px, 3vw, 36px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>EVERYTHING YOU NEED.<br />WITHIN YOUR COMMUNITY.</h2>
             </div>
-            <div style={{ flex: 1, display: "flex", alignItems: "flex-end", paddingBottom: "20px", display: window.innerWidth <= 768 ? "none" : "flex" }}>
-              <p style={{ fontSize: "16px", lineHeight: 1.8, color: "#666", margin: "0", fontFamily: "var(--serif)", fontWeight: 300 }}>FROM RECREATION TO RELAXATION ROYAL SWISS CITY OFFERS A COMPLETE EXPERIENCE</p>
+            <div style={{ flex: 1, minWidth: "0", display: "flex", alignItems: isMobile ? "flex-start" : "flex-end", paddingBottom: isMobile ? "0px" : "20px" }}>
+              <p style={{ fontSize: isMobile ? "13px" : "16px", lineHeight: 1.8, color: "#666", margin: "0", fontFamily: "var(--serif)", fontWeight: 300 }}>FROM RECREATION TO RELAXATION ROYAL SWISS CITY OFFERS A COMPLETE EXPERIENCE</p>
             </div>
           </div>
 
           {/* Amenities Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "30px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: isMobile ? "12px" : "30px" }}>
             {/* Sports Complex */}
             <div style={{ textAlign: "center" }}>
-              <div style={{ width: "100%", height: "300px", borderRadius: "8px", overflow: "hidden", marginBottom: "20px", background: "#f0f0f0" }}>
-                <img src="/Sports_complex.png" alt="Sports Complex" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ width: "100%", height: isMobile ? "200px" : "300px", borderRadius: "8px", overflow: "hidden", marginBottom: isMobile ? "12px" : "20px", background: "#f0f0f0" }}>
+                <img src="/Sports_complex.webp" alt="Sports Complex" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               </div>
-              <h3 style={{ fontSize: "16px", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Sports Complex</h3>
+              <h3 style={{ fontSize: isMobile ? "12px" : "16px", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Sports Complex</h3>
             </div>
 
             {/* Aquatic Water Park */}
             <div style={{ textAlign: "center" }}>
-              <div style={{ width: "100%", height: "300px", borderRadius: "8px", overflow: "hidden", marginBottom: "20px", background: "#f0f0f0" }}>
-                <img src="/Aquatic_water_park.png" alt="Aquatic Water Park" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ width: "100%", height: isMobile ? "200px" : "300px", borderRadius: "8px", overflow: "hidden", marginBottom: isMobile ? "12px" : "20px", background: "#f0f0f0" }}>
+                <img src="/Aquatic_water_park.webp" alt="Aquatic Water Park" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               </div>
-              <h3 style={{ fontSize: "16px", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Aquatic Water Park</h3>
+              <h3 style={{ fontSize: isMobile ? "12px" : "16px", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Aquatic Water Park</h3>
             </div>
 
             {/* Premium Wildlife Zoo */}
             <div style={{ textAlign: "center" }}>
-              <div style={{ width: "100%", height: "300px", borderRadius: "8px", overflow: "hidden", marginBottom: "20px", background: "#f0f0f0" }}>
-                <img src="/Premium_wildlife_zoo.png" alt="Premium Wildlife Zoo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ width: "100%", height: isMobile ? "200px" : "300px", borderRadius: "8px", overflow: "hidden", marginBottom: isMobile ? "12px" : "20px", background: "#f0f0f0" }}>
+                <img src="/Premium_wildlife_zoo.webp" alt="Premium Wildlife Zoo" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               </div>
-              <h3 style={{ fontSize: "16px", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Premium Wildlife Zoo</h3>
+              <h3 style={{ fontSize: isMobile ? "12px" : "16px", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Premium Wildlife Zoo</h3>
             </div>
           </div>
         </div>
       </section>
 
       {/* LOCATION MAP SECTION */}
-      <section style={{ display: "flex", alignItems: "flex-end", justifyContent: "flex-end", overflow: "hidden", position: "relative", height: window.innerWidth <= 768 ? "80vh" : "65vh", width: "100vw", marginLeft: "calc(-50vw + 50%)" }}>
+      <section style={{ display: "flex", alignItems: "flex-end", justifyContent: "flex-end", overflow: "hidden", position: "relative", height: isMobile ? "80vh" : "70vh", width: "100vw", marginLeft: "calc(-50vw + 50%)" }}>
         {/* Right Side - GIF (Background) */}
         <div style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 1 }}>
-          <img src={window.innerWidth <= 768 ? "/Map_thecity-mobile.gif" : "/Map_thecity.gif"} alt="Royal Swiss City Location Map" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center" }} />
+          <img src={isMobile ? "/Map_thecity-mobile.gif" : "/Map_thecity.gif"} alt="Royal Swiss City Location Map" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: isMobile ? "center top" : "left top" }} loading="lazy" />
         </div>
 
         {/* Left Side - Midnight Blue Background with Text */}
-        <div style={{ position: "relative", width: window.innerWidth <= 768 ? "100%" : "35%", height: "100%", background: window.innerWidth <= 768 ? "transparent" : "#1a3a52", display: "flex", flexDirection: "column", alignItems: window.innerWidth <= 768 ? "center" : "flex-start", justifyContent: window.innerWidth <= 768 ? "flex-start" : "center", padding: "60px 40px", boxSizing: "border-box", zIndex: 2, paddingTop: window.innerWidth <= 768 ? "40px" : "60px", textAlign: window.innerWidth <= 768 ? "center" : "left" }}>
-          <p style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 16px 0", fontWeight: 600 }}>LOCATION & STRATEGIC POSITIONING</p>
-          <h2 style={{ fontSize: window.innerWidth <= 768 ? "clamp(28px, 5vw, 48px)" : "clamp(24px, 3vw, 36px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0 0 20px 0", fontFamily: "var(--serif)", color: "#ffffff" }}>Connected to What<br />Matters</h2>
-          <p style={{ fontSize: "16px", lineHeight: 1.8, color: "#e0e0e0", margin: "0", maxWidth: "100%", fontFamily: "var(--serif)", fontWeight: 300, display: window.innerWidth <= 768 ? "none" : "block" }}>Strategically located within Lahore's Ravi Riverfront development zone, Royal Swiss City offers seamless access to major highways and key destinations — placing you at the centre of a well-connected and future-ready Lahore.</p>
+        <div style={{ position: "relative", width: isMobile ? "100%" : "35%", height: "100%", background: isMobile ? "transparent" : "#1a3a52", display: "flex", flexDirection: "column", alignItems: isMobile ? "center" : "flex-start", justifyContent: isMobile ? "flex-start" : "center", padding: "60px 40px", boxSizing: "border-box", zIndex: 2, paddingTop: isMobile ? "40px" : "60px", textAlign: isMobile ? "center" : "left" }}>
+          <span style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 16px 0", fontWeight: 600, display: "block" }}>LOCATION & STRATEGIC POSITIONING</span>
+          <h2 style={{ fontSize: isMobile ? "clamp(28px, 5vw, 48px)" : "clamp(24px, 3vw, 36px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0 0 20px 0", fontFamily: "var(--serif)", color: "#ffffff" }}>Connected to What<br />Matters</h2>
+          <p style={{ fontSize: "16px", lineHeight: 1.8, color: "#e0e0e0", margin: "0", maxWidth: "100%", fontFamily: "var(--serif)", fontWeight: 300, display: isMobile ? "none" : "block" }}>Strategically located within Lahore's Ravi Riverfront development zone, Royal Swiss City offers seamless access to major highways and key destinations — placing you at the centre of a well-connected and future-ready Lahore.</p>
         </div>
       </section>
 
       {/* MODERN INFRASTRUCTURE SECTION */}
-      <section style={{ padding: window.innerWidth <= 768 ? "40px 40px" : "80px 40px", background: "#ffffff" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", gap: "60px", alignItems: "flex-start", flexDirection: isMobile ? "column" : "row" }}>
+      <section style={{ padding: isMobile ? "40px 20px" : "80px 40px", background: "#ffffff" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", gap: isMobile ? "30px" : "60px", alignItems: "flex-start", flexDirection: isMobile ? "column" : "row" }}>
           {/* Left Side - Text */}
           <div style={{ flex: 1, minWidth: "0" }}>
-            <p style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 16px 0", fontWeight: 600 }}>MODERN INFRASTRUCTURE</p>
-            <h2 style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0 0 20px 0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Designed for<br />Generations</h2>
+            <span style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 16px 0", fontWeight: 600, display: "block" }}>MODERN INFRASTRUCTURE</span>
+            <h2 style={{ fontSize: isMobile ? "28px" : "clamp(32px, 4vw, 56px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0 0 20px 0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Designed for<br />Generations</h2>
             <p style={{ fontSize: "16px", lineHeight: 1.8, color: "#666", margin: "0", fontFamily: "var(--serif)", fontWeight: 300, display: window.innerWidth <= 768 ? "none" : "block" }}>Wide 40-feet roads, landscaped boulevards, organised blocks and a grand entrance create a community that is planned for today and ready for tomorrow.</p>
           </div>
 
@@ -211,7 +219,7 @@ export default function TheCity() {
             {/* 40 Feet Roads */}
             <div style={{ textAlign: "center" }}>
               <div style={{ width: "100%", height: "250px", borderRadius: "8px", overflow: "hidden", marginBottom: "16px", background: "#f0f0f0" }}>
-                <img src="/40_feet_roads.png" alt="40 Feet Roads" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="/40_feet_roads.webp" alt="40 Feet Roads" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               </div>
               <h3 style={{ fontSize: "14px", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>40 Feet Roads</h3>
             </div>
@@ -219,7 +227,7 @@ export default function TheCity() {
             {/* Grand Entrance */}
             <div style={{ textAlign: "center" }}>
               <div style={{ width: "100%", height: "250px", borderRadius: "8px", overflow: "hidden", marginBottom: "16px", background: "#f0f0f0" }}>
-                <img src="/grand_entrance.png" alt="Grand Entrance" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="/grand_entrance.webp" alt="Grand Entrance" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               </div>
               <h3 style={{ fontSize: "14px", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Grand Entrance</h3>
             </div>
@@ -227,7 +235,7 @@ export default function TheCity() {
             {/* Modern Living */}
             <div style={{ textAlign: "center" }}>
               <div style={{ width: "100%", height: "250px", borderRadius: "8px", overflow: "hidden", marginBottom: "16px", background: "#f0f0f0" }}>
-                <img src="/modern_living.png" alt="Modern Living" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="/modern_living.webp" alt="Modern Living" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               </div>
               <h3 style={{ fontSize: "14px", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>Modern Living</h3>
             </div>
@@ -238,22 +246,22 @@ export default function TheCity() {
       {/* SUSTAINABILITY SECTION */}
       <section style={{ position: "relative", height: window.innerWidth <= 768 ? "90vh" : "70vh", overflow: "hidden", background: "#ffffff" }}>
         {/* Full Background Image */}
-        <img src={window.innerWidth <= 768 ? "/green_canal_mobile.png" : "/green_canal_landscape.png"} alt="Green Landscape" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }} />
+        <img src={window.innerWidth <= 768 ? "/green_canal_mobile.webp" : "/green_canal_landscape.webp"} alt="Green Landscape" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }} loading="lazy" />
         
         {/* Text Overlay - Left Side */}
-        <div style={{ position: "absolute", left: "60px", top: window.innerWidth <= 768 ? "15%" : "20%", transform: "translateY(-50%)", color: "white", zIndex: 10, maxWidth: "500px" }}>
-          <p style={{ fontSize: window.innerWidth <= 768 ? "12px" : "9px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 12px 0", fontWeight: 600 }}>SUSTAINABILITY BUILT IN</p>
+        <div style={{ position: "absolute", left: isMobile ? "20px" : "60px", right: isMobile ? "20px" : "auto", top: window.innerWidth <= 768 ? "15%" : "20%", transform: "translateY(-50%)", color: "white", zIndex: 10, maxWidth: isMobile ? "calc(100% - 40px)" : "500px" }}>
+          <span style={{ fontSize: window.innerWidth <= 768 ? "12px" : "9px", letterSpacing: "0.23em", textTransform: "uppercase", color: "#b2996a", margin: "0 0 12px 0", fontWeight: 600, display: "block" }}>SUSTAINABILITY BUILT IN</span>
           <h2 style={{ fontSize: window.innerWidth <= 768 ? "clamp(28px, 3.5vw, 48px)" : "clamp(20px, 2.5vw, 32px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>A Cleaner, Greener Future</h2>
         </div>
       </section>
 
       {/* RIVERFRONT LAHORE SECTION */}
       <section style={{ width: "100vw", height: "60vh", marginLeft: "calc(-50vw + 50%)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative" }}>
-        <img src="/Riverfront_Lahore_banner.png" alt="Riverfront Lahore" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src="/Riverfront_Lahore_banner.webp" alt="Riverfront Lahore" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(13, 27, 42, 0.6), rgba(13, 27, 42, 0))" }}></div>
-        <div style={{ position: "absolute", left: "60px", top: "50%", transform: "translateY(-50%)", color: "white", zIndex: 10 }}>
-          <p style={{ fontSize: "0.9rem", fontWeight: 300, margin: "0 0 15px 0", fontFamily: "var(--serif)", letterSpacing: "0.08em", color: "#b2996a", textTransform: "uppercase" }}>RIVERFRONT LIVING</p>
-          <h2 style={{ fontSize: "3.5rem", fontWeight: 300, margin: "0 0 20px 0", fontFamily: "var(--serif)", letterSpacing: "-0.06em", lineHeight: 1.1, maxWidth: "600px" }}>A New Horizon for<br />Lahore</h2>
+        <div style={{ position: "absolute", left: isMobile ? "20px" : "60px", right: isMobile ? "20px" : "auto", top: "50%", transform: "translateY(-50%)", color: "white", zIndex: 10 }}>
+          <span style={{ fontSize: "0.9rem", fontWeight: 300, margin: "0 0 15px 0", fontFamily: "var(--serif)", letterSpacing: "0.08em", color: "#b2996a", textTransform: "uppercase", display: "block" }}>RIVERFRONT LIVING</span>
+          <h2 style={{ fontSize: isMobile ? "2rem" : "3.5rem", fontWeight: 300, margin: "0 0 20px 0", fontFamily: "var(--serif)", letterSpacing: "-0.06em", lineHeight: 1.1, maxWidth: "600px" }}>A New Horizon for<br />Lahore</h2>
           <p style={{ fontSize: "1rem", fontWeight: 300, margin: "0", fontFamily: "var(--serif)", lineHeight: 1.6, maxWidth: "600px", color: "#e0e0e0" }}>Be part of the city's largest riverfront vision and experience a unique connection with nature, water and modern urban living.</p>
         </div>
       </section>
@@ -263,12 +271,9 @@ export default function TheCity() {
         <div className="footer-accordions">
           {footerLinks.map(item => {
             let learnMoreLink = "";
-            if (item === "Residential Plots") learnMoreLink = "#residential";
-            else if (item === "Commercial Plots") learnMoreLink = "#commercial";
-            else if (item === "The City") learnMoreLink = "/the-city";
+            if (item === "The City") learnMoreLink = "/the-city";
             else if (item === "Developer") learnMoreLink = "/developer";
-            else if (item === "Location") learnMoreLink = "/#location";
-            else if (item === "FAQ") learnMoreLink = "/#faq";
+            else if (item === "FAQ") learnMoreLink = "/faq";
             else if (item === "Partner") learnMoreLink = "/#partner";
             else if (item === "Enquire") learnMoreLink = "/enquire";
 
@@ -361,11 +366,9 @@ export default function TheCity() {
             if (item === "HOME") href = "/";
             else if (item === "THE CITY") href = "/the-city";
             else if (item === "DEVELOPER") href = "/developer";
-            else if (item === "PROJECTS") href = "/projects";
             else if (item === "ENQUIRE") href = "/enquire";
-            else if (item === "FAQ") href = "/#faq";
-            else if (item === "PARTNER") href = "/#partner";
-            else if (item === "DEALER") href = "/#dealer";
+            else if (item === "FAQ") href = "/faq";
+            else if (item === "PARTNERS/DEALERS" || item === "PARTNER" || item === "DEALER") href = "/#partner";
             
             return (
               <a href={href} onClick={() => setMenuOpen(false)} key={item}>

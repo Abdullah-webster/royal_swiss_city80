@@ -1,4 +1,4 @@
-# Royal Swiss City - Website
+# Royal Swiss City 75 - Website
 
 A modern, responsive real estate website built with React, TypeScript, GSAP animations, and Vite. Deployed on Vercel.
 

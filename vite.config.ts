@@ -202,7 +202,12 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+const isDev = process.env.NODE_ENV !== "production";
+const plugins = [
+  react(),
+  tailwindcss(),
+  ...(isDev ? [vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()] : []),
+];
 
 export default defineConfig({
   plugins,
@@ -218,10 +223,25 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // Enable code splitting for better caching
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Vendor chunks
+          if (id.includes('node_modules/react')) return 'react-vendor';
+          if (id.includes('node_modules/gsap')) return 'gsap-vendor';
+          if (id.includes('node_modules/@radix-ui')) return 'ui-vendor';
+        },
+      },
+    },
+    // Minify with esbuild (default, faster than terser)
+    minify: 'esbuild',
+    // Increase chunk size warning limit (your content justifies it)
+    chunkSizeWarningLimit: 500,
   },
   server: {
     port: 3000,
-    strictPort: false, // Will find next available port if 3000 is busy
+    strictPort: false,
     host: true,
     allowedHosts: [
       ".manuspre.computer",

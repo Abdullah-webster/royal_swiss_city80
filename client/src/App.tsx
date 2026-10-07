@@ -1,29 +1,33 @@
-// Style reminder: replicate Sobha's cinematic luxury editorial experience with a dark, image-first stage and restrained transitions.
+// Royal Swiss City 75 cinematic luxury editorial experience with a dark, image-first stage and restrained transitions.
 import { useLocation } from "wouter";
 import Home from "./pages/Home";
 import Developer from "./pages/Developer";
-import Projects from "./pages/Projects";
 import Enquire from "./pages/Enquire";
 import TheCity from "./pages/TheCity";
+import FAQ from "./pages/FAQ";
+import FloatingContacts from "./components/FloatingContacts";
 
 export default function App() {
   const [location] = useLocation();
 
-  if (location === "/projects") {
-    return <Projects />;
-  }
+  let page;
 
   if (location === "/developer") {
-    return <Developer />;
+    page = <Developer />;
+  } else if (location === "/enquire") {
+    page = <Enquire />;
+  } else if (location === "/the-city") {
+    page = <TheCity />;
+  } else if (location === "/faq") {
+    page = <FAQ />;
+  } else {
+    page = <Home />;
   }
 
-  if (location === "/enquire") {
-    return <Enquire />;
-  }
-
-  if (location === "/the-city") {
-    return <TheCity />;
-  }
-
-  return <Home />;
+  return (
+    <>
+      {page}
+      <FloatingContacts />
+    </>
+  );
 }

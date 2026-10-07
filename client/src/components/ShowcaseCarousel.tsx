@@ -70,8 +70,9 @@ export function ShowcaseCarousel({ cards }: { cards: any[] }) {
           >
             <img 
               src={prevCard.image} 
-              alt="Previous"
+              alt="Previous project"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              loading="lazy"
             />
           </div>
 
@@ -94,7 +95,8 @@ export function ShowcaseCarousel({ cards }: { cards: any[] }) {
                 height: "100%", 
                 objectFit: "cover", 
                 display: "block" 
-              }} 
+              }}
+              loading="eager"
             />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, .76))" }}></div>
             <div style={{ position: "absolute", bottom: "16px", left: "16px", right: "16px", zIndex: 1, color: "white" }}>
@@ -118,8 +120,9 @@ export function ShowcaseCarousel({ cards }: { cards: any[] }) {
           >
             <img 
               src={nextCard.image} 
-              alt="Next"
+              alt="Next project"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              loading="lazy"
             />
           </div>
         </div>

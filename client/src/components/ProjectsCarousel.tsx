@@ -103,7 +103,7 @@ export function ProjectsCarousel({ isMobileView }: { isMobileView: boolean }) {
               <span style={{ fontSize: "7px", letterSpacing: ".18em", color: "#999", textTransform: "uppercase", display: "block" }}>0{i + 1} / {projects.length}</span>
               <h3 style={{ fontFamily: "var(--serif)", fontSize: "18px", fontWeight: 400, lineHeight: 1.1, margin: "8px 0 6px", color: "#111" }}>{project.title}</h3>
               <p style={{ fontSize: "10px", lineHeight: 1.5, color: "#666", margin: "6px 0" }}>{project.body}</p>
-              <a href="/projects" style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "8px", letterSpacing: ".14em", color: "#111", textDecoration: "none", fontWeight: 500, textTransform: "uppercase", marginTop: "8px" }}>
+              <a href="/developer" style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "8px", letterSpacing: ".14em", color: "#111", textDecoration: "none", fontWeight: 500, textTransform: "uppercase", marginTop: "8px" }}>
                 EXPLORE ALL <ChevronRight size={11} />
               </a>
             </div>

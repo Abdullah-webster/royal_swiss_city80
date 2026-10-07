@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import { animateFooter } from "@/utils/sectionAnimations";
+import { Breadcrumb } from "@/components/Breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
+import { SEO_CONFIG } from "@/config/seo";
 
-const img = { logo: "https://royal-swiss-city-30.vercel.app/logo.png", heroDesktop: "/dev-hero-desktop.png", heroMobile: "/hero-dev-mobile.jpg", chairman: "/chairman.png", ceo: "/ceo.png", md: "/md.png" };
-const nav = ["HOME", "THE CITY", "DEVELOPER", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
-const navMobile = ["HOME", "THE CITY", "DEVELOPER", "PROJECTS", "FAQ", "PARTNER", "DEALER", "ENQUIRE"];
+const img = { logo: "/logo.webp?v=2", heroDesktop: "/dev-hero-desktop.webp", heroMobile: "/hero-dev-mobile.webp", chairman: "/chairman.webp", ceo: "/ceo.webp", md: "/md.png" };
+const nav = ["HOME", "THE CITY", "DEVELOPER", "FAQ", "PARTNERS/DEALERS", "ENQUIRE"];
+const navMobile = ["HOME", "THE CITY", "DEVELOPER", "FAQ", "PARTNERS/DEALERS", "ENQUIRE"];
 
 const projectsByCategory = {
   buildings: [
@@ -32,18 +35,27 @@ const projectsByCategory = {
   ],
 };
 
-function Logo() { return <img className="brand-logo" src={img.logo} alt="Royal Swiss City" /> }
+function Logo() { return <img className="brand-logo" src={img.logo} alt="Royal Swiss City" width={120} height={40} /> }
 function Anchor({ item }: { item: string }) { 
   if (item === "DEVELOPER") {
-    return <a href="/developer">{item}</a>
+    return <a href="/developer">{item}</a>;
   }
   if (item === "HOME") {
-    return <a href="/">{item}</a>
+    return <a href="/">{item}</a>;
   }
   if (item === "THE CITY") {
-    return <a href="/the-city">{item}</a>
+    return <a href="/the-city">{item}</a>;
   }
-  return <a href={`#${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</a> 
+  if (item === "FAQ") {
+    return <a href="/faq">{item}</a>;
+  }
+  if (item === "ENQUIRE") {
+    return <a href="/enquire">{item}</a>;
+  }
+  if (item === "PARTNERS/DEALERS" || item === "PARTNER" || item === "DEALER") {
+    return <a href="/#partner">{item}</a>;
+  }
+  return <a href={`#${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</a>;
 }
 
 export default function Developer() {
@@ -87,6 +99,32 @@ export default function Developer() {
   const heroProgress = Math.min(scrollY / Math.max(vh, 800), 1);
 
   return <main className="walkthrough-page developer-page" style={{ "--hero-progress": heroProgress } as React.CSSProperties}>
+    {/* Main H1 - Primary page topic for SEO */}
+    <h1 style={{ position: "absolute", left: "-9999px", top: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}>
+      Habib Rafiq Construction Pvt Ltd - 60 Years of Real Estate Excellence & Construction Leadership in Pakistan
+    </h1>
+    
+    <SEOHead
+      title={SEO_CONFIG.pages.developer.title}
+      description={SEO_CONFIG.pages.developer.description}
+      keywords={SEO_CONFIG.pages.developer.keywords}
+      canonical={SEO_CONFIG.pages.developer.canonical}
+      ogImage="https://royalswisscity.com/dev-hero-desktop.png"
+      language="en"
+      structuredData={{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Habib Rafiq Construction Pvt Ltd - Royal Swiss City Developer",
+        "description": SEO_CONFIG.pages.developer.description,
+        "url": "https://royalswisscity.com/developer",
+        "founder": "Shahid Rafiq",
+        "ceo": "Sohaib Hassan"
+      }}
+    />
+    
+    {/* Breadcrumb Navigation */}
+    <Breadcrumb />
+    
     <header className={`walk-header ${scrolled ? "is-scrolled" : ""}`}>
       <button className="mobile-menu-trigger" aria-label="Menu" onClick={() => setMenuOpen(true)}><Menu size={22} strokeWidth={1.4} /></button>
       <nav className="desktop-links desktop-links--left">{nav.slice(0, 3).map(item => <Anchor key={item} item={item} />)}</nav>
@@ -95,15 +133,11 @@ export default function Developer() {
     </header>
 
     <section id="home" className="walk-hero reveal-section">
-      <picture>
-        <source media="(max-width: 760px)" srcSet={img.heroMobile} />
-        <source media="(min-width: 761px)" srcSet={img.heroDesktop} />
-        <img src={img.heroDesktop} alt="Habib Rafiq Engineering - 60 Years of Excellence" />
-      </picture>
-      <img src="/HRL LOGO.jpeg" alt="HRL Logo" style={{ position: "absolute", top: "60px", left: "50%", transform: "translateX(-50%)", zIndex: 10, maxWidth: "120px", height: "auto" }} />
+      <img src={isMobileView ? img.heroMobile : img.heroDesktop} alt={"Habib Rafiq Construction - 60 Years of Excellence"} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="eager" />
+      <img src="/HRL LOGO.jpeg" alt="HRL CONSTRUCTION PVT LIMITED Logo" style={{ position: "absolute", top: "60px", left: "50%", transform: "translateX(-50%)", zIndex: 10, maxWidth: "120px", height: "auto" }} loading="eager" />
       <div className="hero-copy" style={{ color: "#1a3a52", position: "absolute", zIndex: 5 }}>
-        <h1 style={{ color: "#1a3a52", fontVariant: "small-caps", letterSpacing: "0.05em", textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>HABIB RAFIQ<br />CONSTRUCTION<br />PVT LTD</h1>
-        <p style={{ color: "#1a3a52", fontSize: "22px" }}>ENGINEERING THE NATION SINCE 1962</p>
+        <h2 style={{ color: "#1a3a52", fontVariant: "small-caps", letterSpacing: "0.05em", textShadow: "0 2px 4px rgba(0,0,0,0.1)", fontSize: isMobileView ? "24px" : "inherit" }}>HABIB RAFIQ<br />CONSTRUCTION<br />PVT LTD</h2>
+        <p style={{ color: "#1a3a52", fontSize: isMobileView ? "14px" : "22px" }}>ENGINEERING THE NATION SINCE 1962</p>
       </div>
     </section>
 
@@ -111,9 +145,9 @@ export default function Developer() {
         {/* Section Header */}
         <div className="legacy-section-header">
           <div className="header-title">
-            <h2>PEOPLE WHO<br /><em>BUILD FORWARD.</em></h2>
+            <h2>LEADERSHIP & LEGACY</h2>
           </div>
-          <p className="header-subtitle">LEADERSHIP & VISION</p>
+          <p className="header-subtitle">ENGINEERING EXCELLENCE. BUILDING FUTURES. | 60+ Years of Innovation & Integrity</p>
           <div className="header-divider">
             <span></span>
             <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor">
@@ -127,17 +161,17 @@ export default function Developer() {
         {!isMobileView && (
           <div className="legacy-quotes">
             {/* Chairman Card */}
-            <article className="legacy-card legacy-card--chairman reveal-item">
+            <article id="chairman-message" className="legacy-card legacy-card--chairman reveal-item">
               <div className="legacy-card__image-wrapper">
-                <img src={img.chairman} alt="Shahid Rafiq" />
+                <img src={img.chairman} alt="Shahid Rafiq - Chairman Habib Rafiq Construction, 60 Years Engineering Leadership" loading="eager" />
                 <div className="legacy-card__image-label">
-                  <span>CHAIRMAN</span>
+                  <span>YEARS OF TRUST, QUALITY & EXCELLENCE</span>
                 </div>
               </div>
               <div className="legacy-card__divider"></div>
               <div className="legacy-card__content">
                 <small>CHAIRMAN</small>
-                <h3>Shahid Rafiq</h3>
+                <h3 style={{ textTransform: "uppercase" }}>SHAHID RAFIQ</h3>
                 <div className="legacy-card__decoration">
                   <span></span>
                   <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
@@ -147,28 +181,28 @@ export default function Developer() {
                 </div>
                 <div className="legacy-card__quote-section">
                   <div className="legacy-card__quote-mark">"</div>
-                  <p className="legacy-quote" style={{ fontSize: "14px" }}>For over six decades, Habib Rafiq (Pvt) Ltd has transformed vision into reality through innovation, quality, and dedication. Renowned for delivering excellence across industrial, infrastructure, power, oil & gas, aviation, and high-rise projects, we have consistently exceeded client expectations. Building on this legacy, we now bring the same expertise to modern housing society — designed with world-class infrastructure, sustainable planning, and premium amenities, reflecting our commitment to exceptional living spaces and lasting value for generations to come.</p>
+                  <p className="legacy-quote">Building on this legacy, we now bring the same expertise to modern housing.</p>
                 </div>
+                <p style={{ fontSize: "12px", lineHeight: "1.6", color: "#666", margin: "0 0 16px 0" }}>For over six decades, Habib Rafiq Construction (Pvt) Ltd has transformed vision into reality through innovation, quality, and dedication across national landmarks.</p>
                 <div className="legacy-card__signature">
-                  <p><strong>Shahid Rafiq</strong></p>
-                  <p>CHAIRMAN, HABIB RAFIQ (PVT.) LTD.</p>
+                  <p>CHAIRMAN, HABIB RAFIQ CONSTRUCTION (PVT.) LTD.</p>
                 </div>
-                <div className="legacy-card__watermark">HRL</div>
+                <div className="legacy-card__watermark">HRL CONSTRUCTION PVT LIMITED</div>
               </div>
             </article>
 
             {/* CEO Card */}
-            <article className="legacy-card legacy-card--ceo reveal-item">
-              <div className="legacy-card__image-wrapper legacy-card__image-wrapper--right">
-                <img src={img.ceo} alt="Sohaib Hassan" />
-                <div className="legacy-card__image-label legacy-card__image-label--ceo">
-                  <span>CHIEF EXECUTIVE</span>
+            <article id="ceo-message" className="legacy-card legacy-card--ceo reveal-item">
+              <div className="legacy-card__image-wrapper">
+                <img src={img.ceo} alt="Sohaib Hassan - CEO Habib Rafiq Construction, Leading Next Generation Development" loading="eager" />
+                <div className="legacy-card__image-label">
+                  <span>A VISION FOR TODAY. A PROMISE FOR TOMORROW.</span>
                 </div>
               </div>
-              <div className="legacy-card__divider legacy-card__divider--right"></div>
-              <div className="legacy-card__content legacy-card__content--left">
+              <div className="legacy-card__divider"></div>
+              <div className="legacy-card__content">
                 <small>CHIEF EXECUTIVE</small>
-                <h3>Sohaib Hassan</h3>
+                <h3 style={{ textTransform: "uppercase" }}>SOHAIB HASSAN</h3>
                 <div className="legacy-card__decoration">
                   <span></span>
                   <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
@@ -178,40 +212,43 @@ export default function Developer() {
                 </div>
                 <div className="legacy-card__quote-section">
                   <div className="legacy-card__quote-mark">"</div>
-                  <p className="legacy-quote" style={{ fontSize: "14px" }}>It is a privilege to carry forward the legacy of Habib Rafiq Engineering (Pvt) Ltd. For over six decades, we set benchmarks in engineering excellence before expanding into real estate — making quality developments our trademark. Today, we develop well-planned, sustainable communities combining modern infrastructure with affordable living through Royal Swiss City. We remain committed to creating developments that enhance lifestyles and deliver lasting value for homeowners, investors, and future generations.</p>
+                  <p className="legacy-quote">We are creating spaces where future generations can thrive.</p>
                 </div>
+                <p style={{ fontSize: "12px", lineHeight: "1.6", color: "#666", margin: "0 0 16px 0" }}>It is a privilege to carry forward the legacy of Habib Rafiq Construction, developing sustainable communities that enhance lifestyles and create lasting value.</p>
                 <div className="legacy-card__signature">
-                  <p><strong>Sohaib Hassan</strong></p>
                   <p>CHIEF EXECUTIVE</p>
                 </div>
+                <div className="legacy-card__watermark">HRL CONSTRUCTION PVT LIMITED</div>
               </div>
             </article>
           </div>
         )}
 
-        {/* Mobile Version - All 3 Cards */}
+        {/* Mobile Version - Simple Layout */}
         {isMobileView && (
-          <div className="legacy-quotes" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", margin: "30px 0 40px 0" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", margin: "30px 0 40px 0" }}>
             {/* Chairman Card Mobile */}
             <div style={{ textAlign: "center" }}>
-              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "180px" }}>
-                <img src={img.chairman} alt="Shahid Rafiq" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "10px", height: "160px" }}>
+                <img src={img.chairman} alt="Shahid Rafiq - Chairman Habib Rafiq Construction, 60 Years Engineering Leadership" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               </div>
-              <h4 style={{ fontSize: "13px", fontWeight: 400, color: "#1a3a52", margin: "0", fontFamily: "var(--serif)", letterSpacing: "0.06em" }}>Shahid Rafiq</h4>
+              <h4 style={{ fontSize: "13px", fontWeight: 400, color: "#b2996a", margin: "0 0 3px 0", fontFamily: "var(--serif)", letterSpacing: "0.05em", textTransform: "uppercase" }}>Shahid Rafiq</h4>
+              <p style={{ fontSize: "10px", color: "#b2996a", margin: "0", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: "var(--serif)", fontWeight: 300 }}>Chairman</p>
             </div>
 
             {/* CEO Card Mobile */}
             <div style={{ textAlign: "center" }}>
-              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px", height: "180px" }}>
-                <img src={img.ceo} alt="Sohaib Hassan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "10px", height: "160px" }}>
+                <img src={img.ceo} alt="Sohaib Hassan - CEO Habib Rafiq Construction, Leading Next Generation Development" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               </div>
-              <h4 style={{ fontSize: "13px", fontWeight: 400, color: "#1a3a52", margin: "0", fontFamily: "var(--serif)", letterSpacing: "0.06em" }}>Sohaib Hassan</h4>
+              <h4 style={{ fontSize: "13px", fontWeight: 400, color: "#b2996a", margin: "0 0 3px 0", fontFamily: "var(--serif)", letterSpacing: "0.05em", textTransform: "uppercase" }}>Sohaib Hassan</h4>
+              <p style={{ fontSize: "10px", color: "#b2996a", margin: "0", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: "var(--serif)", fontWeight: 300 }}>Chief Executive</p>
             </div>
           </div>
         )}
       </section>
 
-    <section className="impact-timeline-section reveal-section" style={{ backgroundImage: !isMobileView ? "url('/Six Decades of Impact — Timeline.png')" : "url('/Six Decades of Impact — Timeline_mobile.png')", backgroundSize: isMobileView ? "cover" : "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundColor: "#2C3F5E", color: "#ffffff", padding: isMobileView ? "0" : "40px 20px", minHeight: !isMobileView ? "300px" : "80vh", height: !isMobileView ? "300px" : "auto", width: isMobileView ? "100vw" : "auto", marginLeft: isMobileView ? "calc(-50vw + 50%)" : "0" }}>
+    <section className="impact-timeline-section reveal-section" style={{ backgroundImage: !isMobileView ? "url('/six_impact.webp')" : "url('/six_impact_mobile.webp')", backgroundSize: isMobileView ? "cover" : "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundColor: "#2C3F5E", color: "#ffffff", padding: isMobileView ? "0" : "40px 20px", minHeight: !isMobileView ? "300px" : "80vh", height: !isMobileView ? "300px" : "auto", width: isMobileView ? "100vw" : "auto", marginLeft: isMobileView ? "calc(-50vw + 50%)" : "0" }}>
       
       {/* Timeline content will go here */}
       <div style={{ maxWidth: "100%", margin: "0 auto" }}>
@@ -223,7 +260,7 @@ export default function Developer() {
     {!isMobileView && (
       <section className="sectors-expertise-section reveal-section" style={{ padding: "0px 40px 80px 40px", background: "#f4f4f4" }}>
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
-          <p style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "rgba(150, 148, 148, 0.797)", margin: "0 0 4px 0", fontWeight: 600 }}>OUR EXPERTISE</p>
+          <span style={{ fontSize: "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "rgba(150, 148, 148, 0.797)", margin: "0 0 4px 0", fontWeight: 600, display: "block" }}>OUR EXPERTISE</span>
           <h2 style={{ fontSize: "clamp(40px, 5vw, 70px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0 0 12px 0", fontFamily: "var(--serif)", color: "#1a3a52" }}>BUILDING<br />ACROSS SECTORS</h2>
           <p style={{ fontSize: "16px", lineHeight: 1.6, color: "#666", maxWidth: "600px", margin: "0 auto" }}>Our multidisciplinary expertise enables us to deliver complex projects of national and international significance, with a focus on quality, safety and sustainability.</p>
         </div>
@@ -234,12 +271,12 @@ export default function Developer() {
             { name: "BUILDINGS", image: "/grand-jamia-mosque-bahria-town-lahore.webp", category: "buildings" },
             { name: "INDUSTRIAL", image: "/infrastructure.jpg", category: "buildings" },
             { name: "AVIATION", image: "/multan-international-airport-card.webp", category: "aviation" },
-            { name: "POWER & ENERGY", image: "/green-energy.jpg", category: "buildings" },
+            { name: "POWER & ENERGY", image: "/green-energy.webp", category: "buildings" },
             { name: "OIL & GAS", image: "/convention-centre-islamabad.webp", category: "buildings" },
             { name: "ENVIRONMENTAL & WATER", image: "/kohat tunnel and access roads.webp", category: "infrastructure" },
           ].map((sector) => (
             <div key={sector.name} onClick={() => setActiveModal(sector.category)} style={{ position: "relative", height: "180px", borderRadius: "2px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}>
-              <img src={sector.image} alt={sector.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src={sector.image} alt={sector.name + " - Habib Rafiq Construction expertise"} style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))" }}></div>
               <div style={{ position: "absolute", bottom: "30px", right: "14px", color: "white", textAlign: "right" }}>
                 <p style={{ fontSize: "10px", letterSpacing: "1.5px", margin: "0", opacity: 0.85, textTransform: "uppercase", fontFamily: "var(--serif)", fontWeight: 400 }}></p>
@@ -266,11 +303,11 @@ export default function Developer() {
             { name: "BUILDINGS", image: "/grand-jamia-mosque-bahria-town-lahore.webp", category: "buildings" },
             { name: "INDUSTRIAL", image: "/infrastructure.jpg", category: "buildings" },
             { name: "AVIATION", image: "/multan-international-airport-card.webp", category: "aviation" },
-            { name: "POWER & ENERGY", image: "/green-energy.jpg", category: "buildings" },
+            { name: "POWER & ENERGY", image: "/green-energy.webp", category: "buildings" },
             { name: "OIL & GAS", image: "/convention-centre-islamabad.webp", category: "buildings" },
           ].map((sector) => (
             <div key={sector.name} onClick={() => setActiveModal(sector.category)} style={{ position: "relative", height: "140px", borderRadius: "6px", overflow: "hidden", cursor: "pointer", transition: "all 0.3s ease" }}>
-              <img src={sector.image} alt={sector.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src={sector.image} alt={sector.name + " - Habib Rafiq Construction expertise"} style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2))" }}></div>
               <div style={{ position: "absolute", bottom: "12px", left: "12px", right: "12px", color: "white" }}>
                 <p style={{ fontSize: "11px", fontWeight: 500, margin: "0", textTransform: "uppercase", letterSpacing: "0.5px", fontFamily: "var(--serif)", lineHeight: 1.2 }}>{sector.name}</p>
@@ -282,19 +319,19 @@ export default function Developer() {
     )}
 
     {/* Royal Swiss Multan Section */}
-    <section className="reveal-section" style={{ padding: isMobileView ? "40px 20px 20px 20px" : "150px 40px", background: "#ffffff", backgroundImage: isMobileView ? "url(/royal_swiss_multan_mobile)" : "url(/royal_swiss_multan.webp)", backgroundSize: "cover", backgroundPosition: isMobileView ? "center 95%" : "center", backgroundRepeat: "no-repeat", position: "relative", minHeight: isMobileView ? "650px" : "700px" }}>
+    <section className="reveal-section" style={{ padding: isMobileView ? "40px 20px 20px 20px" : "150px 40px", background: "#ffffff", backgroundImage: isMobileView ? "url(/royal_swiss_multan_mobile.webp)" : "url(/royal_swiss_multan.webp)", backgroundSize: "cover", backgroundPosition: isMobileView ? "center 95%" : "center", backgroundRepeat: "no-repeat", position: "relative", minHeight: isMobileView ? "650px" : "700px" }}>
       {/* Overlay */}
       <div style={{ position: "absolute", inset: 0, background: isMobileView ? "linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0) 100%)" : "linear-gradient(to right, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,0) 100%)", pointerEvents: "none" }}></div>
       
       <div style={{ maxWidth: "1400px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Content */}
         <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: isMobileView ? "100%" : "550px" }}>
-          <p style={{ fontSize: isMobileView ? "10px" : "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "rgba(150, 148, 148, 0.797)", margin: "0", fontWeight: 600 }}>A MILESTONE IN OUR JOURNEY</p>
+          <span style={{ fontSize: isMobileView ? "10px" : "12px", letterSpacing: "0.23em", textTransform: "uppercase", color: "rgba(150, 148, 148, 0.797)", margin: "0", fontWeight: 600, display: "block" }}>A MILESTONE IN OUR JOURNEY</span>
           <h2 style={{ fontSize: isMobileView ? "24px" : "clamp(32px, 4vw, 56px)", fontWeight: 300, letterSpacing: "0.08em", lineHeight: 1.15, margin: "0", fontFamily: "var(--serif)", color: "#1a3a52" }}>ROYAL SWISS<br />MULTAN</h2>
           <p style={{ fontSize: isMobileView ? "13px" : "16px", lineHeight: 1.8, color: "#666", margin: "0" }}>Royal Swiss Housing Multan represents an important chapter in our evolution — combining decades of engineering expertise with the creation of a thoughtfully planned residential community.</p>
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-            <a href="/projects" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: isMobileView ? "10px 20px" : "12px 28px", background: "#b2996a", color: "#111", borderRadius: "999px", textDecoration: "none", fontSize: isMobileView ? "11px" : "10px", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", transition: "all 0.3s ease" }} onMouseEnter={(e) => { if (!isMobileView) { (e.currentTarget as HTMLElement).style.opacity = "0.7"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; } }} onMouseLeave={(e) => { if (!isMobileView) { (e.currentTarget as HTMLElement).style.opacity = "1"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; } }}>
-              EXPLORE PROJECTS
+            <a href="https://royalswisshousing.com/home" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: isMobileView ? "10px 20px" : "12px 28px", background: "#b2996a", color: "#111", borderRadius: "999px", textDecoration: "none", fontSize: isMobileView ? "11px" : "10px", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", transition: "all 0.3s ease" }} onMouseEnter={(e) => { if (!isMobileView) { (e.currentTarget as HTMLElement).style.opacity = "0.7"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; } }} onMouseLeave={(e) => { if (!isMobileView) { (e.currentTarget as HTMLElement).style.opacity = "1"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; } }}>
+              EXPLORE EXPERTISE
             </a>
           </div>
         </div>
@@ -304,9 +341,9 @@ export default function Developer() {
     <footer className="walk-footer reveal-section" style={{ backgroundImage: window.innerWidth > 768 ? "url('/footer_bg_desktop.jpeg')" : "url('/footer_bg_mobile.jpeg')", backgroundSize: "cover", backgroundPosition: window.innerWidth > 768 ? "center -300px" : "center", backgroundRepeat: "no-repeat" }}>
       <div className="footer-accordions">
         {[
-          { title: "ABOUT HRL", description: "Habib Rafiq (Pvt) Ltd has been at the forefront of engineering and construction in Pakistan for over 60 years. Our expertise spans infrastructure, buildings, industrial, aviation, power & energy, oil & gas, and environmental projects.", link: "" },
+          { title: "ABOUT HRL CONSTRUCTION PVT LIMITED", description: "Habib Rafiq Construction (Pvt) Ltd has been at the forefront of engineering and construction in Pakistan for over 60 years. Our expertise spans infrastructure, buildings, industrial, aviation, power & energy, oil & gas, and environmental projects.", link: "" },
           { title: "OUR EXPERTISE", description: "We have successfully delivered complex projects including motorways, airports, high-rise buildings, housing schemes, and infrastructure across national and international scale. Our portfolio demonstrates excellence in engineering, quality, and sustainability.", link: "" },
-          { title: "ROYAL SWISS CITY", description: "Royal Swiss City represents our evolution into premium residential development. Combining decades of engineering expertise with modern planning, we've created a master-planned community with world-class infrastructure and amenities.", link: "/projects" },
+          { title: "ROYAL SWISS CITY", description: "Royal Swiss City represents our evolution into premium residential development. Combining decades of engineering expertise with modern planning, we've created a master-planned community with world-class infrastructure and amenities.", link: "/the-city" },
           { title: "SUSTAINABILITY", description: "We are committed to sustainable development. Royal Swiss City features solar infrastructure, comprehensive water management, and environmental conservation as core principles.", link: "" },
           { title: "PARTNERSHIP", description: "We welcome strategic partnerships in real estate development and infrastructure projects. Our track record and expertise make us a trusted partner for large-scale initiatives.", link: "" },
           { title: "CONTACT", description: "For inquiries about our projects, partnerships, or development services, please reach out to us at 042-111-777-588 or royalswisscity@gmail.com.", link: "" }
@@ -335,7 +372,7 @@ export default function Developer() {
         <a href="https://youtube.com/@royalswisscity" target="_blank" rel="noopener noreferrer" title="YouTube"><Youtube size={24} /></a>
         <a href="https://x.com/royalswisscity" target="_blank" rel="noopener noreferrer" title="X"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.637l-5.1-6.694-5.867 6.694h-3.306l7.733-8.835L2.25 2.25h6.814l4.882 6.45L18.244 2.25zM17.083 18.386h1.83L6.959 4.155H5.049l12.034 14.231z" /></svg></a>
       </div>
-      <div className="footer-contact"><b>Engineering the Nation Since 1962</b><span>© 2026 HABIB RAFIQ · PRIVACY POLICY · SITEMAP</span></div>
+      <div className="footer-contact"><b>Engineering the Nation Since 1962</b><span>© 2026 HABIB RAFIQ CONSTRUCTION PVT LTD · PRIVACY POLICY · SITEMAP</span></div>
     </footer>
 
     <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
@@ -349,17 +386,15 @@ export default function Developer() {
           if (item === "HOME") href = "/";
           else if (item === "THE CITY") href = "/the-city";
           else if (item === "DEVELOPER") href = "/developer";
-          else if (item === "PROJECTS") href = "/projects";
           else if (item === "ENQUIRE") href = "/enquire";
-          else if (item === "FAQ") href = "/#faq";
-          else if (item === "PARTNER") href = "/#partner";
-          else if (item === "DEALER") href = "/#dealer";
+          else if (item === "FAQ") href = "/faq";
+          else if (item === "PARTNERS/DEALERS" || item === "PARTNER" || item === "DEALER") href = "/#partner";
           
           return <a href={href} onClick={() => setMenuOpen(false)} key={item}>{item}</a>;
         })}
       </div>
       <div className="mobile-menu__bottom">
-        <Logo /><span>HABIB RAFIQ</span>
+        <Logo /><span>HABIB RAFIQ CONSTRUCTION PVT LTD</span>
       </div>
     </div>
 
@@ -377,8 +412,10 @@ export default function Developer() {
 
           <div style={{ display: "grid", gridTemplateColumns: isMobileView ? "1fr" : "repeat(auto-fit, minmax(250px, 1fr))", gap: isMobileView ? "16px" : "20px" }}>
             {projectsByCategory[activeModal as keyof typeof projectsByCategory]?.map((project) => (
-              <div key={project.name} style={{ borderRadius: "8px", overflow: "hidden", border: "1px solid #e0d9d1" }}>
-                <img src={project.image} alt={project.name} style={{ width: "100%", height: isMobileView ? "180px" : "200px", objectFit: "cover" }} />
+              <div key={project.name} style={{ borderRadius: "8px", overflow: "hidden", border: "1px solid #e0d9d1", position: "relative" }}>
+                <div style={{ position: "relative", width: "100%", height: isMobileView ? "180px" : "200px" }}>
+                  <img src={project.image} alt={project.name + " - " + project.location + " by Habib Rafiq Construction"} style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
+                </div>
                 <div style={{ padding: isMobileView ? "12px" : "16px" }}>
                   <h3 style={{ fontFamily: "var(--serif)", fontSize: isMobileView ? "14px" : "16px", fontWeight: 600, margin: "0 0 6px 0", color: "#1a3a52" }}>{project.name}</h3>
                   <p style={{ fontSize: isMobileView ? "12px" : "13px", color: "#b2996a", margin: "0 0 8px 0", fontWeight: 500 }}>{project.location}</p>
@@ -392,3 +429,7 @@ export default function Developer() {
     )}
   </main>
 }
+
+
+
+

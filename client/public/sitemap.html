@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Swiss City - Sitemap</title>
+    <meta name="description" content="Complete sitemap of Royal Swiss City website - Best gated community in Lahore">
+    <meta name="robots" content="index, follow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0B1E2B 0%, #1a2f3f 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0B1E2B 0%, #1a2f3f 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .section {
+            margin-bottom: 45px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #0B1E2B;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #b2996a;
+            font-weight: 600;
+        }
+        
+        .section-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        
+        .link-list {
+            list-style: none;
+        }
+        
+        .link-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+        
+        .link-item:last-child {
+            border-bottom: none;
+        }
+        
+        .link-item:hover {
+            background: #f8f8f8;
+            padding-left: 10px;
+        }
+        
+        .link-item a {
+            color: #0B1E2B;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .link-item a:hover {
+            color: #b2996a;
+            text-decoration: underline;
+        }
+        
+        .link-category {
+            color: #888;
+            font-size: 0.85em;
+            margin-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .features {
+            background: #f8f8f8;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .features h3 {
+            color: #0B1E2B;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #b2996a;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h4 {
+            color: #0B1E2B;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .footer-info {
+            background: #f0f0f0;
+            padding: 30px;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #b2996a;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+        
+        .cta-button:hover {
+            background: #9d8556;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(178, 153, 106, 0.3);
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .multi-language {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .multi-language h4 {
+            color: #0B1E2B;
+            margin-bottom: 10px;
+        }
+        
+        .multi-language p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+        
+        .urdu-text {
+            font-size: 1.1em;
+            color: #0B1E2B;
+            font-weight: 600;
+            direction: rtl;
+            unicode-bidi: embed;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🗺️ Royal Swiss City Sitemap</h1>
+            <p>Complete website navigation and structure - Best gated community in Lahore</p>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            
+            <!-- Multi-Language Notice -->
+            <div class="multi-language">
+                <h4>🌍 Multi-Language Support</h4>
+                <p>Royal Swiss City website is available in English and Urdu (اردو)</p>
+                <p class="urdu-text">رائل سوئس سٹی لاہور میں بہترین سوسائٹی ہے</p>
+            </div>
+            
+            <!-- Main Pages Section -->
+            <div class="section">
+                <h2 class="section-title">🏠 Main Pages</h2>
+                <p class="section-description">Core pages of Royal Swiss City website covering all key information and services.</p>
+                <ul class="link-list">
+                    <li class="link-item">
+                        <a href="/">🏘️ Home</a>
+                        <span class="link-category">Homepage</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/the-city">🏙️ The City</a>
+                        <span class="link-category">Community Features</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/developer">🏢 Developer</a>
+                        <span class="link-category">Habib Rafiq Profile</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/projects">🏗️ Projects</a>
+                        <span class="link-category">Portfolio</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/enquire">📝 Enquire</a>
+                        <span class="link-category">Contact & Inquiry</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Property Types Section -->
+            <div class="section">
+                <h2 class="section-title">🏡 Property Types</h2>
+                <p class="section-description">Browse different residential and commercial plot options available at Royal Swiss City.</p>
+                <ul class="link-list">
+                    <li class="link-item">
+                        <a href="/#residential-plots">🏠 Residential Plots</a>
+                        <span class="link-category">MARLA 3.5, 5, 10 | KANAL 1, 2</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/#commercial-plots">🛍️ Commercial Plots</a>
+                        <span class="link-category">MARLA 2, 4, 8</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/projects">📊 Investment Opportunities</a>
+                        <span class="link-category">Real Estate Investment</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Community Features Section -->
+            <div class="section">
+                <h2 class="section-title">✨ Community Features</h2>
+                <p class="section-description">Discover the premium amenities and facilities available within Royal Swiss City.</p>
+                <ul class="link-list">
+                    <li class="link-item">
+                        <a href="/#features">🌳 Gated Community</a>
+                        <span class="link-category">Secure Living</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/#features">☀️ Solar Infrastructure</a>
+                        <span class="link-category">Green Energy</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/#features">🏞️ Riverfront Setting</a>
+                        <span class="link-category">Natural Beauty</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/#features">🛣️ Wide Boulevards</a>
+                        <span class="link-category">Modern Infrastructure</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/#features">🎓 Education & Healthcare</a>
+                        <span class="link-category">Essential Services</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/#features">🛒 Retail & Services</a>
+                        <span class="link-category">Shopping & Dining</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/#features">⚽ Sports & Recreation</a>
+                        <span class="link-category">Leisure Activities</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/#features">💧 Water Management</a>
+                        <span class="link-category">Sustainable Living</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Information Sections -->
+            <div class="section">
+                <h2 class="section-title">ℹ️ Information & Support</h2>
+                <p class="section-description">Learn more about Royal Swiss City, our legacy, and how to get in touch.</p>
+                <ul class="link-list">
+                    <li class="link-item">
+                        <a href="/#location">📍 Location</a>
+                        <span class="link-category">Maps & Directions</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/#faq">❓ FAQ</a>
+                        <span class="link-category">Frequently Asked Questions</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/enquire">📞 Contact Us</a>
+                        <span class="link-category">Get In Touch</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="#dealers">🤝 Partners & Dealers</a>
+                        <span class="link-category">Sales Network</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Community Highlights -->
+            <div class="features">
+                <h3>🏆 Why Choose Royal Swiss City?</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4>60+ Years Legacy</h4>
+                        <p>Built on decades of excellence and trust in real estate development across Pakistan</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Premium Location</h4>
+                        <p>Strategically located in Lahore with easy access to major cities and business centers</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Eco-Friendly Design</h4>
+                        <p>Solar infrastructure and water management systems for sustainable living</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>World-Class Amenities</h4>
+                        <p>Complete community with schools, hospitals, shopping, and recreation facilities</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Secure & Gated</h4>
+                        <p>24/7 security and controlled access for safe and peaceful community living</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Investment Potential</h4>
+                        <p>High returns on investment in premium residential and commercial properties</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h3 style="color: #0B1E2B; margin-bottom: 20px; font-size: 1.4em;">Interested in Royal Swiss City?</h3>
+                <a href="/enquire" class="cta-button">📝 Submit Inquiry</a>
+                <a href="/the-city" class="cta-button">🏙️ Explore the City</a>
+                <a href="/projects" class="cta-button">🏗️ View Projects</a>
+            </div>
+            
+            <!-- Additional Resources -->
+            <div class="section">
+                <h2 class="section-title">📚 XML Sitemaps (For Search Engines)</h2>
+                <p class="section-description">Technical sitemaps for search engine crawlers to discover and index all pages.</p>
+                <ul class="link-list">
+                    <li class="link-item">
+                        <a href="/sitemap.xml">📄 Main Sitemap (XML)</a>
+                        <span class="link-category">Primary sitemap for all pages</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/sitemap-urdu.xml">📄 Urdu Sitemap (XML)</a>
+                        <span class="link-category">Urdu version pages</span>
+                    </li>
+                    <li class="link-item">
+                        <a href="/robots.txt">🤖 Robots.txt</a>
+                        <span class="link-category">Search engine crawler instructions</span>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer-info">
+            <p>Last Updated: September 21, 2026 | Royal Swiss City - Best Gated Community in Lahore</p>
+            <p>© 2026 Royal Swiss City. All rights reserved. | Developed by Habib Rafiq</p>
+            <div style="margin-top: 15px;">
+                <a href="/" style="color: #0B1E2B; text-decoration: none; margin: 0 10px;">🏠 Home</a>
+                <a href="/the-city" style="color: #0B1E2B; text-decoration: none; margin: 0 10px;">🏙️ The City</a>
+                <a href="/enquire" style="color: #0B1E2B; text-decoration: none; margin: 0 10px;">📞 Contact</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -103,6 +103,16 @@ a {
         opacity: 1;
         pointer-events: auto;
     }
+
+    .faq-page .walk-header {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .faq-page .walk-header.is-scrolled {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
 
 .walk-header.is-scrolled {
@@ -146,9 +156,9 @@ a {
 }
 
 .brand-logo {
-    height: 90px !important;
+    height: 140px !important;
     object-fit: contain !important;
-    width: 170px !important;
+    width: 260px !important;
 }
 
 .brand-logo.dark {
@@ -1109,13 +1119,12 @@ a {
     }
 
     .partner-strip {
-        align-items: center;
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.15) 100%);
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.3);
-        display: grid;
-        gap: 8vw;
-        grid-template-columns: 38% 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 60px 8vw 50px 8vw;
         position: relative;
         z-index: 3;
@@ -1127,12 +1136,6 @@ a {
     .partner-strip.is-visible {
         opacity: 1;
         transform: none;
-    }
-
-    .partner-strip img {
-        height: 480px;
-        object-fit: cover;
-        width: 100%
     }
 
     .partner-strip h2 {
@@ -1147,7 +1150,7 @@ a {
         color: #666;
         font-size: 14px;
         line-height: 1.75;
-        max-width: 420px
+        max-width: 480px
     }
 
     .partner-strip .outline-cta {
@@ -1269,11 +1272,12 @@ a {
     .desktop-plot-options {
         display: none !important;
     }
+}
 
 @media (max-width: 480px) {
     .legacy-quote {
-        font-size: 14px !important;
-        line-height: 1.5 !important;
+        font-size: 18px !important;
+        line-height: 1.45 !important;
     }
 
     .legacy-quotes-section {
@@ -1430,8 +1434,8 @@ a {
     }
 
     .legacy-quote {
-        font-size: 14px !important;
-        line-height: 1.5 !important;
+        font-size: 18px !important;
+        line-height: 1.45 !important;
         margin: 0 !important;
         margin-top: 2px !important;
     }
@@ -1549,6 +1553,7 @@ a {
     }
 }
 
+@media (max-width: 768px) {
     .partner-strip {
         display: grid;
         grid-template-columns: 35% 1fr;
@@ -1812,7 +1817,7 @@ a {
 }
 
 .legacy-quotes-section {
-    background: url(/prtnr_bg_desktop.png) center/cover no-repeat;
+    background: url(/prtnr_bg_desktop.webp) center/cover no-repeat;
     padding: 4vw 8vw;
     position: relative;
     z-index: 3;
@@ -1884,38 +1889,39 @@ a {
 }
 
 .legacy-quotes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5vw;
-    margin: 3vw 0 4vw 0;
+    display: flex;
+    justify-content: center;
+    gap: clamp(16px, 2vw, 32px);
+    max-width: 1360px;
+    margin: 2.5vw auto 3.5vw auto;
+    align-items: stretch;
+    padding: 0 10px;
 }
 
 .legacy-card {
-    background: #fff;
-    display: grid;
-    grid-template-columns: 40% 1fr;
-    grid-auto-flow: column;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex: 1 1 0% !important;
+    max-width: 660px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22) !important;
     opacity: 1;
     transform: none;
     transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-    align-items: stretch;
+    align-items: stretch !important;
+    min-height: 420px;
+    position: relative;
 }
 
 .legacy-card:nth-child(2) {
     transition-delay: 0.15s;
 }
 
-.legacy-card--chairman {
-    border-radius: 12px 0 0 12px;
-}
-
+.legacy-card--chairman,
 .legacy-card--ceo {
-    grid-template-columns: 40% 1fr;
-    grid-auto-flow: column;
-    border-radius: 0 12px 12px 0;
+    border-radius: 12px !important;
 }
 
 .legacy-quotes-section.is-visible .legacy-card {
@@ -1923,151 +1929,146 @@ a {
     transform: none;
 }
 
-.legacy-card__image-wrapper {
-    position: relative;
-    overflow: hidden;
-    background: #f0e8df;
-}
-
+.legacy-card__image-wrapper,
 .legacy-card__image-wrapper--right {
-    /* no order property - use natural HTML order */
+    position: relative !important;
+    overflow: hidden !important;
+    background: #14110f !important;
+    width: 44% !important;
+    min-width: 44% !important;
+    max-width: 44% !important;
+    flex-shrink: 0 !important;
+    align-self: stretch !important;
 }
 
 .legacy-card img {
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
 }
 
-.legacy-card__image-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(26, 20, 16, 0.95), rgba(26, 20, 16, 0.85));
-    color: var(--champagne);
-    padding: 20px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    text-align: center;
-}
-
+.legacy-card__image-label,
 .legacy-card__image-label--ceo {
-    flex-direction: row;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
-    padding: 18px;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(to top, rgba(16, 12, 9, 0.98) 0%, rgba(20, 15, 12, 0.92) 80%, rgba(20, 15, 12, 0.85) 100%) !important;
+    color: #b2996a !important;
+    padding: clamp(10px, 1vw, 14px) clamp(8px, 0.8vw, 12px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    z-index: 2 !important;
 }
 
-.legacy-card__image-label svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--champagne);
-}
-
-.legacy-card__image-label span {
-    font-size: 9px;
-    letter-spacing: 0.11em;
-    font-weight: 500;
-    line-height: 1.3;
-}
-
+.legacy-card__image-label span,
 .legacy-card__image-label--ceo span {
-    text-align: left;
-    font-size: 8px;
-    line-height: 1.2;
+    font-size: clamp(7.5px, 0.65vw, 9.5px) !important;
+    letter-spacing: 0.12em !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    color: #b2996a !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.legacy-card__divider {
-    width: 1.5px;
-    background: var(--champagne);
-    height: 100%;
-}
-
+.legacy-card__divider,
 .legacy-card__divider--right {
-    /* no order property - use natural HTML order */
+    width: 1px !important;
+    min-width: 1px !important;
+    background: rgba(178, 153, 106, 0.35) !important;
+    flex-shrink: 0 !important;
+    align-self: stretch !important;
+    display: block !important;
 }
 
-.legacy-card__content {
-    padding: 32px 28px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: relative;
-    overflow: hidden;
-    background: #fff;
-}
-
+.legacy-card__content,
 .legacy-card__content--left {
-    /* no order property - use natural HTML order */
+    padding: clamp(22px, 2.2vw, 36px) clamp(18px, 1.8vw, 30px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
 }
 
 .legacy-card small {
-    color: #b2996a;
-    font-family: var(--serif);
-    letter-spacing: 0.15em;
-    font-size: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
+    color: #b2996a !important;
+    font-family: inherit !important;
+    letter-spacing: 0.22em !important;
+    font-size: clamp(8px, 0.7vw, 9.5px) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
 }
 
 .legacy-card h3 {
-    font-family: var(--serif);
-    font-size: clamp(20px, 3vw, 32px);
-    font-weight: 700;
-    color: #1a3a52;
-    line-height: 1.15;
-    margin: 12px 0 0 0;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+    font-family: var(--serif) !important;
+    font-size: clamp(20px, 1.9vw, 30px) !important;
+    font-weight: 600 !important;
+    color: #1a3a52 !important;
+    line-height: 1.15 !important;
+    margin: 0 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
 }
 
 .legacy-card__decoration {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    margin: 14px 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    margin: 10px 0 14px 0 !important;
+    padding: 0 !important;
 }
 
 .legacy-card__decoration span {
-    flex: 0 1 35px;
-    height: 0.5px;
-    background: var(--champagne);
+    flex: 0 1 32px !important;
+    height: 1px !important;
+    background: #b2996a !important;
+    opacity: 0.55 !important;
 }
 
 .legacy-card__decoration svg {
-    width: 5px;
-    height: 5px;
-    fill: var(--champagne);
-    flex-shrink: 0;
+    width: 5px !important;
+    height: 5px !important;
+    fill: #b2996a !important;
+    flex-shrink: 0 !important;
 }
 
 .legacy-card__quote-section {
-    display: flex;
-    align-items: flex-start;
-    gap: 2px;
-    padding: 10px 8px;
-    margin-bottom: 16px;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    padding: 0 !important;
+    margin: 0 0 14px 0 !important;
 }
 
 .legacy-card__quote-mark {
-    display: none;
+    display: none !important;
 }
 
 .legacy-quote {
-    font-style: italic;
-    font-family: var(--serif);
-    font-size: 24px;
-    line-height: 1.5;
-    color: #1a3a52;
-    margin: 0;
-    font-weight: 300;
+    font-style: italic !important;
+    font-family: var(--serif) !important;
+    font-size: clamp(20px, 1.85vw, 28px) !important;
+    line-height: 1.4 !important;
+    color: #1a3a52 !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
 }
 
 .legacy-card__body {
@@ -2080,38 +2081,44 @@ a {
 }
 
 .legacy-card__signature {
-    margin-top: 18px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(196, 176, 138, 0.4);
+    margin-top: auto !important;
+    padding-top: 12px !important;
+    border-top: 1px solid rgba(178, 153, 106, 0.35) !important;
+    display: block !important;
 }
 
 .legacy-card__signature p {
-    margin: 0;
-    font-family: var(--serif);
-    font-size: 14px;
-    color: #1a3a52;
-    font-weight: 400;
+    margin: 0 !important;
+    font-family: inherit !important;
+    font-size: clamp(8px, 0.68vw, 9.5px) !important;
+    letter-spacing: 0.12em !important;
+    color: #8b7f78 !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    padding: 0 !important;
 }
 
 .legacy-card__signature p:last-child {
-    font-size: 8px;
-    letter-spacing: 0.11em;
-    color: #8b7f78;
-    margin-top: 3px;
-    font-family: "DM Sans", sans-serif;
+    font-size: clamp(8px, 0.68vw, 9.5px) !important;
+    letter-spacing: 0.12em !important;
+    color: #8b7f78 !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
 }
 
 .legacy-card__watermark {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-family: var(--serif);
-    font-size: 100px;
-    color: rgba(196, 176, 138, 0.06);
-    font-weight: 300;
-    line-height: 0.8;
-    pointer-events: none;
-    overflow: hidden;
+    position: absolute !important;
+    bottom: -8px !important;
+    right: 6px !important;
+    font-family: var(--serif) !important;
+    font-size: clamp(65px, 6.5vw, 95px) !important;
+    color: rgba(178, 153, 106, 0.07) !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    pointer-events: none !important;
+    user-select: none !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
 }
 
 .legacy-timeline {
@@ -2663,67 +2670,6 @@ a {
         height: 300px;
     }
 
-    .legacy-quotes-section {
-        padding: 2vw 23px 2vw 23px;
-        background: url(/prtnr_bg_mobile.png) center/cover no-repeat;
-    }
-
-    .legacy-quotes {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 20px;
-    }
-
-    .legacy-card {
-        grid-template-columns: 35% 1fr;
-        margin-bottom: 16px;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.2);
-    }
-
-    .legacy-card img {
-        height: 300px;
-    }
-
-    .legacy-card div {
-        padding: 20px;
-    }
-
-    .legacy-card h3 {
-        font-size: 22px;
-        margin: 12px 0;
-    }
-
-    .legacy-card p {
-        font-size: 11px;
-        line-height: 1.5;
-    }
-
-    .legacy-card__signature p {
-        font-family: var(--serif);
-        font-size: 13px;
-    }
-
-    .legacy-card__signature p:last-child {
-        font-family: var(--serif);
-        font-size: 9px;
-    }
-
-    .legacy-card small {
-        font-family: var(--serif);
-        font-weight: 300;
-        font-size: 11px;
-        color: #b2996a;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-    }
-
-    .legacy-card__content {
-        background: rgba(255, 255, 255, 0.1);
-    }
 
     .future-section {
         padding: 40px 23px 40px 23px;
@@ -3213,19 +3159,135 @@ a {
 .showcase-section-desktop {
     display: flex;
     align-items: center;
+    padding: 40px 0 !important;
+    overflow: hidden;
+}
+
+.legacy-lockup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    z-index: 10;
+    padding: 0;
+}
+
+.legacy-number-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    line-height: 0.82;
+    position: relative;
+}
+
+.legacy-num-60 {
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-style: italic !important;
+    font-size: clamp(90px, 11vw, 165px) !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #7A4E12 0%, #B88534 22%, #DFB460 42%, #BA8936 58%, #6E440E 78%, #A87928 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+    line-height: 0.82 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    letter-spacing: -0.02em !important;
+    text-shadow: none !important;
+    user-select: none;
+    display: inline-block;
+}
+
+.legacy-plus-sign {
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(38px, 4.6vw, 68px) !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #7A4E12 0%, #B88534 22%, #DFB460 42%, #BA8936 58%, #6E440E 78%, #A87928 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+    margin-left: 5px !important;
+    margin-top: 8px !important;
+    line-height: 1 !important;
+    text-shadow: none !important;
+    display: inline-block;
+}
+
+.legacy-label-years {
+    font-family: "Cinzel", "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(14px, 1.6vw, 24px) !important;
+    font-weight: 600 !important;
+    color: #9F733E !important;
+    letter-spacing: 0.35em !important;
+    text-transform: uppercase !important;
+    margin: 12px 0 0 0 !important;
+    padding: 0 !important;
+    line-height: 1.1 !important;
+    text-align: left !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.legacy-label-legacy {
+    font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(34px, 4.2vw, 62px) !important;
+    font-weight: 800 !important;
+    color: #0E2A47 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    margin: 3px 0 0 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    text-align: left !important;
+    text-shadow: 0 2px 8px rgba(14, 42, 71, 0.12) !important;
+}
+
+.legacy-divider-line {
+    width: clamp(70px, 8vw, 110px);
+    height: 1.5px;
+    background-color: #9F733E;
+    opacity: 0.75;
+    margin: 12px 0 10px 0;
+    border-radius: 1px;
+}
+
+.legacy-tagline {
+    font-family: "Cormorant Garamond", "Cinzel", Georgia, serif !important;
+    font-size: clamp(9.5px, 0.95vw, 13.5px) !important;
+    font-weight: 600 !important;
+    color: #132B45 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    text-align: left !important;
 }
 
 .showcase-section-mobile {
     display: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .showcase-section-desktop {
         display: none !important;
     }
 
     .showcase-section-mobile {
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        min-height: 240px !important;
+        height: auto !important;
+        padding: 20px 20px !important;
+        box-sizing: border-box !important;
+        background-size: cover !important;
+        background-position: 47% center !important;
+        background-repeat: no-repeat !important;
     }
 }
 
@@ -4991,91 +5053,30 @@ a {
         margin: 0 0 7px !important; /* 10px * 0.7 */
     }
     
-    /* Legacy/Showcase section scaling */
+    /* Legacy/Showcase section scaling for 1280px */
     .showcase-section-desktop {
-        min-height: 420px !important; /* 600px * 0.7 */
-        padding: 56px 56px 56px 0px !important; /* 80px 80px 80px 0px * 0.7 */
+        min-height: 520px !important;
+        padding: 30px 0 !important;
     }
     
-    /* Scale the grid gap and padding in showcase - target the content container only */
-    .showcase-section-desktop > div:last-child {
-        padding: 56px 56px 56px 0px !important; /* 80px * 0.7 */
-        gap: 84px !important; /* 120px * 0.7 */
-        margin-left: 70px !important; /* Move text slightly to the right */
+    .legacy-num-60 {
+        font-size: clamp(80px, 10vw, 140px) !important;
     }
     
-    /* Scale inline styles in showcase */
-    .showcase-section-desktop p {
-        font-size: 12.6px !important; /* 18px * 0.7 */
+    .legacy-plus-sign {
+        font-size: clamp(32px, 4vw, 56px) !important;
     }
     
-    /* Scale the 60+ numbers and text */
-    .showcase-section-desktop p:nth-of-type(1) {
-        font-size: 12.6px !important; /* 18px * 0.7 */
+    .legacy-label-years {
+        font-size: clamp(12px, 1.4vw, 20px) !important;
     }
     
-    /* Target the 60 span - note: this targets inline styles so we use !important */
-    .showcase-section-desktop span[style*="320px"] {
-        font-size: 224px !important; /* 320px * 0.7 */
-        letter-spacing: -5.6px !important; /* -8px * 0.7 */
+    .legacy-label-legacy {
+        font-size: clamp(28px, 3.5vw, 52px) !important;
     }
     
-    /* Target the + span */
-    .showcase-section-desktop span[style*="120px"] {
-        font-size: 84px !important; /* 120px * 0.7 */
-        letter-spacing: -1.4px !important; /* -2px * 0.7 */
-        margin-top: 42px !important; /* 60px * 0.7 */
-    }
-    
-    /* YEARS OF TRUST heading */
-    .showcase-section-desktop > div:last-child > div > div p[style*="52px"] {
-        font-size: 36.4px !important; /* 52px * 0.7 */
-        letter-spacing: 1.4px !important; /* 2px * 0.7 */
-    }
-    
-    /* Shaping Communities text */
-    .showcase-section-desktop > div:last-child > div > div > p:nth-child(4) {
-        font-size: 16.8px !important; /* 24px * 0.7 */
-        margin-bottom: 22.4px !important; /* 32px * 0.7 */
-    }
-    
-    /* OUR LEGACY button */
-    .showcase-section-desktop a[href="/developer"] {
-        padding: 12.6px 33.6px !important; /* 18px 48px * 0.7 */
-        font-size: 8.4px !important; /* 12px * 0.7 */
-        margin-top: 11.2px !important; /* 16px * 0.7 */
-    }
-    
-    /* Reduce the 3 vertical image cards on the right */
-    .showcase-section-desktop > div > div:first-child {
-        width: 210px !important; /* 300px * 0.7 */
-        gap: 9.8px !important; /* 14px * 0.7 */
-        margin-left: auto !important;
-        margin-right: -100px !important; /* Move to the right but keep visible */
-    }
-    
-    /* Individual image card height */
-    .showcase-section-desktop > div > div:first-child > div {
-        height: 140px !important; /* 200px * 0.7 */
-    }
-    
-    /* Image card text sizing */
-    .showcase-section-desktop > div > div:first-child > div p:first-of-type {
-        font-size: 14px !important; /* 20px * 0.7 */
-    }
-    
-    .showcase-section-desktop > div > div:first-child > div p:last-of-type {
-        font-size: 17.5px !important; /* 25px * 0.7 */
-    }
-    
-    /* Move cards to the right on 1280px */
-    .showcase-section-desktop > div {
-        padding-left: -400px !important;
-        padding-right: 80px !important;
-    }
-    
-    .showcase-section-desktop {
-        min-height: 100px !important;
+    .legacy-tagline {
+        font-size: clamp(8.5px, 0.85vw, 12px) !important;
     }
 }
 
@@ -5184,3 +5185,21 @@ a {
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+
+/* Floating Contacts Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+

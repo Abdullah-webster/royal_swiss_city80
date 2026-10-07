@@ -1,69 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
+  <!-- Homepage -->
   <url>
     <loc>https://royalswisscity.com/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-24T00:00:00Z</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://royalswisscity.com/city-aerial.jpg</image:loc>
-      <image:title>Royal Swiss City Lahore - Aerial View of Master Planned Community</image:title>
-      <image:caption>Premium residential and commercial plots in Royal Swiss City, a master-planned housing society developed by Habib Rafiq (Pvt) Ltd in Lahore, Pakistan</image:caption>
+      <image:title>Royal Swiss City - Best Gated Community in Lahore</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://royalswisscity.com/infrastructure.jpg</image:loc>
-      <image:title>Royal Swiss City Infrastructure Development</image:title>
-      <image:caption>Modern infrastructure and wide boulevards in Royal Swiss City housing society</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://royalswisscity.com/green-energy.jpg</image:loc>
-      <image:title>Solar Infrastructure at Royal Swiss City</image:title>
-      <image:caption>Sustainable solar energy infrastructure and eco-friendly amenities</image:caption>
+      <image:loc>https://royalswisscity.com/logo.webp</image:loc>
+      <image:title>Royal Swiss City Logo - Habib Rafiq</image:title>
     </image:image>
   </url>
-  
+
+  <!-- The City Page -->
   <url>
-    <loc>https://royalswisscity.com/developer</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://royalswisscity.com/the-city</loc>
+    <lastmod>2026-09-24T00:00:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
     <image:image>
-      <image:loc>https://royalswisscity.com/hrl-building.jpg</image:loc>
-      <image:title>Habib Rafiq Engineering - 60 Years of Excellence</image:title>
-      <image:caption>Habib Rafiq (Pvt) Ltd - Leading engineering and construction company in Pakistan with over six decades of experience</image:caption>
+      <image:loc>https://royalswisscity.com/hrl_own_building.webp</image:loc>
+      <image:title>Royal Swiss City Development - Premium Gated Community</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://royalswisscity.com/chairman.png</image:loc>
-      <image:title>Shahid Rafiq - Chairman of Habib Rafiq (Pvt) Ltd</image:title>
-      <image:caption>Leadership and vision behind Royal Swiss City development</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://royalswisscity.com/ceo.png</image:loc>
-      <image:title>Sohaib Hassan - Chief Executive of HRL</image:title>
-      <image:caption>Driving real estate excellence and sustainable community development</image:caption>
+      <image:loc>https://royalswisscity.com/40_feet_roads.webp</image:loc>
+      <image:title>Royal Swiss City 40 Feet Roads</image:title>
     </image:image>
   </url>
-  
+
+  <!-- Projects Page -->
   <url>
     <loc>https://royalswisscity.com/projects</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-24T00:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.95</priority>
     <image:image>
-      <image:loc>https://royalswisscity.com/lahore-ring-road-package-3-wide.webp</image:loc>
-      <image:title>HRL Infrastructure Projects - Lahore Ring Road</image:title>
-      <image:caption>Major infrastructure development by Habib Rafiq showcasing engineering expertise</image:caption>
+      <image:loc>https://royalswisscity.com/convention-centre-islamabad.webp</image:loc>
+      <image:title>Convention Center Islamabad - Habib Rafiq Project</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://royalswisscity.com/bahria-icon-tower-karachi.webp</image:loc>
+      <image:title>Bahria Icon Tower Karachi - 60 Story Development</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://royalswisscity.com/101-tower-lahore.webp</image:loc>
+      <image:title>101 Tower Lahore - Commercial Residential Development</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://royalswisscity.com/grand-jamia-mosque-bahria-town-lahore.webp</image:loc>
+      <image:title>Grand Jamia Mosque Bahria Town Lahore - 70,000 Capacity</image:title>
     </image:image>
   </url>
-  
+
+  <!-- Developer Page -->
+  <url>
+    <loc>https://royalswisscity.com/developer</loc>
+    <lastmod>2026-09-24T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://royalswisscity.com/hrl-highrise.webp</image:loc>
+      <image:title>Habib Rafiq - Real Estate Developer with 60+ Years Legacy</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://royalswisscity.com/chairman.webp</image:loc>
+      <image:title>Shahid Rafiq - Chairman Habib Rafiq</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://royalswisscity.com/ceo.webp</image:loc>
+      <image:title>Sohaib Hassan - CEO Royal Swiss City</image:title>
+    </image:image>
+  </url>
+
+  <!-- FAQ Page -->
+  <url>
+    <loc>https://royalswisscity.com/faq</loc>
+    <lastmod>2026-09-24T00:00:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Enquire Page -->
   <url>
     <loc>https://royalswisscity.com/enquire</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-24T00:00:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
-  
+
+  <!-- Dealers Page -->
+  <url>
+    <loc>https://royalswisscity.com/dealers</loc>
+    <lastmod>2026-09-24T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Partnerships Page -->
+  <url>
+    <loc>https://royalswisscity.com/partnerships</loc>
+    <lastmod>2026-09-24T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
 </urlset>
