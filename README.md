@@ -328,25 +328,6 @@ PORT=3000
 NODE_ENV=production
 ```
 
-## 🚀 Deployment
-
-### Self-Hosted (Current)
-The site is **NOT deployed on Vercel** but on dedicated hosting at `royalswisscity.com`.
-
-**Deployment steps:**
-1. Build the project: `npm run build`
-2. Upload `dist/` folder to your server
-3. Configure your web server (Apache/Nginx) to serve the Express server
-4. Set environment variables on the server
-5. Start the application: `npm start`
-
-### Alternative Deployment Options
-- **Docker**: Create a Dockerfile for containerized deployment
-- **AWS**: Deploy on EC2, Elastic Beanstalk, or Amplify
-- **Google Cloud**: Cloud Run, App Engine, or Compute Engine
-- **Azure**: App Service or Container Instances
-- **Traditional VPS**: Any Linux server with Node.js support
-
 ## 📞 Contact & Support
 
 **Website:** [royalswisscity.com](https://royalswisscity.com)
@@ -363,26 +344,3 @@ The site is **NOT deployed on Vercel** but on dedicated hosting at `royalswissci
 
 - **Lead Developer**: [Muhammad Abdullah Wasim](https://www.linkedin.com/in/muhammad-abdullah-92b50a304/)
 - **Content & Strategy**: [Muhammad Abdullah Wasim](https://www.linkedin.com/in/muhammad-abdullah-92b50a304/), [Noor-Ul-Huda](https://www.linkedin.com/in/noor-ul-huda-26b689437/)
-
-## 🐛 Known Issues & Limitations
-
-- Map functionality requires valid Google Maps API key
-- Enquiry form backend requires MySQL database configuration
-- Some animations may perform differently on lower-end mobile devices
-- Third-party tracking/analytics may require user consent (GDPR/privacy compliance)
-
-## 📝 Notes for Developers
-
-- All paths use forward slashes (`/`), even on Windows
-- Images should be optimized WebP format for production
-- Keep Tailwind CSS custom colors in sync with brand guidelines
-- GSAP animations are scroll-triggered; ensure images load before triggering
-- Mobile breakpoint: 768px (Tailwind's `md` breakpoint)
-- Forms use React Hook Form with Zod validation
-- Component library: Radix UI (unstyled, highly customizable)
-
----
-
-**Last Updated:** October 2026
-**Repository:** [GitHub - Abdullah-Webster/royal_swiss_city80](https://github.com/Abdullah-webster/royal_swiss_city80)
-**Live Demo:** [royalswisscity.com](https://royalswisscity.com)
