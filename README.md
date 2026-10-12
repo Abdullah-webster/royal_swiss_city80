@@ -359,15 +359,10 @@ The site is **NOT deployed on Vercel** but on dedicated hosting at `royalswissci
 - TikTok: [@royalswisscity](https://tiktok.com/@royalswisscity)
 - X (Twitter): [@royalswisscity](https://x.com/royalswisscity)
 
-## 📄 License
-
-MIT License - See LICENSE file for details
-
 ## 👥 Contributors
 
-- **Lead Developer**: Abdullah Webster
-- **Design & UX**: [Project Design Team]
-- **Content & Strategy**: [Marketing Team]
+- **Lead Developer**: [Muhammad Abdullah Wasim](https://www.linkedin.com/in/muhammad-abdullah-92b50a304/)
+- **Content & Strategy**: [Muhammad Abdullah Wasim](https://www.linkedin.com/in/muhammad-abdullah-92b50a304/), [Noor-Ul-Huda](https://www.linkedin.com/in/noor-ul-huda-26b689437/)
 
 ## 🐛 Known Issues & Limitations
 
@@ -385,13 +380,6 @@ MIT License - See LICENSE file for details
 - Mobile breakpoint: 768px (Tailwind's `md` breakpoint)
 - Forms use React Hook Form with Zod validation
 - Component library: Radix UI (unstyled, highly customizable)
-
-## 🔄 Version History
-
-- **v1.0.0** (October 2026): Initial production release
-- Built with modern React, TypeScript, and Vite stack
-- Fully responsive design for all devices
-- Comprehensive community information and lead capture
 
 ---
 
